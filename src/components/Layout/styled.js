@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.section`
-  display: flex;
+  display: grid;
+  grid-template-columns: 300px 1fr;
 `;
 
 export const Main = styled.main`

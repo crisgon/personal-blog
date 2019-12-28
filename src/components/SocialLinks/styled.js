@@ -21,6 +21,6 @@ export const SocialLink = styled.a`
 
 export const IconWrapper = styled.div`
   fill: #bbb;
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
 `;
