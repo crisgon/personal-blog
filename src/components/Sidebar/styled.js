@@ -8,6 +8,7 @@ export const Wrapper = styled.aside`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  box-shadow: 0 0 10px 0px #bdc3c7;
 `;
 
 export const Group = styled.div``;

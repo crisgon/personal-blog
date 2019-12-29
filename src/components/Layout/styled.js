@@ -9,6 +9,6 @@ export const Main = styled.main`
   width: 100%;
   min-height: 100vh;
   grid-column: 2;
-  background-color: #1e272e;
+  background-color: #f2f2f2;
   padding: 0.5rem 1rem;
 `;

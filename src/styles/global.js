@@ -34,7 +34,6 @@ display: block;
 body {
 line-height: 1;
 background-color: #1e272e;
-color: #fff;
 }
 ol, ul {
 list-style: none;
