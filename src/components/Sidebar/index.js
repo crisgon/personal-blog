@@ -3,7 +3,7 @@ import React from "react";
 import Profile from "../Profile";
 import SocialLinks from "../SocialLinks";
 import NavLinks from "../NavLinks";
-import Navbar from "../NavBar";
+import NavBar from "../NavBar";
 
 import * as S from "./styled";
 
@@ -16,7 +16,7 @@ const Sidebar = () => (
     </S.Group>
 
     <S.Group>
-      <Navbar />
+      <NavBar />
     </S.Group>
   </S.Wrapper>
 );

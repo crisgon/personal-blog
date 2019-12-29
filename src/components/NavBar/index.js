@@ -7,8 +7,8 @@ import { UpArrowAlt as Up } from "styled-icons/boxicons-regular/UpArrowAlt";
 
 import * as S from "./styled";
 
-const Navbar = () => (
-  <S.Navbar>
+const NavBar = () => (
+  <S.NavBar>
     <S.Item title="Pesquisar">
       <S.Link to="/search">
         <S.IconWrapper>
@@ -34,7 +34,7 @@ const Navbar = () => (
         <Grid />
       </S.IconWrapper>
     </S.Item>
-  </S.Navbar>
+  </S.NavBar>
 );
 
-export default Navbar;
+export default NavBar;

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Link as GatsbyLink } from "gatsby";
 
-export const Navbar = styled.div`
+export const NavBar = styled.div`
   width: 100%;
   height: 50px;
   background-color: #fff;
