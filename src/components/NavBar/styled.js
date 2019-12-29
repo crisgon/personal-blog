@@ -11,11 +11,11 @@ export const NavBar = styled.div`
   align-items: center;
 `;
 
-export const Link = styled(GatsbyLink)`
+export const NavBarLink = styled(GatsbyLink)`
   color: #e74c3c;
 `;
 
-export const Item = styled.span`
+export const NavBarItem = styled.span`
   transition: all 0.2s;
 
   &:hover {

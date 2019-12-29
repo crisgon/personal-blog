@@ -8,17 +8,17 @@ import NavBar from "../NavBar";
 import * as S from "./styled";
 
 const Sidebar = () => (
-  <S.Wrapper>
-    <S.Group>
+  <S.SidebarWrapper>
+    <S.SidebarGroup>
       <Profile />
       <SocialLinks />
       <NavLinks />
-    </S.Group>
+    </S.SidebarGroup>
 
-    <S.Group>
+    <S.SidebarGroup>
       <NavBar />
-    </S.Group>
-  </S.Wrapper>
+    </S.SidebarGroup>
+  </S.SidebarWrapper>
 );
 
 export default Sidebar;

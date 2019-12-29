@@ -9,31 +9,31 @@ import * as S from "./styled";
 
 const NavBar = () => (
   <S.NavBar>
-    <S.Item title="Pesquisar">
-      <S.Link to="/search">
+    <S.NavBarItem title="Pesquisar">
+      <S.NavBarLink to="/search">
         <S.IconWrapper>
           <Search />
         </S.IconWrapper>
-      </S.Link>
-    </S.Item>
+      </S.NavBarLink>
+    </S.NavBarItem>
 
-    <S.Item title="Mudar tema">
+    <S.NavBarItem title="Mudar tema">
       <S.IconWrapper>
         <Sun />
       </S.IconWrapper>
-    </S.Item>
+    </S.NavBarItem>
 
-    <S.Item title="Voltar para o topo">
+    <S.NavBarItem title="Voltar para o topo">
       <S.IconWrapper>
         <Up />
       </S.IconWrapper>
-    </S.Item>
+    </S.NavBarItem>
 
-    <S.Item title="Mudar visualização">
+    <S.NavBarItem title="Mudar visualização">
       <S.IconWrapper>
         <Grid />
       </S.IconWrapper>
-    </S.Item>
+    </S.NavBarItem>
   </S.NavBar>
 );
 
