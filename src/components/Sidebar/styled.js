@@ -5,4 +5,9 @@ export const Wrapper = styled.aside`
   height: 100%;
   position: fixed;
   background-color: #e74c3c;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
+
+export const Group = styled.div``;
