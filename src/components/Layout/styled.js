@@ -10,5 +10,4 @@ export const Main = styled.main`
   min-height: 100vh;
   grid-column: 2;
   background-color: #f2f2f2;
-  padding: 0.5rem 1rem;
 `;
