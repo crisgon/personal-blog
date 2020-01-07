@@ -25,7 +25,7 @@ export const PostCardContainer = styled.section`
     width: 0.35rem;
     height: 100%;
     transform: translateX(-100%);
-    background-color: ${props => props.tagColor};
+    background-color: ${props => props.tagColor || "#e74c3c"};
     transition: all 0.2s;
   }
 
@@ -54,7 +54,7 @@ export const PostTag = styled.span`
   padding: 0.05rem 0.5rem;
   margin: 0 0.5rem;
   color: #fff;
-  background-color: ${props => props.tagColor};
+  background-color: ${props => props.tagColor || "#e74c3c"};
 `;
 
 export const PostInfo = styled.div`

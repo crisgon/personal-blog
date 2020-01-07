@@ -1,25 +1,34 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import * as S from "./styled";
 
-const PostCard = () => (
-  <S.PostLink>
-    <S.PostCardContainer tagColor="#fed330">
+const PostCard = ({ slug, tagColor, title, date, timeToRead, tag, resume }) => (
+  <S.PostLink to={slug}>
+    <S.PostCardContainer tagColor={tagColor}>
       <S.PostInfo>
-        <S.PostTitle>Coerção De Tipos Em Javascript</S.PostTitle>
+        <S.PostTitle>{title}</S.PostTitle>
         <S.PostTimeAndTag>
-          <S.PostTime>28 de Maio de 2018</S.PostTime>
-          <S.PostTag tagColor="#fed330">JS</S.PostTag>
+          <S.PostTime>
+            {date} | {timeToRead} min de Leitura
+          </S.PostTime>
+          <S.PostTag tagColor={tagColor}>{tag}</S.PostTag>
         </S.PostTimeAndTag>
       </S.PostInfo>
 
-      <S.PostResume>
-        Comecei a leitura do excelente livro You Dont Know JS e resolvi ir
-        escrevendo pequenos posts sobre as coisas interessantes que for
-        aprendendo. Hoje vou falar sobre coerção de tipos, esse é um assunto ...
-      </S.PostResume>
+      <S.PostResume>{resume}</S.PostResume>
     </S.PostCardContainer>
   </S.PostLink>
 );
+
+PostCard.prototype = {
+  slug: PropTypes.string.isRequired,
+  tagColor: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  timeToRead: PropTypes.string.isRequired,
+  tag: PropTypes.string.isRequired,
+  resume: PropTypes.string.isRequired
+};
 
 export default PostCard;
