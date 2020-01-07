@@ -3,7 +3,15 @@ import PropTypes from "prop-types";
 
 import * as S from "./styled";
 
-const PostCard = ({ slug, tagColor, title, date, timeToRead, tag, resume }) => (
+const PostCard = ({
+  slug,
+  tagColor,
+  title,
+  date,
+  timeToRead,
+  category,
+  resume
+}) => (
   <S.PostLink to={slug}>
     <S.PostCardContainer tagColor={tagColor}>
       <S.PostInfo>
@@ -12,7 +20,7 @@ const PostCard = ({ slug, tagColor, title, date, timeToRead, tag, resume }) => (
           <S.PostTime>
             {date} | {timeToRead} min de Leitura
           </S.PostTime>
-          <S.PostTag tagColor={tagColor}>{tag}</S.PostTag>
+          <S.PostTag tagColor={tagColor}>{category}</S.PostTag>
         </S.PostTimeAndTag>
       </S.PostInfo>
 
@@ -27,7 +35,7 @@ PostCard.prototype = {
   title: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
   timeToRead: PropTypes.string.isRequired,
-  tag: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
   resume: PropTypes.string.isRequired
 };
 
