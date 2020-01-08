@@ -1,33 +1,25 @@
 import React from "react";
 import { graphql } from "gatsby";
 
-import Layout from "../components/Layout";
-import AniLink from "gatsby-plugin-transition-link/AniLink";
-
-export const query = graphql`
-	query($slug: String!) {
-		markdownRemark(fields: { slug: { eq: $slug } }) {
-			frontmatter {
-				title
-				date
-			}
-			html
-		}
-	}
-`;
-export const BlogPost = props => {
-	return (
-		<Layout>
-			<AniLink cover direction="left" bg={"red"} to="/blog">
-				Go back to the blogpage
-			</AniLink>
-			<h1>{props.data.markdownRemark.frontmatter.title}</h1>
-			<p>{props.data.markdownRemark.frontmatter.date}</p>
-			<div
-				dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }}
-			></div>
-		</Layout>
-	);
+const Post = ({ data }) => {
+  const postData = data.markdownRemark;
+  return (
+    <>
+      <h1>{postData.frontmatter.title}</h1>
+      <div dangerouslySetInnerHTML={{ __html: postData.html }}></div>
+    </>
+  );
 };
 
-export default BlogPost;
+export const query = graphql`
+  query Post($slug: String!) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
+      html
+      frontmatter {
+        title
+      }
+    }
+  }
+`;
+
+export default Post;
