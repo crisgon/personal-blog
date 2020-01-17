@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { Link as GatsbyLink } from "gatsby";
 
 export const Paginate = styled.div`
@@ -9,11 +9,27 @@ export const Paginate = styled.div`
   justify-content: space-between;
 `;
 
+const linkAnimation = keyframes`
+  0% {
+    transform: translateX(-2px);
+  }
+  33% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(2px);
+  }
+`;
 export const Link = styled(GatsbyLink)`
   display: flex;
   align-items: center;
   color: #1e272e;
   text-decoration: none;
+  transition: all 0.2s;
+
+  &:hover {
+    animation: ${linkAnimation} 0.5s infinite alternate;
+  }
 `;
 
 export const IconWrapper = styled.div`
