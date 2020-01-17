@@ -8,6 +8,7 @@ export const Wrapper = styled.section`
 export const Main = styled.main`
   width: 100%;
   min-height: 100vh;
+  overflow: hidden;
   grid-column: 2;
   background-color: #f2f2f2;
 `;

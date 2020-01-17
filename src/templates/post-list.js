@@ -15,7 +15,6 @@ const BlogList = props => {
   const prevPage = currentPage - 1 === 1 ? "/" : `/page/${currentPage - 1}`;
   const nextPage = `/page/${currentPage + 1}`;
 
-  console.log(props.pageContext, "props.pageContext");
   return (
     <Layout>
       <SEO title="Home" />
