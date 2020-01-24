@@ -3,13 +3,13 @@ import styled from "styled-components";
 export const PostHeader = styled.header`
   color: #1e272e;
   margin: auto;
-  max-width: 90rem;
+  max-width: 80rem;
   padding: 3rem 3rem 0;
   position: relative;
 
   &:after {
     content: "";
-    width: 90%;
+    width: 80%;
     height: 1px;
     background-color: #ccc;
     position: absolute;
@@ -53,7 +53,7 @@ export const PostDate = styled.p`
 
 export const PostMainContent = styled.section`
   margin: auto;
-  max-width: 90rem;
+  max-width: 80rem;
   padding: 1rem 3rem;
   p,
   h1,

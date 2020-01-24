@@ -1,14 +1,19 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Layout from "../components/Layout";
-import SEO from "../components/seo";
 import { Calendar } from "styled-icons/feather/Calendar";
 import { AccessTime as Timer } from "styled-icons/material/AccessTime";
 
+import Layout from "../components/Layout";
+import SEO from "../components/seo";
+import RecommendedPosts from "../components/RecommendedPosts";
+
 import * as S from "../components/Post/styled";
 
-const Post = ({ data }) => {
+const Post = ({ data, pageContext }) => {
   const postData = data.markdownRemark;
+  const next = pageContext.nextPost;
+  const previous = pageContext.previousPost;
+
   return (
     <Layout>
       <SEO title={postData.frontmatter.title} />
@@ -29,6 +34,7 @@ const Post = ({ data }) => {
       <S.PostMainContent>
         <div dangerouslySetInnerHTML={{ __html: postData.html }}></div>
       </S.PostMainContent>
+      <RecommendedPosts next={next} previous={previous} />
     </Layout>
   );
 };
