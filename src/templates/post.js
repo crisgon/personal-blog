@@ -6,6 +6,7 @@ import { AccessTime as Timer } from "styled-icons/material/AccessTime";
 import Layout from "../components/Layout";
 import SEO from "../components/seo";
 import RecommendedPosts from "../components/RecommendedPosts";
+import Comments from "../components/Comments";
 
 import * as S from "../components/Post/styled";
 
@@ -35,6 +36,7 @@ const Post = ({ data, pageContext }) => {
         <div dangerouslySetInnerHTML={{ __html: postData.html }}></div>
       </S.PostMainContent>
       <RecommendedPosts next={next} previous={previous} />
+      <Comments url={postData.fields.slug} title={postData.frontmatter.title} />
     </Layout>
   );
 };
@@ -43,6 +45,9 @@ export const query = graphql`
   query Post($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
+      fields {
+        slug
+      }
       frontmatter {
         title
         date(locale: "pt-br", formatString: "DD [de] MMMM [de] YYYY")
