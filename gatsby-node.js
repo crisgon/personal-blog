@@ -41,18 +41,38 @@ exports.createPages = ({ graphql, actions }) => {
               slug
             }
           }
+          next {
+            frontmatter {
+              title
+              resume
+            }
+            fields {
+              slug
+            }
+          }
+          previous {
+            fields {
+              slug
+            }
+            frontmatter {
+              title
+              resume
+            }
+          }
         }
       }
     }
   `).then(result => {
     const posts = result.data.allMarkdownRemark.edges;
 
-    posts.forEach(({ node }) => {
+    posts.forEach(({ node, next, previous }) => {
       createPage({
         path: node.fields.slug,
         component: path.resolve(`./src/templates/post.js`),
         context: {
-          slug: node.fields.slug
+          slug: node.fields.slug,
+          nextPost: previous,
+          previousPost: next
         }
       });
     });

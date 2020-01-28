@@ -5,7 +5,6 @@ import { AccessTime as Timer } from "styled-icons/material/AccessTime";
 
 import Layout from "../components/Layout";
 import SEO from "../components/seo";
-import RecommendedPosts from "../components/RecommendedPosts";
 import Comments from "../components/Comments";
 
 import * as S from "../components/Post/styled";
@@ -35,7 +34,6 @@ const Post = ({ data, pageContext }) => {
       <S.PostMainContent>
         <div dangerouslySetInnerHTML={{ __html: postData.html }}></div>
       </S.PostMainContent>
-      <RecommendedPosts next={next} previous={previous} />
       <Comments url={postData.fields.slug} title={postData.frontmatter.title} />
     </Layout>
   );

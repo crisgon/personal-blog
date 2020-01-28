@@ -18,7 +18,7 @@ const PostCard = ({
         <S.PostTitle>{title}</S.PostTitle>
         <S.PostTimeAndTag>
           <S.PostTime>
-            {date} | {timeToRead} min de Leitura
+            {date} {timeToRead && <spa>| {timeToRead} min de Leitura</spa>}
           </S.PostTime>
           <S.PostTag tagColor={tagColor}>{category}</S.PostTag>
         </S.PostTimeAndTag>
