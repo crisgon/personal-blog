@@ -50,6 +50,33 @@ content: none;
 table {
 border-collapse: collapse;
 border-spacing: 0;
-}`;
+}
+
+  body.dark {
+    --borders: #38444d;
+    --postCardBackground: #484848;
+    --sidebarBackground: #0c0c0e;
+    --sidebarShadow: #151414;
+    --highlight: #000;
+    --background: #404040;
+    --white: #fff;
+    --black: #fff;
+    --gray: #ccc;
+    --darkRed: #7f8c8d;
+  }  
+
+  body.light {
+    --borders: #38444d;
+    --postCardBackground: #fff;
+    --sidebarBackground: #e74c3c;
+    --sidebarShadow: #bdc3c7;
+    --highlight: #e74c3c;
+    --background: #f2f2f2;
+    --white: #fff;
+    --black: #1e272e;
+    --gray: #ccc;
+    --darkRed: #9a271b;
+  }
+`;
 
 export default GlobalStyles;

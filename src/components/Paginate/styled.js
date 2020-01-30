@@ -23,7 +23,7 @@ const linkAnimation = keyframes`
 export const Link = styled(GatsbyLink)`
   display: flex;
   align-items: center;
-  color: #1e272e;
+  color: var(--black);
   text-decoration: none;
   transition: all 0.2s;
 

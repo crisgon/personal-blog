@@ -4,15 +4,15 @@ import { Link as GatsbyLink } from "gatsby";
 export const NavBar = styled.div`
   width: 100%;
   height: 50px;
-  background-color: #fff;
-  color: #e74c3c;
+  background-color: var(--postCardBackground);
+  color: var(--sidebarBackground);
   display: flex;
   justify-content: space-around;
   align-items: center;
 `;
 
 export const NavBarLink = styled(GatsbyLink)`
-  color: #e74c3c;
+  color: var(--sidebarBackground);
 `;
 
 export const NavBarItem = styled.span`

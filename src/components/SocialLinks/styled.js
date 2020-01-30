@@ -11,11 +11,11 @@ export const SocialList = styled.ul`
 export const SocialItem = styled.li``;
 
 export const SocialLink = styled.a`
-  color: rgba(0, 0, 0, 0.5);
+  color: var(--darkRed);
   transition: all 0.2s;
 
   &:hover {
-    color: #fff;
+    color: var(--white);
   }
 `;
 

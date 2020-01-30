@@ -22,8 +22,8 @@ export const Link = styled(GatsbyLink)`
   width: 48%;
   padding: 0.5rem;
   align-self: stretch;
-  background-color: #fff;
-  color: #1e272e;
+  background-color: var(--white);
+  color: var(--black);
   text-decoration: none;
 
   h3 {

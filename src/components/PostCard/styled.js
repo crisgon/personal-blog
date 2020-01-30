@@ -3,14 +3,14 @@ import { Link } from "gatsby";
 
 export const PostLink = styled(Link)`
   text-decoration: none;
-  color: #1e272e;
+  color: var(--black);
 `;
 
 export const PostCardContainer = styled.section`
   width: 100%;
   margin: 0 auto;
   display: block;
-  background-color: #fff;
+  background-color: var(--postCardBackground);
   margin-bottom: 0.5rem;
   padding: 1rem 2rem;
   position: relative;
@@ -25,7 +25,7 @@ export const PostCardContainer = styled.section`
     width: 0.35rem;
     height: 100%;
     transform: translateX(-100%);
-    background-color: ${props => props.tagColor || "#e74c3c"};
+    background-color: ${props => props.tagColor || "var(--sidebarBackground)"};
     transition: all 0.2s;
   }
 
@@ -39,7 +39,7 @@ export const PostCardContainer = styled.section`
 `;
 
 export const PostTitle = styled.h1`
-  color: #e74c3c;
+  color: var(--sidebarBackground);
   font-size: 1.5rem;
   font-weight: 300;
   padding: 0.5rem 0;
@@ -53,8 +53,8 @@ export const PostTag = styled.span`
   font-size: 0.9rem;
   padding: 0.05rem 0.5rem;
   margin: 0 0.5rem;
-  color: #fff;
-  background-color: ${props => props.tagColor || "#e74c3c"};
+  color: var(--white);
+  background-color: ${props => props.tagColor || "var(--sidebarBackground)"};
 `;
 
 export const PostInfo = styled.div`

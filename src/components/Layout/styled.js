@@ -10,5 +10,5 @@ export const Main = styled.main`
   min-height: 100vh;
   overflow: hidden;
   grid-column: 2;
-  background-color: #f2f2f2;
+  background-color: var(--background);
 `;

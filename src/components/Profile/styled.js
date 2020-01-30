@@ -11,11 +11,11 @@ export const ProfileWrapper = styled.div`
 
 export const ProfileLink = styled(Link)`
   text-decoration: none;
-  color: #fff;
+  color: var(--white);
   transition: all 0.2s;
 
   &:hover {
-    color: rgba(0, 0, 0, 0.5);
+    color: var(--darkRed);
   }
 `;
 
@@ -29,7 +29,7 @@ export const ProfilePosition = styled.h2`
 `;
 
 export const ProfileDescription = styled.p`
-  color: rgba(0, 0, 0, 0.5);
+  color: var(--darkRed);
   font-size: 1rem;
   line-height: 1.5rem;
   margin-top: 1rem;

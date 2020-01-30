@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const PostHeader = styled.header`
-  color: #1e272e;
+  color: var(--black);
   margin: auto;
   max-width: 80rem;
   padding: 3rem 3rem 0;
@@ -11,7 +11,7 @@ export const PostHeader = styled.header`
     content: "";
     width: 80%;
     height: 1px;
-    background-color: #ccc;
+    background-color: var(--gray);
     position: absolute;
     bottom: -0.3rem;
     left: 4.5rem;
@@ -29,7 +29,7 @@ export const PostTitle = styled.h1`
     content: "";
     width: 80px;
     height: 3px;
-    background-color: #e74c3c;
+    background-color: var(--sidebarBackground);
     position: absolute;
     bottom: -0.3rem;
     left: 1.5rem;
@@ -65,7 +65,7 @@ export const PostMainContent = styled.section`
   .tags,
   iframe,
   .button-post {
-    color: #1e272e;
+    color: var(--black);
     font-size: 1.2rem;
     font-weight: 300;
     line-height: 1.5;
@@ -110,13 +110,13 @@ export const PostMainContent = styled.section`
     width: 100%;
   }
   blockquote {
-    color: #fff;
-    border-left: 0.3rem solid #e74c3c;
+    color: var(--white);
+    border-left: 0.3rem solid var(--sidebarBackground);
     padding: 0 1.875rem;
     margin: 3.125rem auto;
   }
   hr {
-    border: 1px solid #38444d;
+    border: 1px solid var(--borders);
     margin: 3rem auto;
   }
   #twitter-widget-0,
@@ -173,12 +173,12 @@ export const PostMainContent = styled.section`
     margin: 1rem auto !important;
   }
   a {
-    border-bottom: 1px dashed #e74c3c;
-    color: #e74c3c;
+    border-bottom: 1px dashed var(--sidebarBackground);
+    color: var(--sidebarBackground);
     text-decoration: none;
     transition: opacity 0.5s;
     svg {
-      color: #fff;
+      color: var(--white);
     }
     &:hover {
       opacity: 0.8;

@@ -18,13 +18,13 @@ export const NavItem = styled.li`
   padding: 0.5rem;
 
   .active {
-    color: rgba(0, 0, 0, 0.5);
+    color: var(--darkRed);
   }
 `;
 
 export const NavLink = styled(Link)`
   text-decoration: none;
-  color: #fff;
+  color: var(--white);
   font-weight: 300;
   position: relative;
 
