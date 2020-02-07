@@ -21,6 +21,7 @@ export const SearchWrapper = styled.section`
   .ais-Stats {
     color: var(--black);
   }
+
   .ais-SearchBox-input {
     background: var(--white);
     border: none;
@@ -37,5 +38,20 @@ export const SearchWrapper = styled.section`
   .ais-SearchBox-submit,
   .ais-SearchBox-reset {
     display: none;
+  }
+`;
+
+export const SearchContainer = styled.div`
+  padding: 1rem;
+
+  body#grid & {
+    .ais-Hits {
+      .ais-Hits-list {
+        display: grid;
+        grid-area: posts;
+        grid-gap: 10px;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      }
+    }
   }
 `;

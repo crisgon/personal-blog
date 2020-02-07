@@ -2,9 +2,11 @@ import React from "react";
 
 import PostCard from "../PostCard";
 
+import * as S from "./styled";
+
 const PostList = ({ allPosts }) => {
   return (
-    <>
+    <S.ListWrapper>
       {allPosts.map(
         (
           {
@@ -28,7 +30,7 @@ const PostList = ({ allPosts }) => {
           />
         )
       )}
-    </>
+    </S.ListWrapper>
   );
 };
 

@@ -17,6 +17,10 @@ export const PostCardContainer = styled.section`
   overflow: hidden;
   transition: all 0.2s;
 
+  body#grid & {
+    height: 300px;
+  }
+
   &:before {
     content: "";
     position: absolute;
@@ -24,9 +28,14 @@ export const PostCardContainer = styled.section`
     left: 0;
     width: 0.35rem;
     height: 100%;
-    transform: translateX(-100%);
+    transform: translateX(-110%);
     background-color: ${props => props.tagColor || "var(--sidebarBackground)"};
     transition: all 0.2s;
+
+    body#grid & {
+      width: 100%;
+      height: 0.35rem;
+    }
   }
 
   &:hover {
@@ -70,4 +79,5 @@ export const PostResume = styled.p`
   font-weight: 300;
   font-size: 1.2rem;
   line-height: 1.2;
+  word-break: break-all;
 `;

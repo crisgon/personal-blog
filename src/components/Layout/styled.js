@@ -11,4 +11,10 @@ export const Main = styled.main`
   overflow: hidden;
   grid-column: 2;
   background-color: var(--background);
+
+  body#grid & {
+    grid-template-areas:
+      "posts"
+      "pagination";
+  }
 `;
