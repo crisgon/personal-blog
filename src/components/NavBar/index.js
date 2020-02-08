@@ -6,6 +6,7 @@ import { Search } from "styled-icons/remix-line/Search";
 import { Grid } from "styled-icons/boxicons-solid/Grid";
 import { FormatListBulleted as List } from "styled-icons/material/FormatListBulleted";
 import { UpArrowAlt as Up } from "styled-icons/boxicons-regular/UpArrowAlt";
+import { Home } from "styled-icons/remix-line/Home";
 
 import * as S from "./styled";
 
@@ -26,6 +27,14 @@ const NavBar = () => {
 
   return (
     <S.NavBar>
+      <S.NavBarItem title="Voltar para o Início">
+        <S.NavBarLink to="/">
+          <S.IconWrapper>
+            <Home />
+          </S.IconWrapper>
+        </S.NavBarLink>
+      </S.NavBarItem>
+
       <S.NavBarItem title="Pesquisar">
         <S.NavBarLink to="/search">
           <S.IconWrapper>
@@ -54,6 +63,7 @@ const NavBar = () => {
         onClick={() => {
           window.__setPreferredDisplay(isGrid ? "list" : "grid");
         }}
+        className="changeDisplay"
       >
         <S.IconWrapper>{isGrid ? <List /> : <Grid />}</S.IconWrapper>
       </S.NavBarItem>

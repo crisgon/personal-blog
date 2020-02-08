@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import media from "styled-media-query";
 
 export const SocialList = styled.ul`
   width: 100%;
@@ -6,6 +7,15 @@ export const SocialList = styled.ul`
   padding: 1rem;
   display: flex;
   justify-content: space-around;
+
+  ${media.lessThan("large")`
+    width: 80%;
+    justify-content: space-between;
+  `}
+
+  ${media.lessThan("medium")`
+    display: none;
+  `}
 `;
 
 export const SocialItem = styled.li``;

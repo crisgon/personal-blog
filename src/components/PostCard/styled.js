@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import media from "styled-media-query";
 import { Link } from "gatsby";
 
 export const PostLink = styled(Link)`
@@ -17,9 +18,11 @@ export const PostCardContainer = styled.section`
   overflow: hidden;
   transition: all 0.2s;
 
-  body#grid & {
-    height: 300px;
-  }
+  ${media.greaterThan("medium")`
+    body#grid & {
+      height: 300px;
+    }
+  `}
 
   &:before {
     content: "";

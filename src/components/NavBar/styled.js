@@ -1,14 +1,23 @@
 import styled from "styled-components";
+import media from "styled-media-query";
 import { Link as GatsbyLink } from "gatsby";
 
 export const NavBar = styled.div`
-  width: 100%;
+  width: 300px;
   height: 50px;
+  position: fixed;
+  bottom: 0;
   background-color: var(--postCardBackground);
   color: var(--sidebarBackground);
   display: flex;
   justify-content: space-around;
   align-items: center;
+  grid-area: Navbar;
+
+  ${media.lessThan("large")`
+    width: 100%;
+    z-index: 2;
+  `}
 `;
 
 export const NavBarLink = styled(GatsbyLink)`
@@ -20,6 +29,12 @@ export const NavBarItem = styled.span`
 
   &:hover {
     transform: translateY(-5px);
+  }
+
+  &.changeDisplay {
+    ${media.lessThan("large")`
+      display: none;
+    `}
   }
 `;
 

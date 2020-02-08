@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import media from "styled-media-query";
 
 export const SearchWrapper = styled.section`
   display: flex;
@@ -43,7 +44,7 @@ export const SearchWrapper = styled.section`
 
 export const SearchContainer = styled.div`
   padding: 1rem;
-
+  ${media.greaterThan("medium")`
   body#grid & {
     .ais-Hits {
       .ais-Hits-list {
@@ -54,4 +55,5 @@ export const SearchContainer = styled.div`
       }
     }
   }
+  `}
 `;
