@@ -9,6 +9,7 @@ import { UpArrowAlt as Up } from "styled-icons/boxicons-regular/UpArrowAlt";
 import { Home } from "styled-icons/remix-line/Home";
 
 import getThemeColor from "../../utils/getThemeColor";
+import scrollToTop from "../../utils/scrollToTop";
 
 import * as S from "./styled";
 
@@ -66,7 +67,7 @@ const NavBar = () => {
         <S.IconWrapper>{isDark ? <Sun /> : <Moon />}</S.IconWrapper>
       </S.NavBarItem>
 
-      <S.NavBarItem title="Voltar para o topo">
+      <S.NavBarItem title="Voltar para o topo" onClick={scrollToTop}>
         <S.IconWrapper>
           <Up />
         </S.IconWrapper>
