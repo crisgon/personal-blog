@@ -54,11 +54,11 @@ border-spacing: 0;
 
   body.dark {
     --borders: #38444d;
-    --postCardBackground: #484848;
-    --sidebarBackground: #0c0c0e;
+    --postCardBackground: #272727;
+    --sidebarBackground: #040404;
     --sidebarShadow: #151414;
     --highlight: #000;
-    --background: #404040;
+    --background: #121212;
     --white: #fff;
     --black: #fff;
     --gray: #ccc;
