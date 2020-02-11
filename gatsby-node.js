@@ -36,6 +36,7 @@ exports.createPages = ({ graphql, actions }) => {
               resume
               tagColor
               title
+              image
             }
             fields {
               slug

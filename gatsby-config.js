@@ -6,7 +6,8 @@ module.exports = {
     title: `Cristiano Gonçalves`,
     position: "Desenvolvedor FrontEnd",
     description: `Desenvolvedor na Cubos Tecnologia, baiano com orgulho, amante de tecnologias, viagens, músicas e cultura japonesa.`,
-    author: `@crisgon`
+    author: `@Gonkristiano`,
+    siteUrl: "https://crisgon.dev"
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
