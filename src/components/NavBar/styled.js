@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import media from "styled-media-query";
-import { Link as GatsbyLink } from "gatsby";
+import AniLink from "gatsby-plugin-transition-link/AniLink";
 
 export const NavBar = styled.div`
   width: 300px;
@@ -20,7 +20,7 @@ export const NavBar = styled.div`
   `}
 `;
 
-export const NavBarLink = styled(GatsbyLink)`
+export const NavBarLink = styled(AniLink)`
   color: var(--sidebarBackground);
 `;
 

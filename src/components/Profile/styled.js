@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import media from "styled-media-query";
-import { Link } from "gatsby";
+import AniLink from "gatsby-plugin-transition-link/AniLink";
 
 export const ProfileWrapper = styled.div`
   width: 100%;
@@ -20,7 +20,7 @@ export const ProfileWrapper = styled.div`
   `}
 `;
 
-export const ProfileLink = styled(Link)`
+export const ProfileLink = styled(AniLink)`
   text-decoration: none;
   color: var(--white);
   transition: all 0.2s;

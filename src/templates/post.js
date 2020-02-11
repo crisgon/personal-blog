@@ -11,8 +11,6 @@ import * as S from "../components/Post/styled";
 
 const Post = ({ data, pageContext }) => {
   const postData = data.markdownRemark;
-  const next = pageContext.nextPost;
-  const previous = pageContext.previousPost;
 
   return (
     <Layout>

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import media from "styled-media-query";
-import { Link } from "gatsby";
+import AniLink from "gatsby-plugin-transition-link/AniLink";
 
 export const Nav = styled.nav`
   width: 100%;
@@ -27,7 +27,7 @@ export const NavItem = styled.li`
   }
 `;
 
-export const NavLink = styled(Link)`
+export const NavLink = styled(AniLink)`
   text-decoration: none;
   color: var(--white);
   font-weight: 300;

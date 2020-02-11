@@ -8,6 +8,8 @@ import { FormatListBulleted as List } from "styled-icons/material/FormatListBull
 import { UpArrowAlt as Up } from "styled-icons/boxicons-regular/UpArrowAlt";
 import { Home } from "styled-icons/remix-line/Home";
 
+import getThemeColor from "../../utils/getThemeColor";
+
 import * as S from "./styled";
 
 const NavBar = () => {
@@ -28,7 +30,13 @@ const NavBar = () => {
   return (
     <S.NavBar>
       <S.NavBarItem title="Voltar para o Início">
-        <S.NavBarLink to="/">
+        <S.NavBarLink
+          to="/"
+          cover
+          direction="left"
+          duration={0.6}
+          bg={getThemeColor()}
+        >
           <S.IconWrapper>
             <Home />
           </S.IconWrapper>
@@ -36,7 +44,13 @@ const NavBar = () => {
       </S.NavBarItem>
 
       <S.NavBarItem title="Pesquisar">
-        <S.NavBarLink to="/search">
+        <S.NavBarLink
+          to="/search"
+          cover
+          direction="left"
+          duration={0.6}
+          bg={getThemeColor()}
+        >
           <S.IconWrapper>
             <Search />
           </S.IconWrapper>

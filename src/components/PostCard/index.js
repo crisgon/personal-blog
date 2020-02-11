@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import getThemeColor from "../../utils/getThemeColor";
+
 import * as S from "./styled";
 
 const PostCard = ({
@@ -12,7 +14,13 @@ const PostCard = ({
   category,
   resume
 }) => (
-  <S.PostLink to={slug}>
+  <S.PostLink
+    to={slug}
+    cover
+    direction="left"
+    duration={0.6}
+    bg={getThemeColor()}
+  >
     <S.PostCardContainer tagColor={tagColor}>
       <S.PostInfo>
         <S.PostTitle>{title}</S.PostTitle>

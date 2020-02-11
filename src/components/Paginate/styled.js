@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import { Link as GatsbyLink } from "gatsby";
+import AniLink from "gatsby-plugin-transition-link/AniLink";
 
 export const Paginate = styled.div`
   width: 100%;
@@ -20,7 +20,7 @@ const linkAnimation = keyframes`
     transform: translateX(2px);
   }
 `;
-export const Link = styled(GatsbyLink)`
+export const Link = styled(AniLink)`
   display: flex;
   align-items: center;
   color: var(--black);

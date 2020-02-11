@@ -4,6 +4,8 @@ import PropTypes from "prop-types";
 import { LeftArrowAlt as Prev } from "styled-icons/boxicons-regular/LeftArrowAlt";
 import { RightArrowAlt as Next } from "styled-icons/boxicons-regular/RightArrowAlt";
 
+import getThemeColor from "../../utils/getThemeColor";
+
 import * as S from "./styled";
 
 const Paginate = ({
@@ -17,7 +19,13 @@ const Paginate = ({
   return (
     <S.Paginate>
       {!isFirst && (
-        <S.Link to={prevPage}>
+        <S.Link
+          to={prevPage}
+          cover
+          direction="left"
+          duration={0.6}
+          bg={getThemeColor()}
+        >
           <S.IconWrapper>
             <Prev />
           </S.IconWrapper>
@@ -28,7 +36,13 @@ const Paginate = ({
         {currentPage} de {totalPages}
       </span>
       {!isLast && (
-        <S.Link to={nextPage}>
+        <S.Link
+          to={nextPage}
+          cover
+          direction="right"
+          duration={0.6}
+          bg={getThemeColor()}
+        >
           Próxima Página
           <S.IconWrapper>
             <Next />
