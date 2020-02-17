@@ -61,7 +61,7 @@ module.exports = {
       }
     },
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: "gatsby-transformer-remark",
       options: {
         plugins: [
           {
@@ -77,12 +77,18 @@ module.exports = {
               linkImagesToOriginal: false
             }
           },
+
+          {
+            resolve: "gatsby-remark-copy-linked-files",
+            options: {
+              destinationDir: "static/assets/img/"
+            }
+          },
           `gatsby-remark-lazy-load`,
           `gatsby-remark-prismjs`
         ]
       }
     },
-    ,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-offline`
   ]
