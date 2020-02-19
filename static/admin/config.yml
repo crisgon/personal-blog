@@ -1,0 +1,46 @@
+backend:
+  name: github
+  repo: crisgon/personal-blog
+  branch: master
+  site_domain: https://crisgon.dev/
+
+publish_mode: editorial_workflow
+media_folder: "static/assets/img"
+public_folder: "assets/img"
+
+collections:
+  - name: "posts" # Used in routes, e.g., /admin/collections/blog
+    label: "Posts" # Used in the UI
+    folder: "posts" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "resume", widget: "string" }
+      - {
+          label: "Date",
+          name: "date",
+          widget: "datetime",
+          format: "YYYY-MM-DD hh:mm:ss",
+        }
+      - { label: "Image", name: "thumbnail", widget: "image" }
+      - {
+        label: "Category",
+        name: "category",
+        widget: "select",
+        options: ["JS", "CSS", "HTML", "React", "Vue", "UX"]
+      }
+      - {
+        label: "Tag Color",
+        name: "tagColor",
+        widget: "select",
+        options: [
+          {label: "JS", value: "#f1c40f"},
+          {label: "CSS", value: "#8e44ad"},
+          {label: "HTML", value: "#e67e22"},
+          {label: "React", value: "#3498db"},
+          {label: "Vue", value: "#1abc9c"},
+          {label: "UX", value: "#ED4C67"}
+        ]
+      }
+      - { label: "Body", name: "body", widget: "markdown" }
