@@ -51,7 +51,7 @@ export const PostCardContainer = styled.section`
 `;
 
 export const PostTitle = styled.h1`
-  color: var(--sidebarBackground);
+  color: var(--titleColor);
   font-size: 1.5rem;
   font-weight: 300;
   padding: 0.5rem 0;

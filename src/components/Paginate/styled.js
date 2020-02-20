@@ -23,13 +23,17 @@ const linkAnimation = keyframes`
 export const Link = styled(AniLink)`
   display: flex;
   align-items: center;
-  color: var(--black);
+  color: var(--paginateColor);
   text-decoration: none;
   transition: all 0.2s;
 
   &:hover {
     animation: ${linkAnimation} 0.5s infinite alternate;
   }
+`;
+
+export const TotalPages = styled.span`
+  color: var(--paginateColor);
 `;
 
 export const IconWrapper = styled.div`

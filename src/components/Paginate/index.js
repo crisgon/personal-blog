@@ -32,9 +32,9 @@ const Paginate = ({
           Página Anterior
         </S.Link>
       )}
-      <span>
+      <S.TotalPages>
         {currentPage} de {totalPages}
-      </span>
+      </S.TotalPages>
       {!isLast && (
         <S.Link
           to={nextPage}

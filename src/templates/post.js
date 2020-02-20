@@ -31,7 +31,6 @@ const Post = ({ data, pageContext }) => {
           </S.IconWrapper>
           {postData.timeToRead} min de leitura
         </S.PostDate>
-        <S.PostResume>{postData.frontmatter.resume}</S.PostResume>
       </S.PostHeader>
       <S.PostMainContent>
         <div dangerouslySetInnerHTML={{ __html: postData.html }}></div>

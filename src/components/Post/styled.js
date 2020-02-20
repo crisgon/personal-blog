@@ -34,7 +34,7 @@ export const PostTitle = styled.h1`
     content: "";
     width: 80px;
     height: 3px;
-    background-color: var(--sidebarBackground);
+    background-color: var(--linkColor);
     position: absolute;
     bottom: -0.3rem;
     left: 1.5rem;
@@ -225,8 +225,8 @@ export const PostMainContent = styled.section`
     margin: 1rem auto !important;
   }
   a {
-    border-bottom: 1px dashed var(--sidebarBackground);
-    color: var(--sidebarBackground);
+    border-bottom: 1px dashed var(--linkColor);
+    color: var(--linkColor);
     text-decoration: none;
     transition: opacity 0.5s;
     svg {
