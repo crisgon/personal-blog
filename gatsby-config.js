@@ -74,7 +74,8 @@ module.exports = {
             resolve: "gatsby-remark-images",
             options: {
               maxWidth: 960,
-              linkImagesToOriginal: false
+              linkImagesToOriginal: false,
+              showCaptions: true
             }
           },
 
@@ -89,6 +90,7 @@ module.exports = {
         ]
       }
     },
+
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-netlify-cms`

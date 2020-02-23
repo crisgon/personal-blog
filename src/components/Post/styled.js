@@ -198,6 +198,16 @@ export const PostMainContent = styled.section`
   strong {
     font-weight: 700;
   }
+
+  .gatsby-resp-image-figure {
+    padding: 1rem 0;
+    text-align: center;
+  }
+  .gatsby-resp-image-figcaption {
+    padding: 0.5rem 0;
+    font-style: italic;
+  }
+
   .gatsby-resp-image-background-image {
     z-index: 2;
     opacity: 1 !important;
