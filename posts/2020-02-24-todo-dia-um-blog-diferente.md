@@ -6,11 +6,12 @@ resume: >-
   google (bing, yahoo, duck duck go ou seja lá qual buscador você use) que vamos
   nos deparar com artigos dos mais diversos assuntos, sejam escritos em blogs
   pessoais ou até mesmo em uma plataforma como o medium.
-date: '2018-01-17 11:41:00'
+date: "2018-01-17 11:41:00"
 image: assets/img/wallpaperblog.jpg
-category: HTML
-tagColor: '#e67e22'
+category: Geral
+tagColor: "#e056fd"
 ---
+
 No momento em que vivemos, não é tão difícil encontrar artigos sobre tecnologia, em especial sobre desenvolvimento. Basta dar uma pesquisada no google~~(bing, yahoo, duck duck go ou seja lá qual buscador você use)~~que vamos nos deparar com artigos dos mais diversos assuntos, sejam escritos em blogs pessoais ou até mesmo em uma plataforma como o [medium](https://medium.com/).
 
 ![Notebook ao lado de um bloco de notas](assets/img/wallpaperblog.jpg)
@@ -19,9 +20,9 @@ No momento em que vivemos, não é tão difícil encontrar artigos sobre tecnolo
 
 Eu poderia fazer uma lista imensa com os motivos para você criar um blog ainda hoje, porém seria algo bastante cansativo e pode ser que nem todos os motivos se encaixassem na sua realidade. Então eu decidi listar os motivos que **me levaram a criar um blog**.
 
-* A possibilidade de fazer algo pela comunidade
-* Aprender mais ensinando mais
-* Documentar o aprendizado
+- A possibilidade de fazer algo pela comunidade
+- Aprender mais ensinando mais
+- Documentar o aprendizado
 
 ### [](https://crisgon.github.io/posts/Todo-dia-um-blog-diferente/#A-possibilidade-de-fazer-algo-pela-comunidade "A possibilidade de fazer algo pela comunidade")A possibilidade de fazer algo pela comunidade
 

@@ -28,7 +28,7 @@ collections:
         label: "Category",
         name: "category",
         widget: "select",
-        options: ["JS", "CSS", "HTML", "React", "Vue", "UX"]
+        options: ["JS", "CSS", "HTML", "React", "Vue", "UX", "Geral"]
       }
       - {
         label: "Tag Color",
@@ -40,7 +40,8 @@ collections:
           {label: "HTML", value: "#e67e22"},
           {label: "React", value: "#3498db"},
           {label: "Vue", value: "#1abc9c"},
-          {label: "UX", value: "#ED4C67"}
+          {label: "UX", value: "#ED4C67"},
+          {label: "Geral", value: "#e056fd"}
         ]
       }
       - { label: "Body", name: "body", widget: "markdown" }
