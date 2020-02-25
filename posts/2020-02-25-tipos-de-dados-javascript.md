@@ -15,7 +15,7 @@ tagColor: '#f1c40f'
 ---
 Como já tinha comentado em outro [post](https://crisgon.github.io/posts/Todo-dia-um-blog-diferente/), esse blog foi criado para documentar e compartilhar meu estudo sobre tecnologias front end. Essa semana eu retomei os estudos sobre Javascript(JS) e decidi começar do básico, pois quero entender bem sobre os princípios da linguagem. Inicialmente eu estudei sobre os tipos primitivos da linguagem e resolvi compartilhar o “pequeno” resumo que fiz durante meus estudos, é algo bem introdutório, mas é um pouco do que entendi sobre o assunto.
 
-![Javascript cup wallpaper](assets/img/javascriptWallpaper.jpg)
+![Xícara com desenho do Javascript](assets/img/javascriptWallpaper.jpg "Xícara com desenho do Javascript")
 
 Antes de falar sobre os tipos primitivos de dados é preciso comentar sobre algo de grande importância na linguagem Javascript. Ela não é uma linguagem fortemente tipada, isso quer dizer que não precisamos declarar o tipo da variável no ato da criação. Ou seja, não precisamos dizer se ela vai ser um inteiro, um caractere, simplismente declaramos um valor.
 
@@ -313,8 +313,6 @@ nome.charAt(1); //Encontrar um caractere em uma determinada posição
 nome.indexOf('i'); //Encontrar a posição de um caractere
 ```
 
-
-
 ### Boolean
 
 Esse é um tipo de dado lógico que pode assumir dois valores, true e false (verdadeiro e falso). Ele pode aparecer de diversas formas, uma das mais comuns é quando fazemos alguma operação de comparação.
@@ -351,8 +349,6 @@ var num1 = !!NaN; //NaN é falso
 
 Uma aplicação: Vamos supor que presisamos executar um código caso um determinado número seja diferente de zero. O comum seria verificar se o número é diferente de zero, porém podemos passar apenas o número como parâmetro para o if. E se o número for zero, ele tem o valor falso,e sabemos que o if só executa sentessas verdadeiras. Veja o código.
 
-
-
 ```javascript
 // Esse seria a primeira coisa que pensariamos em fazer.
 If(num != 0) {
@@ -367,8 +363,6 @@ If(num) {
 
 }
 ```
-
-
 
 ### Object
 
@@ -389,7 +383,6 @@ Podemos acessar as propriedades de cada objeto de várias maneiras.
 ```javascript
 pessoa.nome; // Cristiano
 pessoa['nome']; // Cristiano
-
 ```
 
 Essa segunda forma é utilizada para dados dinâmicos ou compostos, como “cor dos olhos”
@@ -408,14 +401,12 @@ console.log(pessoa[item]);
 ```javascript
 pessoa.bairro = 'Barreiro';
 pessoa['cidade'] = 'Alagoinhas';
-
 ```
 
 Ou podemos deletar
 
 ```javascript
 delete pessoa.idade;
-
 ```
 
 > Obs: As chaves de um objeto podem receber todos os tipos de valores, inclusive outros objetos e funções.
@@ -431,8 +422,6 @@ var meuObjeto = {
 	}
 }
 ```
-
-
 
 ### Function
 
@@ -461,8 +450,6 @@ var soma = function (a, b) {
 ```
 
 A principal diferença entre as duas formas é que com a function declaration podemos invocar a função antes mesmo de declarar, pois o JS carrega as funções antes de interpretar o documento.
-
-
 
 ```javascript
 // Isso é possível
@@ -494,8 +481,6 @@ function ola(){
 soma(ola);
 ```
 
-
-
 ### Undefined
 
 Basicamente, undefined é um tipo de dado que carrega o valor undefined, quer quer dizer indefinido.\
@@ -506,10 +491,7 @@ Um exemplo simples de como podemos receber um valor undefined é quando declaram
 ```javascript
 var um;
 typeof(um) //undefined
-
 ```
-
-
 
 ### Null e undefined são a mesma coisa?
 
