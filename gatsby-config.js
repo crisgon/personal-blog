@@ -85,6 +85,13 @@ module.exports = {
               destinationDir: "static/assets/img/"
             }
           },
+          {
+            resolve: "@weknow/gatsby-remark-codepen",
+            options: {
+              theme: "dark",
+              height: 400
+            }
+          },
           `gatsby-remark-lazy-load`,
           `gatsby-remark-prismjs`
         ]
