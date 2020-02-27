@@ -70,6 +70,7 @@ export const PostDate = styled.p`
 
   ${media.lessThan("large")`
     padding: 0 1rem;
+    flex-wrap: wrap;
   `}
 `;
 

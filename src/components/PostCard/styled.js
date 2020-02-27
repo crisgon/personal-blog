@@ -67,6 +67,10 @@ export const PostTag = styled.span`
   margin: 0 0.5rem;
   color: var(--white);
   background-color: ${props => props.tagColor || "var(--sidebarBackground)"};
+
+  ${media.lessThan("small")`
+    margin: .5rem 0;
+    `}
 `;
 
 export const PostInfo = styled.div`
@@ -76,6 +80,12 @@ export const PostInfo = styled.div`
 
 export const PostTimeAndTag = styled.div`
   padding: 0.5rem 0;
+
+  ${media.lessThan("small")`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    `}
 `;
 
 export const PostResume = styled.p`
