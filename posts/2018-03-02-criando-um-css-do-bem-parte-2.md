@@ -10,9 +10,9 @@ tagColor: "#8e44ad"
 
 # Criando Um CSS Do BEM - Parte 2
 
-Na [parte 1](http://localhost:4000/posts/Criando%20um%20CSS%20do%20%20BEM%20-%20Parte%201/) desse artigo falamos um pouco sobre como nomear uma classe significativa e reaproveitável utilizando BEM, porém existem mais alguns pontos importantes para escrever um CSS seguindo essa metodologia, como a organização de arquivos, um dos assuntos que iremos ver por aqui.
+Na [parte 1](https://www.crisgon.dev/criando-um-css-do-bem-parte-1/) desse artigo falamos um pouco sobre como nomear uma classe significativa e reaproveitável utilizando BEM, porém existem mais alguns pontos importantes para escrever um CSS seguindo essa metodologia, como a organização de arquivos, um dos assuntos que iremos ver por aqui.
 
-![Logo do BEM](http://cdn-ak.f.st-hatena.com/images/fotolife/n/nomal_f/20160221/20160221125012.png)
+![Logo do BEM](assets/img/bemlogo.png "Logo do BEM")
 
 #### Algumas considerações importantes
 
@@ -47,7 +47,7 @@ Não basta simplemente criar uma classe separada por (\_\_) para ter um CSS no p
 
 ### Estrutura de arquivos
 
-![Uma mão deslizando sobre livros em uma prateleira](http://3.bp.blogspot.com/-jfYO152EdB4/V7R8wweRJtI/AAAAAAAAf7A/BriM8Xk7-RIXCJN05wtTE6C2y0oP9E3LQCK4B/s1600/libro.gif)
+![Uma mão deslizando sobre livros em uma prateleira](assets/img/books.jpg "Estante com muitos livros")
 
 A estrutura de arquivos do BEM é tão peculiar quanto a forma em que suas classes são nomeadas, porém existe uma lógica por trás de tudo. Os arquivos são bem fragmentados, o que pode facilitar na manutenção, pois quando existir algum problema você pode ir direto no arquivo do bloco em questão.
 
