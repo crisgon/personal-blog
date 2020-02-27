@@ -1,7 +1,7 @@
 ---
 title: Consumindo uma API de pokemon com Javascript
 resume: >-
-  Essa semana eu estava dando uma olhada em algumas vagas no Front End Brasil e notei que muitas vagas pediam experiência com o uso de API’s. Fui correndo pro fórum do Front End Brasil e perguntei: “Como saber se tenho Experiência com API’s?”
+  Essa semana eu estava dando uma olhada em algumas vagas no Front End Brasil e notei que muitas vagas pediam experiência com o uso de API’s. Mas o que é isso? Como ter Experiência com API’s?
 date: "2018-02-03 13:41:00"
 image: https://i.imgur.com/bXGuv94.png
 category: JS

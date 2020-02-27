@@ -1,7 +1,7 @@
 ---
 title: Desenhando com box shadow
 resume: >-
-  Sempre gostei de admirar o trabalho de outras pessoas, para conseguir inspiração, saber o quanto eu sei ou simplesmente para apreciar a arte. Nesses pequenos momentos de apreciação eu sempre me deparei com uma ou outra pixel art e meus primeiros pensamentos eram que eu não conseguiria fazer, que era muito difícil e que meu conhecimento não era o suficiente.
+  Sempre me deparei com uma ou outra pixel art com css e meus primeiros pensamentos eram que eu não conseguiria fazer, que era muito difícil... mas não é bem assim.
 date: "2018-02-02 11:41:00"
 image: assets/img/wallpaperblog.jpg
 category: CSS

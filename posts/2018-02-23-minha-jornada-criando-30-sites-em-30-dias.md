@@ -1,14 +1,15 @@
 ---
 title: Minha jornada criando 30 sites em 30 dias
 resume: >-
-  Quem nunca achou uma vaga maneira e pensou em enviar um currículo, mas
+  Sabe aquela vaga maneira que você pensou em se candidatar, mas
   desistiu por não ter o que mostrar? E quantas vezes alegamos que não tivemos
   oportunidade de trabalhar com a tecnologia X ou Y?
-date: '2018-01-18 12:49:00'
+date: "2018-01-18 12:49:00"
 image: assets/img/30days30sites.png
 category: HTML
-tagColor: '#e67e22'
+tagColor: "#e67e22"
 ---
+
 Quem nunca achou uma vaga maneira e pensou em enviar um currículo, mas desistiu por não ter o que mostrar? E quantas vezes alegamos que não tivemos oportunidade de trabalhar com a tecnologia X ou Y?
 
 Muitas vezes damos a desculpa de não ter um portfólio por nunca ter trabalhado, algumas pessoas até alegam que não constroem projetos fictícios por falta de ideias. Pois bem, que bom que temos uma comunidade maravilhosa que está sempre disposta a criar formas de ajudar.
@@ -46,8 +47,6 @@ Os feedbacks em geral são dados no Twitter ou por meio do grupo do facebook, on
 
 ![Feedbacks no facebook](assets/img/feedbacks.png "Feedbacks no facebook")
 
-
-
 Durante os feedbacks, provavelmente você vai precisar explicar como fez determinada parte do site ou como utilizar determinada tecnologia. Isso é muito bom, pois é explicando que se aprende!
 
 Como eu disse logo ali em cima, “Todo mundo precisa de um feedback!”. Outras pessoas também estão fazendo o desafio e você não só pode, mas DEVE, dar feedbacks sobre os trabalhos, seja dando dicas de como melhorar ou simplesmente tirando dúvidas.
@@ -56,11 +55,11 @@ Como eu disse logo ali em cima, “Todo mundo precisa de um feedback!”. Outras
 
 Os temas que recebemos diariamente são bastante diversificados e nos dão a possibilidade de construir sites de vários tipos. Esses são alguns dos que mais curti o resultado.
 
-* [Blog](https://crisgon.github.io/30Days30Sites/blog/index.html)
-* [Celebridade](https://crisgon.github.io/30Days30Sites/celebrity/default.html)
-* [Evento](https://crisgon.github.io/30Days30Sites/events/default.html)
-* [Shop](https://crisgon.github.io/30Days30Sites/fashion/index.html)
-* [Game](https://crisgon.github.io/30Days30Sites/game/src/index.html)
+- [Blog](https://crisgon.github.io/30Days30Sites/blog/index.html)
+- [Celebridade](https://crisgon.github.io/30Days30Sites/celebrity/default.html)
+- [Evento](https://crisgon.github.io/30Days30Sites/events/default.html)
+- [Shop](https://crisgon.github.io/30Days30Sites/fashion/index.html)
+- [Game](https://crisgon.github.io/30Days30Sites/game/src/index.html)
 
 Você pode conferir todos os trabalhos [aqui](https://crisgon.github.io/30Days30Sites/projects/index.html), onde eu listo as tecnologias que usei em cada site. E pode verificar os códigos no meu [github](https://github.com/crisgon/30Days30Sites).
 

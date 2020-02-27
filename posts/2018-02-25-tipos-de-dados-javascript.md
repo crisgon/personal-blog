@@ -1,18 +1,13 @@
 ---
 title: Tipos de dados Javascript
 resume: >-
-  Como já tinha comentado em outro post, esse blog foi criado para documentar e
-  compartilhar meu estudo sobre tecnologias front end. Essa semana eu retomei os
-  estudos sobre Javascript(JS) e decidi começar do básico, pois quero entender
-  bem sobre os princípios da linguagem. Inicialmente eu estudei sobre os tipos
-  primitivos da linguagem e resolvi compartilhar o “pequeno” resumo que fiz
-  durante meus estudos, é algo bem introdutório, mas é um pouco do que entendi
-  sobre o assunto.
-date: '2018-01-25 10:09:00'
+  Estive estudando sobre tipos primitivos do javascript e resolvi compartilhar o “pequeno” resumo que fiz durante meus estudos, é algo bem introdutório, mas pode ajudar quem está iniciando.
+date: "2018-01-25 10:09:00"
 image: assets/img/javascriptWallpaper.jpg
 category: JS
-tagColor: '#f1c40f'
+tagColor: "#f1c40f"
 ---
+
 Como já tinha comentado em outro [post](https://crisgon.github.io/posts/Todo-dia-um-blog-diferente/), esse blog foi criado para documentar e compartilhar meu estudo sobre tecnologias front end. Essa semana eu retomei os estudos sobre Javascript(JS) e decidi começar do básico, pois quero entender bem sobre os princípios da linguagem. Inicialmente eu estudei sobre os tipos primitivos da linguagem e resolvi compartilhar o “pequeno” resumo que fiz durante meus estudos, é algo bem introdutório, mas é um pouco do que entendi sobre o assunto.
 
 ![Xícara com desenho do Javascript](assets/img/javascriptWallpaper.jpg "Xícara com desenho do Javascript")
@@ -23,15 +18,15 @@ Antes de falar sobre os tipos primitivos de dados é preciso comentar sobre algo
 
 ```c
 //Declaração de variaves em C
-int numeroDeHoras = 0;           
-float precoDoQuilo = 10.53;   
+int numeroDeHoras = 0;
+float precoDoQuilo = 10.53;
 double  taxaDoDolar = 1.8;
 char nomeDoCliente[30] = "Fulano";
 ```
 
 ```javascript
 //Declaração de variaves em Javascript
-var numeroDeHoras = 0;           
+var numeroDeHoras = 0;
 var precoDoQuilo = 10.53;
 var taxaDoDolar = 1.8;
 var nomeDoCliente = "Fulano";
@@ -55,8 +50,8 @@ Os números inteiros são preciso até 15 dígitos
 **Exemplo:**
 
 ```javascript
-var num1 = 999999999999999;   // num1 vai ser 999999999999999
-var num2 = 9999999999999999;  // num2 vai ser 10000000000000000.
+var num1 = 999999999999999; // num1 vai ser 999999999999999
+var num2 = 9999999999999999; // num2 vai ser 10000000000000000.
 ```
 
 Os números de ponto flutuante aceitam precisamente até 17 casas decimais
@@ -65,7 +60,7 @@ Os números de ponto flutuante aceitam precisamente até 17 casas decimais
 
 ```javascript
 var num1 = 0.1234567891234568; // 0.1234567891234568
-var num2 = 0.123456789123455555588;  // 0.12345678912345555
+var num2 = 0.123456789123455555588; // 0.12345678912345555
 ```
 
 Podemos utilizar os números para fazer as operações básicas (soma, subtração, divisão, multiplicação) e também podemos fazer cálculos mais complexos, como raiz quadrada, cosseno, seno e diversos tipos de operações utilizando o [Math](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Math) do javascript.
@@ -77,7 +72,7 @@ Podemos utilizar os números para fazer as operações básicas (soma, subtraç�
 **Exemplo:**
 
 ```javascript
-num1 = 0.5 - 0.5 ; // 0
+num1 = 0.5 - 0.5; // 0
 num2 = 2 - 1; // 1
 num1 = 2 * 3; // 6
 num2 = 2 / 2; // 1
@@ -86,7 +81,7 @@ num2 = 2 / 2; // 1
 Existem casos em que a operação não é precisa:
 
 ```javascript
-num1 = 0.2 + 0.1;  // 0.30000000000000004
+num1 = 0.2 + 0.1; // 0.30000000000000004
 ```
 
 > OBS: Números ‘somados’ a strings geram uma string com a concatenação dosvalores.
@@ -94,8 +89,8 @@ num1 = 0.2 + 0.1;  // 0.30000000000000004
 **Exemplo:**
 
 ```javascript
-num1 = 'Letra' + 1 // Letra1
-num2 = 2 + 'numero' // 2numero
+num1 = "Letra" + 1; // Letra1
+num2 = 2 + "numero"; // 2numero
 ```
 
 Em alguns casos, quando existir uma string na operação o resultado não será uma soma, mas sim uma concatenação.\
@@ -103,7 +98,7 @@ Em alguns casos, quando existir uma string na operação o resultado não será 
 **Exemplo:**
 
 ```javascript
-'O resultado é igual a' + 10 + 10  // O resultado é igual a1010
+"O resultado é igual a" + 10 + 10; // O resultado é igual a1010
 ```
 
 Porém o compilador JS funciona da esquerda para direita, podendo fazer uma soma antes da concatenação.\
@@ -111,7 +106,7 @@ Porém o compilador JS funciona da esquerda para direita, podendo fazer uma soma
 **Exemplo:**
 
 ```javascript
-num1 = 10 + 20 + 'numero' // 30numero
+num1 = 10 + 20 + "numero"; // 30numero
 ```
 
 #### [](https://crisgon.github.io/posts/Tipos-de-dados-Javascript/#Numero-inteiro-ou-com-casas-decimais "Número inteiro ou com casas decimais")+ Infinito e - Infinito
@@ -119,12 +114,12 @@ num1 = 10 + 20 + 'numero' // 30numero
 O infinito é utilizado para representar números que excedem a capacidade de representação númerica do JS, seja o menor ou o maior número.
 
 ```javascript
-num1 = 3 / 0 // Infinity
-num2 = -3 / 0 // -Infinity
+num1 = 3 / 0; // Infinity
+num2 = -3 / 0; // -Infinity
 ```
 
 > OBS: Podemos verificar o maior e o menor número que podem ser representados com as seguintes propriedades.\
-> *Number.MAX_VALUE e Number.MIN_VALUE*, basta executa-los no console do seu navegador.
+> _Number.MAX_VALUE e Number.MIN_VALUE_, basta executa-los no console do seu navegador.
 
 #### NaN (Not a Number - Não é um número)
 
@@ -133,16 +128,16 @@ O NaN é utilizado para representar o resultado de uma tentativa de operação n
 **Exemplo:**
 
 ```javascript
-num1 =	2 * 'string'; // NaN
-num2 =	2 - 'string'; // NaN
-num1 =	2 / 'String'; // NaN
+num1 = 2 * "string"; // NaN
+num2 = 2 - "string"; // NaN
+num1 = 2 / "String"; // NaN
 num2 = 0 / 0; //NaN
 ```
 
 #### NaN não é igual a NaN
 
 ```javascript
-NaN == NaN //Falso
+NaN == NaN; //Falso
 ```
 
 Isso acontece, pois o NaN é o resultado de uma operação que não “faz sentido”, logo o resultado de uma operação “sem sentido” não é igual ao resultado de outra operação “sem sentido”.
@@ -155,10 +150,10 @@ O JS faz conversão de tipos e em todos os casos que existir duas ou mais string
 **Exemplo:**
 
 ```javascript
-num1 = '10' - '10'  // 0
-num2 = '10' * '10' // 100
-num1 = '10' / '10' // 1
-num2 = '10' + '10' // '1010'
+num1 = "10" - "10"; // 0
+num2 = "10" * "10"; // 100
+num1 = "10" / "10"; // 1
+num2 = "10" + "10"; // '1010'
 ```
 
 Apenas no caso do sinal de + que a conversão não acontece, pois quando existe uma string esse sinal é utilizado para concatenação.
@@ -176,8 +171,8 @@ Aparentemente, ambas as formas resultam em um número, porém elas tem tipos dif
 ```javascript
 var num1 = 2;
 var num2 = new Number(2);
-typeof(num1); // number
-typeof(num2); // object
+typeof num1; // number
+typeof num2; // object
 ```
 
 Se compararmos num1 a num2 teremos o seguinte resultado.
@@ -192,7 +187,7 @@ Também temos um problema ao comparar dois números criados em forma de objetos,
 ```javascript
 var num1 = new Number(2);
 var num2 = new Number(2);
-num1 == num2 // falso
+num1 == num2; // falso
 ```
 
 O recomendado é criar números da forma literal, pois eles são do tipo number e possuem a execução mais veloz.
@@ -204,9 +199,9 @@ String é um tipo de dado, imutável, do JS que pode ser usado para armazenar e 
 Uma string pode ser declarada das seguintes formas:
 
 ```javascript
-var nome = 'Cristiano';
-var nome = String('Cristiano');
-var nome = new String('Cristiano');
+var nome = "Cristiano";
+var nome = String("Cristiano");
+var nome = new String("Cristiano");
 ```
 
 As strings podem ser declaradas com aspas “string” ou apóstrofos(aspas simples) ‘string’, porém não podemos iniciar com um tipo e terminar com outro.
@@ -228,7 +223,7 @@ Existe outra forma de utilizar aspas dentro de uma string, que é através do es
 
 ```javascript
 var nome = "Cris\""; // \"  (Cris")
-var nome = "Cris\'"; // \' (Cris') 
+var nome = "Cris\'"; // \' (Cris')
 var nome = "Cris\\"; // \\ (Cris\\)
 var nome = "Cri\ns"; // \n (Cr
 is)
@@ -242,10 +237,10 @@ O ato de juntar duas strings é o que chamamos de concatenação, uma das formas
 **Exemplo:**
 
 ```javascript
-var nome = 'Cristiano';
+var nome = "Cristiano";
 var sobrenome = "Gonçalves";
 nome + sobrenome; // CristianoGonçalves
-nome + "Estudante" // CristianoEstudante
+nome + "Estudante"; // CristianoEstudante
 ```
 
 O resultado ficou junto porque espaço em branco também é um caractere.
@@ -286,21 +281,21 @@ Uma alternativa é converter um objeto string em uma string utilizando o método
 
 ```javascript
 nome === nome2.valueOf(); // Verdadeiro
-typeof(nome2); // Object
-typeof(nome2.valueOf()); // String
+typeof nome2; // Object
+typeof nome2.valueOf(); // String
 ```
 
 Como uma string é imutável, ela continua sendo um objeto, e apenas nessa instrução é que conseguimos extrair um tipo string através de um objeto.
 
 ```javascript
-typeof(nome2); // Object
+typeof nome2; // Object
 ```
 
 A única forma de mudar uma string é atribuindo seu valor novamente.
 
 ```javascript
 nome2 = nome2.valueOf();
-typeof(nome2); // String
+typeof nome2; // String
 ```
 
 #### API String
@@ -310,7 +305,7 @@ Existe a [API](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference
 ```javascript
 nome.length; //Verificar seu tamanho
 nome.charAt(1); //Encontrar um caractere em uma determinada posição
-nome.indexOf('i'); //Encontrar a posição de um caractere
+nome.indexOf("i"); //Encontrar a posição de um caractere
 ```
 
 ### Boolean
@@ -320,7 +315,7 @@ Esse é um tipo de dado lógico que pode assumir dois valores, true e false (ver
 **Exemplo:**
 
 ```javascript
-4 > 1 ; // (4 é maior que 1) Verdadeiro
+4 > 1; // (4 é maior que 1) Verdadeiro
 4 == 2; //(4 é igual a 2) Falso
 ```
 
@@ -337,10 +332,9 @@ num1 = !num1; //Antes era Falso e agora é verdadeiro novamente
 var num1 = true; //Verdadeiro
 num1 = !!num1; //Verdadeiro
 
-
 //Esses são alguns valores falsos do JS. Outros valores falsos podem ser criados com comparações.
 var num1 = !!false; //Falso é falso
-var num1 = !!''; //String vazia é falso
+var num1 = !!""; //String vazia é falso
 var num1 = !!0; //Zero é falso
 var num1 = !!null; //Null é falso
 var num1 = !!undefined; //Undefined é falso
@@ -372,7 +366,7 @@ Por exemplo, se temos que realizar o cadastro de uma pessoa e pegar nome, idade 
 **Exemplo:**
 
 ```javascript
-var pessoa = { nome: 'Cristiano', idade: 22, sexo: 'M'};
+var pessoa = { nome: "Cristiano", idade: 22, sexo: "M" };
 var pessoa = new Object();
 ```
 
@@ -382,7 +376,7 @@ Podemos acessar as propriedades de cada objeto de várias maneiras.
 
 ```javascript
 pessoa.nome; // Cristiano
-pessoa['nome']; // Cristiano
+pessoa["nome"]; // Cristiano
 ```
 
 Essa segunda forma é utilizada para dados dinâmicos ou compostos, como “cor dos olhos”
@@ -390,17 +384,17 @@ Essa segunda forma é utilizada para dados dinâmicos ou compostos, como “cor 
 Também podemos acessar as propriedades através de um loop.
 
 ```javascript
-for(var item in pessoa){
-console.log(pessoa[item]);
-//Cris
+for (var item in pessoa) {
+  console.log(pessoa[item]);
+  //Cris
 }
 ```
 
 É possível adicionar propriedades depois que o objeto for criado.
 
 ```javascript
-pessoa.bairro = 'Barreiro';
-pessoa['cidade'] = 'Alagoinhas';
+pessoa.bairro = "Barreiro";
+pessoa["cidade"] = "Alagoinhas";
 ```
 
 Ou podemos deletar
@@ -415,12 +409,12 @@ delete pessoa.idade;
 
 ```javascript
 var meuObjeto = {
-	numeros: [1,2,3,4],
-	outrosObjetos: {objetoUm: 'Um', objetoDois: 2},
-	funcao: function(){
-		return 'Item de um objeto';
-	}
-}
+  numeros: [1, 2, 3, 4],
+  outrosObjetos: { objetoUm: "Um", objetoDois: 2 },
+  funcao: function() {
+    return "Item de um objeto";
+  }
+};
 ```
 
 ### Function
@@ -432,21 +426,21 @@ Existem duas formas básicas de criar uma função.
 A function declaration:
 
 ```javascript
-function soma (a, b) {
-	return a + b;
+function soma(a, b) {
+  return a + b;
 }
 ```
 
 E a function expression
 
 ```javascript
-var soma = function soma (a, b) {
-	return a + b;
-}
+var soma = function soma(a, b) {
+  return a + b;
+};
 // Ou
-var soma = function (a, b) {
-	return a+b;
-}
+var soma = function(a, b) {
+  return a + b;
+};
 ```
 
 A principal diferença entre as duas formas é que com a function declaration podemos invocar a função antes mesmo de declarar, pois o JS carrega as funções antes de interpretar o documento.
@@ -455,26 +449,26 @@ A principal diferença entre as duas formas é que com a function declaration po
 // Isso é possível
 soma();
 
-function soma (a, b) {
-	return a + b;
+function soma(a, b) {
+  return a + b;
 }
 
 // Isso não é possível
 soma();
 
-var soma = function  (a, b) {
-	return a + b;
-}
+var soma = function(a, b) {
+  return a + b;
+};
 ```
 
 As funções do JS são de primeira classe, isso quer dizer que elas podem ser atribuídas a variáveis, ser passadas como parâmetros e podem ser retornadas por outras funções.
 
 ```javascript
 // Uma passagem de argumentos comum.
-soma(1,2);
+soma(1, 2);
 
-function ola(){
-	return 'ola';
+function ola() {
+  return "ola";
 }
 
 // Uma passagem de funções como argumentos.
@@ -490,7 +484,7 @@ Um exemplo simples de como podemos receber um valor undefined é quando declaram
 
 ```javascript
 var um;
-typeof(um) //undefined
+typeof um; //undefined
 ```
 
 ### Null e undefined são a mesma coisa?
