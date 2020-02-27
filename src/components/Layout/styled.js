@@ -3,12 +3,12 @@ import media from "styled-media-query";
 
 export const Wrapper = styled.section`
   display: grid;
-  grid-template-columns: 300px 1fr;
+  grid-template-columns: 300px calc(100% - 300px);
   grid-template-rows: 1fr 50px;
   grid-template-areas: "Sidebar Main" "Navbar Main";
 
   ${media.lessThan("large")`
-    grid-template-columns: 1fr;
+    grid-template-columns: 100%;
     grid-template-rows: 100px 1fr 50px;
     grid-template-areas: "Sidebar" "Main" "Navbar";
   `}

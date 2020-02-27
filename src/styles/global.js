@@ -66,6 +66,7 @@ border-spacing: 0;
     --linkColor: #e74c3c;
     --paginateColor: #fff;
     --titleColor: #ccc;
+    --quoteBackground: #38444d;
   }  
 
   body.light {
@@ -82,6 +83,7 @@ border-spacing: 0;
     --linkColor: #e74c3c;
     --paginateColor: #1e272e;
     --titleColor: #e74c3c;
+    --quoteBackground: #ddd;
   }
 `;
 

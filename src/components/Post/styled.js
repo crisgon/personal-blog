@@ -27,7 +27,7 @@ export const PostTitle = styled.h1`
   font-size: 3.5rem;
   font-weight: 700;
   padding: 0 1.4rem;
-  margin: 1rem auto;
+  margin: 1rem 0;
   position: relative;
 
   &:after {
@@ -63,7 +63,8 @@ export const PostResume = styled.h2`
 export const PostDate = styled.p`
   font-size: 1.1rem;
   font-weight: 100;
-  padding: 0 1.4rem;
+  padding: 0.5rem 1.4rem;
+  margin: 1rem 0;
   display: flex;
   align-items: center;
 
@@ -118,7 +119,7 @@ export const PostMainContent = styled.section`
   ol {
     list-style: disc;
     padding-left: 2.5rem;
-    margin: 0 auto 1.6rem;
+    margin: 0 1.5rem 1.6rem;
   }
   li {
     padding: 0.625rem 0;
@@ -146,10 +147,13 @@ export const PostMainContent = styled.section`
     `}
   }
   blockquote {
+    width: 95%;
     color: var(--white);
+    background-color: var(--quoteBackground);
     border-left: 0.3rem solid var(--sidebarBackground);
-    padding: 0 1.875rem;
+    padding: 0.5rem;
     margin: 3.125rem auto;
+    margin-left: 1.5rem;
   }
   hr {
     border: 1px solid var(--borders);

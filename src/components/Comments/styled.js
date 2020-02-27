@@ -3,11 +3,11 @@ import media from "styled-media-query";
 
 export const CommentsWrapper = styled.section`
   margin: auto;
-  max-width: 70rem;
-  padding: 3rem 4rem 3rem;
+  max-width: 100%;
+  padding: 1rem;
 
   ${media.lessThan("large")`
-    padding: 3rem 1.4rem 0;
+    padding: 1rem;
     max-width: 100%;
   `}
 
