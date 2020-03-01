@@ -24,7 +24,7 @@ export const PostHeader = styled.header`
 `;
 
 export const PostTitle = styled.h1`
-  font-size: 3.5rem;
+  font-size: 2.7rem;
   font-weight: 700;
   padding: 0 1.4rem;
   margin: 1rem 0;

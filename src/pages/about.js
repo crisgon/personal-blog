@@ -73,7 +73,11 @@ const About = () => {
               createdAt="Maior de 1995"
               iconColor="#e74c3c"
               icon={<FiActivity />}
-              contentStyle={{ lineHeight: "1.5rem" }}
+              contentStyle={{
+                lineHeight: "1.5rem",
+                fontSize: "1.2rem",
+                fontWeight: 300
+              }}
             >
               Aqui começava a caminhada de um menino que queria ser astronauta,
               cientista ou veterinário..
@@ -85,7 +89,11 @@ const About = () => {
               createdAt="2011"
               iconColor="#e74c3c"
               icon={<FaRegBookmark />}
-              contentStyle={{ lineHeight: "1.5rem" }}
+              contentStyle={{
+                lineHeight: "1.5rem",
+                fontSize: "1.2rem",
+                fontWeight: 300
+              }}
             >
               Sempre fui ligado em animes e coisas do tipo, por isso logo quando
               tive meu primeiro computador eu decidi que iria criar um site
@@ -103,7 +111,11 @@ const About = () => {
               createdAt="Janeiro de 2012"
               iconColor="#e74c3c"
               icon={<FaUniversity />}
-              contentStyle={{ lineHeight: "1.5rem" }}
+              contentStyle={{
+                lineHeight: "1.5rem",
+                fontSize: "1.2rem",
+                fontWeight: 300
+              }}
             >
               Iniciei um curso superior sem saber exatemente tudo que ia
               encontrar lá, mas já tinha o desejo de trabalhar com web.
@@ -115,7 +127,11 @@ const About = () => {
               createdAt="Julho de 2018"
               iconColor="#e74c3c"
               icon={<MdComputer />}
-              contentStyle={{ lineHeight: "1.5rem" }}
+              contentStyle={{
+                lineHeight: "1.5rem",
+                fontSize: "1.2rem",
+                fontWeight: 300
+              }}
             >
               Iniciei meu primeiro emprego formal, depois de alguns anos como
               bolsita estagiário. Foi um grande desafio, onde trabalhei
@@ -128,7 +144,11 @@ const About = () => {
               createdAt="Novembro de 2018"
               iconColor="#e74c3c"
               icon={<TiMortarBoard />}
-              contentStyle={{ lineHeight: "1.5rem" }}
+              contentStyle={{
+                lineHeight: "1.5rem",
+                fontSize: "1.2rem",
+                fontWeight: 300
+              }}
             >
               Depois de muito sofrimento...
             </TimelineEvent>
@@ -139,7 +159,11 @@ const About = () => {
               createdAt="Dezembro de 2018"
               iconColor="#e74c3c"
               icon={<MdComputer />}
-              contentStyle={{ lineHeight: "1.5rem" }}
+              contentStyle={{
+                lineHeight: "1.5rem",
+                fontSize: "1.2rem",
+                fontWeight: 300
+              }}
             >
               Aceitei um novo desafio, trabalhar com uma stack totalmente
               desconhecida pra mim. React + Typsecript + Mobx. Fiz uma ótima

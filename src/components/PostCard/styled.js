@@ -53,7 +53,7 @@ export const PostCardContainer = styled.section`
 export const PostTitle = styled.h1`
   color: var(--titleColor);
   font-size: 1.5rem;
-  font-weight: 300;
+  font-weight: 00;
   padding: 0.5rem 0;
 `;
 
@@ -89,7 +89,7 @@ export const PostTimeAndTag = styled.div`
 `;
 
 export const PostResume = styled.p`
-  font-weight: 300;
+  font-weight: 200;
   font-size: 1.2rem;
   line-height: 1.2;
   word-break: break-all;
