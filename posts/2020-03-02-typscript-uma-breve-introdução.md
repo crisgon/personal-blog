@@ -33,9 +33,7 @@ Trabalhar com a tipagem dinâmica do javascript é como andar no escuro em um la
 
 ![Pesquisa do stack overflow sobre as linguagens mais amadas em 2019.](assets/img/most-love.png "Pesquisa do stack overflow sobre as linguagens mais amadas em 2019.")
 
-
-
-## Como funciona? 
+## Como funciona?
 
 Typescript funciona apenas em tempo de execução. O que isso quer dizer? Enquanto você estiver escrevendo seu código ele vai ser typescript, mas quando você fazer o build e acessar no seu navegador ele vai ser exatamente o javascript comum que você já conhece. Tá, pode não ter ficado tão claro assim, mas vamos ao código.
 
@@ -44,7 +42,6 @@ No javascript a gente simplesmente declara uma variavel e o seu tipo é inferido
 ```javascript
 let name = 'Cristiano'; // name é uma string
 name = 22; // agora name é um number
-
 ```
 
 No typescript a inferência de tipos também acontece, a diferença é que nele a gente pode apontar qual o tipo e  não podemos alterá-lo mais.
@@ -55,7 +52,11 @@ name = 22; // Isso vai gerar um erro. number
 //Type '22' is not assignable to type 'number'.
 ```
 
-Como eu disse anteriormente, podemos apontar um tipo de forma explicita.
+
+
+## Tipando o básico
+
+Como eu disse anteriormente, podemos apontar um tipo de forma explicita usando alguns tipos já conhecidos do javascript e alguns tipos "estranhos": 
 
 ```typescript
 let age: number = 24;
