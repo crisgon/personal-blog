@@ -19,9 +19,9 @@ export default function HTML(props) {
           src="https://www.googletagmanager.com/gtag/js?id=UA-112769213-1"
         ></script>
         <script>
-          window.dataLayer = window.dataLayer || []; function gtag()
-          {dataLayer.push(arguments)}
-          gtag('js', new Date()); gtag('config', 'UA-112769213-1');
+          window.dataLayer = window.dataLayer || []; function gtag();
+          window.dataLayer.push(arguments); gtag('js', new Date());
+          gtag('config', 'UA-112769213-1');
         </script>
         <script
           dangerouslySetInnerHTML={{
