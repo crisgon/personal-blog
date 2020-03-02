@@ -28,7 +28,7 @@ collections:
         label: "Category",
         name: "category",
         widget: "select",
-        options: ["JS", "CSS", "HTML", "React", "Vue", "UX", "Geral"]
+        options: ["JS", "CSS", "HTML", "React", "Vue", "UX", "Geral", 'Typescript']
       }
       - {
         label: "Tag Color",
