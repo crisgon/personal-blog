@@ -41,7 +41,7 @@ collections:
           {label: "React", value: "#3498db"},
           {label: "Vue", value: "#1abc9c"},
           {label: "UX", value: "#ED4C67"},
-          {label: "Geral", value: "#e056fd"}
+          {label: "Geral", value: "#e056fd"},
           {label: "Typescript", value: "#130f40"}
         ]
       }
