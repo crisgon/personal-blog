@@ -10,6 +10,12 @@ module.exports = {
     siteUrl: "https://crisgon.dev"
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-112769213-1"
+      }
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-transition-link`,
