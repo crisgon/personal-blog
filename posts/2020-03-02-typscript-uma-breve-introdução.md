@@ -52,14 +52,14 @@ name = 22; // Isso vai gerar um erro. number
 //Type '22' is not assignable to type 'number'.
 ```
 
-
-
 ## Tipando o básico
 
-Como eu disse anteriormente, podemos apontar um tipo de forma explicita usando alguns tipos já conhecidos do javascript e alguns tipos "estranhos": 
+Como eu disse anteriormente, podemos apontar um tipo de forma explicita usando alguns tipos já conhecidos do javascript e alguns tipos "estranhos": `number, string, boolean, null, undefined, any e never.`
 
 ```typescript
 let age: number = 24;
 let fullName: string = 'Cristiano';
 let married: boolean = false;
+let isNull: null = null;
+let isUndefined: undefined = undefined;
 ```
