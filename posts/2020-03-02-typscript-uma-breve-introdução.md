@@ -10,7 +10,7 @@ image: assets/img/ts-js.png
 category: Typescript
 tagColor: '#130f40'
 ---
-![Javascript e Typescript](assets/img/ts-js.png "Javascript e Typescript")
+
 
 Um tempo atrás eu fazia cara feia só de ouvir o nome typescript... Pra mim não fazia sentido deixar de aproveitar a tipagem dinâmica nativa do javascript e usar uma tipagem estática e "engessada". Era um pensamento bem nada a ver, mas isso mudou quando a pouco mais de 1 ano aceitei o desafio de trabalhar com typescript e hoje não me sinto tão confortável em utilizar com javascript puro.
 
@@ -143,3 +143,11 @@ Lembrando que o Typescript tem bem mais poder do que isso que mostrei aqui, em u
 
 \
 Obrigado por ler até aqui!
+
+
+
+## Links Importantes
+
+* [Typescript HandBook](https://www.typescriptlang.org/v2/docs/handbook/basic-types.html)
+
+* [Typescript Playground](https://www.typescriptlang.org/play/index.html)
