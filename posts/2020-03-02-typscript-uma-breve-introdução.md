@@ -64,9 +64,7 @@ let isNull: null = null;
 let isUndefined: undefined = undefined;
 ```
 
-
-
-## Any 
+## Any
 
 Any é exatamente a tradução literal: **qualquer**. Em outras palavras, algo declarado como `any` pode receber um number e depois uma string sem nenhum problema.
 
@@ -78,11 +76,9 @@ someThing = false;
 // Todas as atribuições acima são válidas
 ```
 
-
-
 ## Void
 
-Não é apenas variavéis que podemos tipar, também conseguimos tipar o retorno de uma função ou os parâmetros que ela vai receber. Utilizamos o `void ` quando queremos representar o vazio, quando uma função não tem retorno, por exemplo.
+Não é apenas variavéis que podemos tipar, também conseguimos tipar o retorno de uma função ou os parâmetros que ela vai receber. Utilizamos o `void` quando queremos representar o vazio, quando uma função não tem retorno, por exemplo.
 
 ```typescript
 function someFunction(a: number, b: number): void {
@@ -94,7 +90,6 @@ someFunction('1','2')
 
 const someThing = someFunction(1,2);
 // O type de someThing agora é void
-
 ```
 
 ## Never
@@ -109,7 +104,27 @@ function infiniteLoop(): never {
 let age: number  = 24;
 age = never;
 
-let someThing: never = never;
+let someThing: never = infiniteLoop();
 someThing = 'Hello';
 //Error
 ```
+
+
+
+## Tipando arrays
+
+Tipar arrays é algo bem simples, basicamente podemos definir um array type de duas formas.
+
+```typescript
+const numbers: number[] = [1,2,3,4];
+const colors: string[] = ['red', 'black', 'white'];
+
+// O código acima é equivalente ao código abaixo
+
+const numbers: Array<number> = [1,2,3,4];
+const colors: Array<string> = ['red', 'black', 'white'];
+
+
+```
+
+## Tipando objetos com tipos personalizados
