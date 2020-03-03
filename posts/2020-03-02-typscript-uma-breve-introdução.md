@@ -1,5 +1,5 @@
 ---
-title: Typscript - Uma breve introdução
+title: Typescript - Uma breve introdução
 resume: >-
   Trabalhar com a tipagem dinâmica do javascript é como andar no escuro em um
   labirinto... Você não sabe onde está e quando pensa que sabe tudo pode mudar
@@ -62,6 +62,16 @@ let fullName: string = 'Cristiano';
 let married: boolean = false;
 let isNull: null = null;
 let isUndefined: undefined = undefined;
+let isObject: object = {};
+
+// Todas as atribuições abaixo geram erros
+
+age = 'Cris';
+fullName = false;
+married = 24;
+isNull = {};
+isUndefined = null;
+isObject = undefined;
 ```
 
 ## Any
@@ -109,8 +119,6 @@ someThing = 'Hello';
 //Error
 ```
 
-
-
 ## Tipando arrays
 
 Tipar arrays é algo bem simples, basicamente podemos definir um array type de duas formas.
@@ -123,8 +131,11 @@ const colors: string[] = ['red', 'black', 'white'];
 
 const numbers: Array<number> = [1,2,3,4];
 const colors: Array<string> = ['red', 'black', 'white'];
-
-
 ```
 
-## Tipando objetos com tipos personalizados
+## Finalizando...
+
+Esse foi apenas uma introdução bem sucinta. O principal objetivo era apresentar a ferramenta para quem nunca teve contato, espeo que tenha ajudado. Se você se interessou por typescript, continua me acompanhando que vou criar mais contéudo sobre ele, ou então vai direto na fonte no link que vou deixar a seguir.
+
+Lembrando que o Typescript tem bem mais poder do que isso que eu mostrei aqui, em um próximo artigo vou abordar sobres tipos personalizados usando `interface/types`, `enums` e `assertions`.\
+Obrigado por ler até aqui, deixa
