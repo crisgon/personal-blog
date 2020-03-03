@@ -54,7 +54,7 @@ name = 22; // Isso vai gerar um erro. number
 
 ## Tipando o básico
 
-Como eu disse anteriormente, podemos apontar um tipo de forma explicita usando alguns tipos já conhecidos do javascript e alguns tipos "estranhos": `number, string, boolean, null, undefined, any e never.`
+Como eu disse anteriormente, podemos apontar um tipo de forma explicita usando alguns tipos já conhecidos do javascript e alguns tipos "estranhos": `number, string, boolean, null, undefined, any, never e void.`
 
 ```typescript
 let age: number = 24;
@@ -62,4 +62,54 @@ let fullName: string = 'Cristiano';
 let married: boolean = false;
 let isNull: null = null;
 let isUndefined: undefined = undefined;
+```
+
+
+
+## Any 
+
+Any é exatamente a tradução literal: **qualquer**. Em outras palavras, algo declarado como `any` pode receber um number e depois uma string sem nenhum problema.
+
+```typescript
+let someThing: any = 22;
+someThing = 'Hello';
+someThing = false;
+
+// Todas as atribuições acima são válidas
+```
+
+
+
+## Void
+
+Não é apenas variavéis que podemos tipar, também conseguimos tipar o retorno de uma função ou os parâmetros que ela vai receber. Utilizamos o `void ` quando queremos representar o vazio, quando uma função não tem retorno, por exemplo.
+
+```typescript
+function someFunction(a: number, b: number): void {
+  console.log(a, b);
+}
+
+someFunction('1','2')
+// Error!
+
+const someThing = someFunction(1,2);
+// O type de someThing agora é void
+
+```
+
+## Never
+
+O never representa valores que nunca ocorrem, por exemplo o retorno de uma função com `while(true)`. Algo interessante é que `never` pode ser atribuido para qualquer tipo, porém algo do tipo `never` só aceita valores `never`.
+
+```typescript
+function infiniteLoop(): never {
+  while (true) {}
+}
+
+let age: number  = 24;
+age = never;
+
+let someThing: never = never;
+someThing = 'Hello';
+//Error
 ```
