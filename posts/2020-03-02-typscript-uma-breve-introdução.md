@@ -12,7 +12,9 @@ tagColor: '#130f40'
 ---
 ![Javascript e Typescript](assets/img/ts-js.png "Javascript e Typescript")
 
-Javascript é uma linguagem muito permissiva e simples, ela não tem tipagem forte e isso torna seu aprendizado mais fácil, porém, com grandes poderes vem grandes responsabilidades. Toda a liberdade que o javascript oferece pode ser muito perigosa caso você não saiba exatamente o que está fazendo.
+Um tempo atrás eu fazia cara feia só de ouvir o nome typescript... Pra mim não fazia sentido deixar de aproveitar a tipagem dinâmica nativa do javascript e usar uma tipagem estática e "engessada". Era um pensamento bem nada a ver, mas isso mudou quando a pouco mais de 1 ano aceitei o desafio de trabalhar com typescript e hoje não me sinto tão confortável em utilizar com javascript puro.
+
+Javascript é uma linguagem muito permissiva e simples, ela não tem tipagem forte e isso torna seu aprendizado mais fácil, porém, **com grandes poderes vem grandes responsabilidades**. Toda a liberdade que o javascript oferece pode ser muito perigosa caso você não saiba exatamente o que está fazendo.
 
 >  “Apesar do JavaScript ser talvez uma das linguagens mais fáceis de se começar, suas excentricidades fazem com que o domínio sólido da linguagem seja muito menos comum do que em outras linguagens. Enquanto se precisa um conhecimento aprofundado em linguagens como C ou C++ para escrever um programa em grande escala, uma aplicação similar em JavaScript pode ser desenvolvida, e muitas vezes é, apenas arranhando parte do que a linguagem pode fazer de verdade”
 >
@@ -20,10 +22,10 @@ Javascript é uma linguagem muito permissiva e simples, ela não tem tipagem for
 
 ### Antes de prosseguir acho importante deixar claro dois termos:
 
-* Linguagens tipadas: Também conhecidas como fortemente tipadas, são linguagens onde você é obrigado a declarar o tipo do dado. Ex: Java, C++, C#
-* Linguagens não tipadas: Também conhecidas como fracamente tipadas ou de tipagem dinâmica, são linguagens onde a conversão é feita durante a execução do programa e sem a necessidade do programador forçar a conversão. Ex: PHP, Javascript, Ruby, Python.
+* Linguagens tipadas: também conhecidas como fortemente tipadas, são linguagens onde você é obrigado a declarar o tipo do dado. Ex: Java, C++, C#
+* Linguagens não tipadas: também conhecidas como fracamente tipadas ou de tipagem dinâmica, são linguagens onde a conversão é feita durante a execução do programa e sem a necessidade do programador forçar a conversão. Ex: PHP, Javascript, Ruby, Python.
 
-Trabalhar com a tipagem dinâmica do javascript é como andar no escuro em um labirinto... Você não sabe onde está e quando pensa que sabe tudo pode mudar muito rápido e acabar te deixando confuso.  Recomendo dar uma olhada [nesse](https://www.crisgon.dev/coercao-de-tipos-em-javascript/) artigo que escrevi em um outro momento sobre coerção de tipos.
+Trabalhar com a tipagem dinâmica do javascript é como andar no escuro em um labirinto... Você não sabe onde está e quando pensa que sabe tudo pode mudar muito rápido e acabar te deixando confuso.  Recomendo dar uma olhada [nesse](https://www.crisgon.dev/coercao-de-tipos-em-javascript/) artigo que escrevi em outro momento sobre coerção de tipos.
 
 É com a premissa de resolver esses problemas que o Typescript surgiu, mas o que é exatamente Typescript?
 
@@ -35,16 +37,16 @@ Trabalhar com a tipagem dinâmica do javascript é como andar no escuro em um la
 
 ## Como funciona?
 
-Typescript funciona apenas em tempo de execução. O que isso quer dizer? Enquanto você estiver escrevendo seu código ele vai ser typescript, mas quando você fazer o build e acessar no seu navegador ele vai ser exatamente o javascript comum que você já conhece. Tá, pode não ter ficado tão claro assim, mas vamos ao código.
+Typescript funciona apenas em tempo de execução. O que isso quer dizer? Enquanto você estiver escrevendo seu código ele vai ser typescript, mas quando você fazer o build e acessar no seu navegador ele  será exatamente o javascript comum que você já conhece. Tá! Pode não ter ficado tão claro assim, mas vamos ao código.
 
-No javascript a gente simplesmente declara uma variavel e o seu tipo é inferido e pode ser alterado em todo nosso código. 
+No javascript a gente simplesmente declara uma variável e o seu tipo é inferido e pode ser alterado em todo nosso código. 
 
 ```javascript
 let name = 'Cristiano'; // name é uma string
 name = 22; // agora name é um number
 ```
 
-No typescript a inferência de tipos também acontece, a diferença é que nele a gente pode apontar qual o tipo e  não podemos alterá-lo mais.
+No typescript a inferência de tipos também acontece, a diferença é que nele, podemos apontar qual o tipo e  não conseguimos alterá-lo mais.
 
 ```typescript
 let name = 'Cristiano'; // name é uma string
@@ -88,7 +90,7 @@ someThing = false;
 
 ## Void
 
-Não é apenas variavéis que podemos tipar, também conseguimos tipar o retorno de uma função ou os parâmetros que ela vai receber. Utilizamos o `void` quando queremos representar o vazio, quando uma função não tem retorno, por exemplo.
+Não é apenas variáveis que podemos tipar, também conseguimos tipar o retorno de uma função ou os parâmetros que ela vai receber. Utilizamos o `void` quando queremos representar o vazio, quando uma função não tem retorno, por exemplo.
 
 ```typescript
 function someFunction(a: number, b: number): void {
@@ -104,7 +106,7 @@ const someThing = someFunction(1,2);
 
 ## Never
 
-O never representa valores que nunca ocorrem, por exemplo o retorno de uma função com `while(true)`. Algo interessante é que `never` pode ser atribuido para qualquer tipo, porém algo do tipo `never` só aceita valores `never`.
+O never representa valores que nunca ocorrem, por exemplo, o retorno de uma função com `while(true)`. Algo interessante é que `never` pode ser atribuído para qualquer tipo, porém algo do tipo `never` só aceita valores `never`.
 
 ```typescript
 function infiniteLoop(): never {
@@ -135,7 +137,9 @@ const colors: Array<string> = ['red', 'black', 'white'];
 
 ## Finalizando...
 
-Esse foi apenas uma introdução bem sucinta. O principal objetivo era apresentar a ferramenta para quem nunca teve contato, espeo que tenha ajudado. Se você se interessou por typescript, continua me acompanhando que vou criar mais contéudo sobre ele, ou então vai direto na fonte no link que vou deixar a seguir.
+Esse foi apenas uma introdução bem sucinta. O principal objetivo era apresentar a ferramenta para quem nunca teve contato, espero que tenha ajudado. Se você se interessou por typescript, continua me acompanhando que vou criar mais conteúdo sobre ele, ou então vai direto na fonte no link que deixarei a seguir.
 
-Lembrando que o Typescript tem bem mais poder do que isso que eu mostrei aqui, em um próximo artigo vou abordar sobres tipos personalizados usando `interface/types`, `enums` e `assertions`.\
-Obrigado por ler até aqui, deixa
+Lembrando que o Typescript tem bem mais poder do que isso que mostrei aqui, em um próximo artigo vou abordar sobres tipos personalizados usando,`interface/types`, `enums` e `assertions.`
+
+\
+Obrigado por ler até aqui!
