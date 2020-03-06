@@ -27,8 +27,9 @@ function SEO({ description, lang, meta, title, image }) {
   );
 
   const metaDescription = description || site.siteMetadata.description;
-  const siteUrl = site.siteMetadata.siteUrl;
-  const coverImage = `${siteUrl}${image || "/assets/img/profile.jpg"}`;
+  const coverImage =
+    image ||
+    "https://www.crisgon.dev/static/7dea4e14d8cac0f8210c2d542ba56bbd/954df/profile.jpg";
 
   return (
     <Helmet
@@ -38,6 +39,10 @@ function SEO({ description, lang, meta, title, image }) {
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
       meta={[
+        {
+          name: `aplication-name`,
+          content: "Cristiano Gonçalves Blog"
+        },
         {
           name: `description`,
           content: metaDescription
