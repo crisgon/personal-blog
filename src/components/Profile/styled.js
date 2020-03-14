@@ -26,7 +26,7 @@ export const ProfileLink = styled(AniLink)`
   transition: all 0.2s;
 
   &:hover {
-    color: var(--darkRed);
+    transform: scale(1.1);
   }
 `;
 
