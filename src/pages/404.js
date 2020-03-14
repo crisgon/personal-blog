@@ -1,14 +1,21 @@
 import React from "react";
 
-import Layout from "../components/Layout";
 import SEO from "../components/seo";
+import NotFoundImage from "../components/NotFoundImage";
+
+import * as S from "../components/404/styled";
 
 const NotFoundPage = () => (
-	<Layout>
-		<SEO title="404: Not found" />
-		<h1>NOT FOUND</h1>
-		<p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-	</Layout>
-);
+  <>
+    <SEO title="404: Not found" />
+    <S.NotFoundContainer>
+      <NotFoundImage />
 
+      <S.NotFoundMessage>
+        Ops! O que você procura talvez não exista... Que tal voltar para o
+        <S.Link to="/"> blog</S.Link>?
+      </S.NotFoundMessage>
+    </S.NotFoundContainer>
+  </>
+);
 export default NotFoundPage;

@@ -67,6 +67,7 @@ border-spacing: 0;
     --paginateColor: #fff;
     --titleColor: #ccc;
     --quoteBackground: #38444d;
+    --notFoundbackground: #121212;
   }  
 
   body.light {
@@ -84,6 +85,7 @@ border-spacing: 0;
     --paginateColor: #1e272e;
     --titleColor: #e74c3c;
     --quoteBackground: #ddd;
+    --notFoundbackground: #ffffff;
   }
 `;
 
