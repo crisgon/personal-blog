@@ -23,13 +23,13 @@ export const NavItem = styled.li`
   padding: 0.5rem;
 
   .active {
-    color: var(--darkRed);
+    color: var(--white);
   }
 `;
 
 export const NavLink = styled(AniLink)`
   text-decoration: none;
-  color: var(--white);
+  color: var(--darkRed);
   font-weight: 300;
   position: relative;
 
