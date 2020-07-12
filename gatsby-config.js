@@ -7,14 +7,29 @@ module.exports = {
     position: "Desenvolvedor FrontEnd",
     description: `Desenvolvedor na Cubos Tecnologia, baiano com orgulho, amante de tecnologias, viagens, músicas e cultura japonesa.`,
     author: `@Gonkristiano`,
-    siteUrl: "https://crisgon.dev"
+    siteUrl: "https://crisgon.dev",
   },
   plugins: [
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: process.env.GOOGLE_TRACKING_ID
-      }
+        trackingId: process.env.GOOGLE_TRACKING_ID,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Roboto`,
+            variants: [`400`, `700`],
+          },
+          {
+            family: `Roboto`,
+            subsets: [`latin`],
+          },
+        ],
+      },
     },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
@@ -23,22 +38,22 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `uploads`,
-        path: `${__dirname}/static/assets/img`
-      }
+        path: `${__dirname}/static/assets/img`,
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`
-      }
+        path: `${__dirname}/src/images`,
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `posts`,
-        path: `${__dirname}/posts`
-      }
+        path: `${__dirname}/posts`,
+      },
     },
 
     `gatsby-transformer-sharp`,
@@ -51,8 +66,8 @@ module.exports = {
         indexName: process.env.GATSBY_ALGOLIA_INDEX_NAME, // for all queries
         queries,
         chunkSize: 10000,
-        enablePartialUpdates: true
-      }
+        enablePartialUpdates: true,
+      },
     },
     {
       resolve: `gatsby-plugin-manifest`,
@@ -63,8 +78,8 @@ module.exports = {
         background_color: `#e74c3c`,
         theme_color: `#e74c3c`,
         display: `minimal-ui`,
-        icon: `src/images/icon.png` // This path is relative to the root of the site.
-      }
+        icon: `src/images/icon.png`, // This path is relative to the root of the site.
+      },
     },
     {
       resolve: "gatsby-transformer-remark",
@@ -73,39 +88,39 @@ module.exports = {
           {
             resolve: "gatsby-remark-relative-images",
             options: {
-              name: "uploads"
-            }
+              name: "uploads",
+            },
           },
           {
             resolve: "gatsby-remark-images",
             options: {
               maxWidth: 960,
               linkImagesToOriginal: false,
-              showCaptions: true
-            }
+              showCaptions: true,
+            },
           },
 
           {
             resolve: "gatsby-remark-copy-linked-files",
             options: {
-              destinationDir: "static/assets/img/"
-            }
+              destinationDir: "static/assets/img/",
+            },
           },
           {
             resolve: "@weknow/gatsby-remark-codepen",
             options: {
               theme: "dark",
-              height: 400
-            }
+              height: 400,
+            },
           },
           `gatsby-remark-lazy-load`,
-          `gatsby-remark-prismjs`
-        ]
-      }
+          `gatsby-remark-prismjs`,
+        ],
+      },
     },
 
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-offline`,
-    `gatsby-plugin-netlify-cms`
-  ]
+    `gatsby-plugin-netlify-cms`,
+  ],
 };
