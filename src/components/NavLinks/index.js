@@ -14,8 +14,7 @@ const NavLinks = () => (
           <S.NavLink
             to={link.url}
             activeClassName="active"
-            cover
-            direction="left"
+            fade
             duration={0.6}
             bg={getThemeColor()}
           >

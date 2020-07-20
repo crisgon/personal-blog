@@ -21,8 +21,7 @@ const Paginate = ({
       {!isFirst && (
         <S.Link
           to={prevPage}
-          cover
-          direction="left"
+          fade
           duration={0.6}
           bg={getThemeColor()}
         >
@@ -38,8 +37,7 @@ const Paginate = ({
       {!isLast && (
         <S.Link
           to={nextPage}
-          cover
-          direction="right"
+          fade
           duration={0.6}
           bg={getThemeColor()}
         >

@@ -29,8 +29,7 @@ const Profile = () => {
       <Avatar />
       <S.ProfileLink
         to="/"
-        cover
-        direction="left"
+        fade
         duration={0.6}
         bg={getThemeColor()}
       >

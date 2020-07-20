@@ -33,8 +33,7 @@ const NavBar = () => {
       <S.NavBarItem title="Voltar para o Início">
         <S.NavBarLink
           to="/"
-          cover
-          direction="left"
+          fade
           duration={0.6}
           bg={getThemeColor()}
         >
@@ -47,8 +46,7 @@ const NavBar = () => {
       <S.NavBarItem title="Pesquisar">
         <S.NavBarLink
           to="/search"
-          cover
-          direction="left"
+          fade
           duration={0.6}
           bg={getThemeColor()}
         >

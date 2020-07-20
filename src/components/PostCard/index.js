@@ -14,28 +14,27 @@ const PostCard = ({
   category,
   resume
 }) => (
-  <S.PostLink
-    to={slug}
-    cover
-    direction="left"
-    duration={0.6}
-    bg={getThemeColor()}
-  >
-    <S.PostCardContainer tagColor={tagColor}>
-      <S.PostInfo>
-        <S.PostTitle>{title}</S.PostTitle>
-        <S.PostTimeAndTag>
-          <S.PostTime>
-            {date} {timeToRead && <spa>| {timeToRead} min de Leitura</spa>}
-          </S.PostTime>
-          <S.PostTag tagColor={tagColor}>{category}</S.PostTag>
-        </S.PostTimeAndTag>
-      </S.PostInfo>
+    <S.PostLink
+      to={slug}
+      fade
+      duration={0.6}
+      bg={getThemeColor()}
+    >
+      <S.PostCardContainer tagColor={tagColor}>
+        <S.PostInfo>
+          <S.PostTitle>{title}</S.PostTitle>
+          <S.PostTimeAndTag>
+            <S.PostTime>
+              {date} {timeToRead && <spa>| {timeToRead} min de Leitura</spa>}
+            </S.PostTime>
+            <S.PostTag tagColor={tagColor}>{category}</S.PostTag>
+          </S.PostTimeAndTag>
+        </S.PostInfo>
 
-      <S.PostResume>{resume}</S.PostResume>
-    </S.PostCardContainer>
-  </S.PostLink>
-);
+        <S.PostResume>{resume}</S.PostResume>
+      </S.PostCardContainer>
+    </S.PostLink>
+  );
 
 PostCard.prototype = {
   slug: PropTypes.string.isRequired,
