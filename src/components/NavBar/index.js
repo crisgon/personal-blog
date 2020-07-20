@@ -75,6 +75,7 @@ const NavBar = () => {
 
       <S.NavBarItem
         title="Mudar visualização"
+        style={{ display: 'none' }}
         onClick={() => {
           window.__setPreferredDisplay(isGrid ? "list" : "grid");
         }}
