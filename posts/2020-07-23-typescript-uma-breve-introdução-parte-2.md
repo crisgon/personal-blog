@@ -54,3 +54,9 @@ const [name] = useState("Cris");
 No trecho de código acima o `useState` está retornando um array de uma posição, onde o primeiro item desse array é exatamente uma string.  Não se preocupe em entender o que está acontecendo com o `useState` por debaixo dos panos, pra isso seria necessário abordar o tema `generatos`, que é um pouquinho mais complexo. Por hora se atente a informação de que `useState` é uma função que está retornando um array de tamanho com o seguinte tipo `[string]`
 
 ``
+
+## Enums
+
+
+
+``
