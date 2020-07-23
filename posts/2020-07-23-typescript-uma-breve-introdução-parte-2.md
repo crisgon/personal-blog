@@ -1,5 +1,5 @@
 ---
-title: Typescript - Uma breve introdução - Parte 2
+title: 'Typescript - Uma breve introdução - Tuplas, Enums e Type Assertion'
 resume: >-
   No último artigo aprendemos um pouco sobre o básico para iniciar no
   typescript. Dessa vez iremos aprender sobre mais alguns conceitos básicos, mas
@@ -10,8 +10,6 @@ category: Typescript
 tagColor: '#130f40'
 ---
 No [artigo anterior](https://www.crisgon.dev/typescript-uma-breve-introdu%C3%A7%C3%A3o/) descobrimos como tipar o básico com javascript, number, string, boolean, null, undefined, void, any e never. Dessa vez iremos prosseguir com conceitos básicos e aprender um pouco sobre tuples(tuplas), enums e type assertion.
-
-
 
 ## Tuplas
 
@@ -29,7 +27,7 @@ Provavelmente uma tupla não seja a melhor abordagem, mas podemos fazer algo ass
 
 `person = [true, 25] // Erro!`
 
-Algo interessante é que poderíamos recuperar os valores de `person` armazenando em variáveis de forma bem simples por meio de uma desestruturação.
+Algo interessante é que poderíamos recuperar os valores de `person` armazenando em variáveis de forma bem simples através de uma desestruturação.
 
 `person = ["Cristiano", 25, true];`
 
@@ -41,6 +39,10 @@ Algo interessante é que poderíamos recuperar os valores de `person` armazenand
 
 `isEmployed === true; // true`
 
+Um caso de uso bem interessante sobre tuplas são os `react hooks. `
 
+`const [name] = useState("Cris");`
+
+No trecho de código acima o `useState` está retornando um array de uma posição, onde o primeiro item desse array é exatamente uma string.  Não se preocupe em entender o que está acontecendo com o `useState` por debaixo dos panos, pra isso seria necessário abordar o tema `generatos`, que é um pouquinho mais complexo. Por hora se atente a informação de que `useState` é uma função que está retornando um array de tamanho com o seguinte tipo `[string]`
 
 ``
