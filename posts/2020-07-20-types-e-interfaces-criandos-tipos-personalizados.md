@@ -13,10 +13,18 @@ No [artigo anterior](https://www.crisgon.dev/typescript-uma-breve-introdu%C3%A7%
 
 *Antes de iniciar, gostaria de recomendar o uso do [playground](https://www.typescriptlang.org/play/) para pequenos testes e estudos. Dessa forma vamos conseguir estudar de maneira simplificada e sem a necessidade de criar e configurar um projeto local.*
 
-
-
 ## Types
 
 A situação mais comum é quando queremos que alguma propriedade seja de um tipo ou de outro. Vamos ao exemplo...
 
-Vamos supor que temos uma função que re
+`function showValue(val: string) {`
+
+``return `O valor informado foi ${val}`;``
+
+`}`
+
+Podemos usar a função da seguinte forma: `showValue("casa");` Po
+
+``
+
+``
