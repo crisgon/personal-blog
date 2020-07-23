@@ -19,29 +19,37 @@ Vamos supor que eu quero guardar nome, idade e se a pessoa está empregada ou n�
 
 Provavelmente uma tupla não seja a melhor abordagem, mas podemos fazer algo assim:
 
-`let person: [string, number, boolean];`
+```typescript
+let person: [string, number, boolean];
 
-`person = ["Cristiano", 25, true]; // Ok`
+person = ["Cristiano", 25, true]; // Ok
 
-`person = ["Cristiano", 25]  // Erro!`
+person = ["Cristiano", 25]  // Erro!
 
-`person = [true, 25] // Erro!`
+person = [true, 25] // Erro!
+```
+
+``
 
 Algo interessante é que poderíamos recuperar os valores de `person` armazenando em variáveis de forma bem simples através de uma desestruturação.
 
-`person = ["Cristiano", 25, true];`
+```typescript
+person = ["Cristiano", 25, true];
 
-`const [name, age, isEmployed] =  person;`
+const [name, age, isEmployed] =  person;
 
-`name === "Cristiano"; // true`
+name === "Cristiano"; // true
 
-`age === 25; // true`
+age === 25; // true
 
-`isEmployed === true; // true`
+isEmployed === true; // true
+```
 
-Um caso de uso bem interessante sobre tuplas são os `react hooks. `
+Um caso de uso bem interessante sobre tuplas são os `react hooks.`
 
-`const [name] = useState("Cris");`
+```typescript
+const [name] = useState("Cris");
+```
 
 No trecho de código acima o `useState` está retornando um array de uma posição, onde o primeiro item desse array é exatamente uma string.  Não se preocupe em entender o que está acontecendo com o `useState` por debaixo dos panos, pra isso seria necessário abordar o tema `generatos`, que é um pouquinho mais complexo. Por hora se atente a informação de que `useState` é uma função que está retornando um array de tamanho com o seguinte tipo `[string]`
 
