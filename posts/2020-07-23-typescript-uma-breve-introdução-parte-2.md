@@ -94,11 +94,11 @@ Porém, essa não me parece a melhor abordagem...
 ```typescript
  enum Elos {
   Ferro = 1,
-  Bronze, // 2
-  Prata, // 3
-  Ouro, // 4
-  Platina, // 5
-  Diamante, // 6
+  Bronze, // Bronze terá o valor 2
+  Prata, // Prata terá o valor 3
+  Ouro, // Ouro terá o valor 4
+  Platina, // Platina terá o valor 5
+  Diamante, // Diamante terá o valor 6
 }
 ```
 
@@ -135,8 +135,6 @@ console.log(Cartas[11]); // J
 console.log(Cartas.As); // 1
 ```
 
-
-
 #### Texto (String)
 
 Enums de strings não possuem o auto-incremento, logo todas as propriedades precisam ser inicializadas.
@@ -158,16 +156,9 @@ enum Cores {
 }
 
 console.log(Cores.BLUE); // #00F
-
-
-
 ```
 
-
-
-Com enums de strings conseguimos acessar seus valores apenas usando o nome de cada chave, aqui não conseguimos fazer o mapeamento reverso como em enums numéricos. Ou seja... não da pra fazer `Cores["#0F0"] `sem receber um errão na cara.
-
-
+Com enums de strings conseguimos acessar seus valores apenas usando o nome de cada chave, aqui não conseguimos fazer o mapeamento reverso como em enums numéricos. Ou seja... não da pra fazer `Cores["#0F0"]`sem receber um errão na cara.
 
 #### Heterogêneos
 
