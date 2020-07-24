@@ -29,8 +29,6 @@ person = ["Cristiano", 25]  // Erro!
 person = [true, 25] // Erro!
 ```
 
-``
-
 Algo interessante é que poderíamos recuperar os valores de `person` armazenando em variáveis de forma bem simples através de uma desestruturação.
 
 ```typescript
@@ -45,18 +43,141 @@ age === 25; // true
 isEmployed === true; // true
 ```
 
-Um caso de uso bem interessante sobre tuplas são os `react hooks.`
+Um exemplo prático:
+
+```typescript
+function useAbobora(a: string): [string] {
+  return [a]
+}
+
+const [salada] = useAbobora('abobora é bom');
+
+console.log(salada); // abobora é bom
+```
+
+No trecho de código acima o `useAbobora` está retornando um array de uma posição, onde o primeiro item desse array é exatamente uma string.  
+
+Um uso real dessa tipagem pode ser encontrada no [useState do React](https://pt-br.reactjs.org/docs/hooks-state.html) que  retorna uma tupla de tamanho 2.
 
 ```typescript
 const [name] = useState("Cris");
 ```
 
-No trecho de código acima o `useState` está retornando um array de uma posição, onde o primeiro item desse array é exatamente uma string.  Não se preocupe em entender o que está acontecendo com o `useState` por debaixo dos panos, pra isso seria necessário abordar o tema `generatos`, que é um pouquinho mais complexo. Por hora se atente a informação de que `useState` é uma função que está retornando um array de tamanho com o seguinte tipo `[string]`
-
-``
-
 ## Enums
 
+O uso de enums é algo bem comum pra quem vem de outras linguagens como Java, C e etc, porém no JS isso não é algo comum.
+
+Um enum é basicamente uma forma de criar um conjunto de contantes com valores pré-definidos. Vamos aos exemplos que tudo vai fazer sentido...
+
+**Suponha que precisamos armazenar alguns dos [elos](https://www.ligadosgames.com/league-of-legends-elo-mmr-pdl/) disponíveis no[ League of Legends](https://br.leagueoflegends.com/pt-br/).** 
+
+A primeira forma que penso é guardar tudo em um array da seguinte forma:
+
+```typescript
+const elos = [
+  "Ferro",
+  "Bronze",
+  "Prata",
+  "Ouro",
+  "Platina",
+  "Diamante",
+]
+```
+
+Porém, essa não me parece a melhor abordagem... 
+
+* Não queremos fazer nenhuma operação de array, queremos apenas guardar os valores e usar quando necessário.
+* Só conseguimos acessar os elos por meio dos índices do array e fica difícil saber qual a posição de um elo apenas por seu nome.
+
+É aí que entram os enums, pois poderíamos armazenar esses valores da seguinte forma:
+
+```typescript
+ enum Elos {
+  Ferro = 1,
+  Bronze, // 2
+  Prata, // 3
+  Ouro, // 4
+  Platina, // 5
+  Diamante, // 6
+}
+```
+
+E acessar os valores assim:
+
+```typescript
+console.log(Elos[2]); // Bronze
+console.log(Elos.Ouro); // 4
+```
+
+No nosso exemplo nós iniciamos dizendo que ferro tinha o valor 1 e os valores seguintes assumiram um valor incremental de forma automática. Caso ferro não tivesse sido iniciado seu valor seria 0 e os outros teriam um valor incremental(1, 2,3...)
+
+Note que podemos acessar um valor a partir da chave ou do seu valor, como nos consoles acima.
+
+*Atenção, é muito importante entender que `Elos[0]` não se refere exatamente a posição 1 como em um array, 0 vai se referir a chave que tiver seu valor. Ao decorrer do artigo isso vai ficar mais evidente.*
+
+### Tipos de Enums
+
+Existem  três  tipos de enums, que são os numéricos, os de texto e os heterogêneos.
+
+#### Numéricos
+
+Conforme vimos no exemplo anterior, os enum numéricos podem ser iniciados ou não e seguem um valor incremental caso os valores seguintes não sejam definidos.
+
+```typescript
+enum Cartas {
+  As = 1,
+  J = 11,
+  Q, // 12
+  K // 13
+}
+
+console.log(Cartas[11]); // J
+console.log(Cartas.As); // 1
+```
 
 
-``
+
+#### Texto (String)
+
+Enums de strings não possuem o auto-incremento, logo todas as propriedades precisam ser inicializadas.
+
+```typescript
+// VAI DAR ERRO!! =[
+enum Cores {
+  RED = '#F00',
+  GREEN = '#0F0',
+  BLUE = '#00F',
+  PINK, // ERROOO
+}
+
+// NÃO VAI DAR ERRO! =]
+enum Cores {
+  RED = '#F00',
+  GREEN = '#0F0',
+  BLUE = '#00F',
+}
+
+console.log(Cores.BLUE); // #00F
+
+
+
+```
+
+
+
+Com enums de strings conseguimos acessar seus valores apenas usando o nome de cada chave, aqui não conseguimos fazer o mapeamento reverso como em enums numéricos. Ou seja... não da pra fazer `Cores["#0F0"] `sem receber um errão na cara.
+
+
+
+#### Heterogêneos
+
+Esse tipo de enum é basicamente a mistura dos dois anteriores, seu uso não parece ser muito comum, mas da pra criar algo como:
+
+```typescript
+enum BooleanLikeHeterogeneousEnum {
+    No = 0,
+    Yes = "YES",
+}
+```
+
+Isso é ótimo, pois ajuda muito na documentação dos projetos.
