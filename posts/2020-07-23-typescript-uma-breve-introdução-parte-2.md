@@ -182,9 +182,9 @@ Só pra matar sua curiosidade, logo abaixo tem uma imagem com o javascript que �
 
 ### Type Assertion
 
-Existem algumas situações em que "sabemos" mais que o typescript, ou simplesmente queremos forçar uma conversão de tipo, nesse caso em que precisamos recorrer às asserções de tipos(type assertion).
+Existem algumas situações em que "sabemos" mais que o typescript, ou simplesmente queremos forçar uma conversão de tipo, nesses casos precisamos recorrer às asserções de tipos(type assertion).
 
-O type assertion é uma forma de falarmos para o compilador  confiar no que estamos escrevendo e que ele não precisa se preocupar fazendo qualquer tipo de verificações. 
+O type assertion é uma forma de falarmos para o compilador  confiar no que estamos escrevendo e que ele não precisa se preocupar fazendo qualquer tipo de verificação. 
 
 ```typescript
 // Forma 1
