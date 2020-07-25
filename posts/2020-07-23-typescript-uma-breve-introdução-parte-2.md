@@ -9,15 +9,15 @@ image: assets/img/ts-js.png
 category: Typescript
 tagColor: '#130f40'
 ---
-#### No [artigo anterior](https://www.crisgon.dev/typescript-uma-breve-introdu%C3%A7%C3%A3o/) descobrimos como tipar o básico com javascript, number, string, boolean, null, undefined, void, any e never. Dessa vez iremos prosseguir com conceitos básicos e aprender um pouco sobre tuples(tuplas), enums e type assertion.
+No [artigo anterior](https://www.crisgon.dev/typescript-uma-breve-introdu%C3%A7%C3%A3o/) descobrimos como tipar o básico com javascript, number, string, boolean, null, undefined, void, any e never. Dessa vez iremos prosseguir com conceitos básicos e aprender um pouco sobre tuples(tuplas), enums e type assertion.
 
 ## Tuplas
 
 Tuplas são utilizadas para representar um array onde sabemos a quantidade exata de elementos, mas queremos tipos específicos para cada um desses elementos.
 
-Vamos supor que eu quero guardar nome, idade e se a pessoa está empregada ou não.
+Vamos supor que eu queira guardar nome, idade e se a pessoa está empregada ou não.
 
-Provavelmente uma tupla não seja a melhor abordagem, mas podemos fazer algo assim:
+Talvez usar uma tupla não seja a melhor abordagem para armazenar essas informações, mas podemos fazer algo assim:
 
 ```typescript
 let person: [string, number, boolean];
@@ -57,7 +57,7 @@ console.log(salada); // abobora é bom
 
 No trecho de código acima o `useAbobora` está retornando um array de uma posição, onde o primeiro item desse array é exatamente uma string.  
 
-Um uso real dessa tipagem pode ser encontrada no [useState do React](https://pt-br.reactjs.org/docs/hooks-state.html) que  retorna uma tupla de tamanho 2.
+Um uso real dessa tipagem pode ser encontrada no [useState do React](https://pt-br.reactjs.org/docs/hooks-state.html) que  retorna uma tupla de tamanho 2.  
 
 ```typescript
 const [name] = useState("Cris");
@@ -73,7 +73,7 @@ Vamos aos exemplos que tudo vai fazer sentido...
 
 **Suponha que precisamos armazenar alguns dos [elos](https://www.ligadosgames.com/league-of-legends-elo-mmr-pdl/) disponíveis no[ League of Legends](https://br.leagueoflegends.com/pt-br/).** 
 
-A primeira forma que penso é guardar tudo em um array da seguinte forma:
+Logo de cara eu pensei em guardar tudo em um array da seguinte forma:
 
 ```typescript
 const elos = [
@@ -86,7 +86,7 @@ const elos = [
 ]
 ```
 
-Porém, essa não me parece a melhor abordagem... 
+Mas essa não me parece a melhor abordagem... 
 
 * Não queremos fazer nenhuma operação de array, queremos apenas guardar os valores e usar quando necessário.
 * Só conseguimos acessar os elos por meio dos índices do array e fica difícil saber qual a posição de um elo apenas por seu nome.
@@ -109,6 +109,7 @@ E acessar os valores assim:
 ```typescript
 console.log(Elos[2]); // Bronze
 console.log(Elos.Ouro); // 4
+console.log(`Você é ${Elos[2]} e se encontra na divisão de número ${Elos.Bronze}`)
 
 Elos.Ouro = 199 // Erro!
 ```
