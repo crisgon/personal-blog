@@ -9,7 +9,7 @@ image: assets/img/ts-js.png
 category: Typescript
 tagColor: '#130f40'
 ---
-No [artigo anterior](https://www.crisgon.dev/typescript-uma-breve-introdu%C3%A7%C3%A3o/) descobrimos como tipar o básico com javascript, number, string, boolean, null, undefined, void, any e never. Dessa vez iremos prosseguir com conceitos básicos e aprender um pouco sobre tuples(tuplas), enums e type assertion.
+#### No [artigo anterior](https://www.crisgon.dev/typescript-uma-breve-introdu%C3%A7%C3%A3o/) descobrimos como tipar o básico com javascript, number, string, boolean, null, undefined, void, any e never. Dessa vez iremos prosseguir com conceitos básicos e aprender um pouco sobre tuples(tuplas), enums e type assertion.
 
 ## Tuplas
 
@@ -65,9 +65,11 @@ const [name] = useState("Cris");
 
 ## Enums
 
-O uso de enums é algo bem comum pra quem vem de outras linguagens como Java, C e etc, porém no JS isso não é algo comum.
+O uso de enums pode ser novidade para quem teve contato apenas com JS, mas é algo bem comum pra quem vem de outras linguagens como Java, C, etc.
 
-Um enum é basicamente uma forma de criar um conjunto de contantes com valores pré-definidos. Vamos aos exemplos que tudo vai fazer sentido...
+Um enum é basicamente uma forma de criar um conjunto de contantes com valores pré-definidos de uma maneira bastante legível e fácil de acessar. 
+
+Vamos aos exemplos que tudo vai fazer sentido...
 
 **Suponha que precisamos armazenar alguns dos [elos](https://www.ligadosgames.com/league-of-legends-elo-mmr-pdl/) disponíveis no[ League of Legends](https://br.leagueoflegends.com/pt-br/).** 
 
@@ -107,17 +109,19 @@ E acessar os valores assim:
 ```typescript
 console.log(Elos[2]); // Bronze
 console.log(Elos.Ouro); // 4
+
+Elos.Ouro = 199 // Erro!
 ```
 
-No nosso exemplo nós iniciamos dizendo que ferro tinha o valor 1 e os valores seguintes assumiram um valor incremental de forma automática. Caso ferro não tivesse sido iniciado seu valor seria 0 e os outros teriam um valor incremental(1, 2,3...)
+No exemplo acima, nós iniciamos dizendo que ferro tinha o valor 1 e os valores seguintes assumiram um valor incremental de forma automática. Caso ferro não tivesse sido iniciado seu valor seria 0 e os outros teriam um valor incremental(1,2,3...)
 
-Note que podemos acessar um valor a partir da chave ou do seu valor, como nos consoles acima.
+Note que podemos acessar um valor a partir da chave ou do seu valor, como nos consoles acima. Também não conseguimos alterar o valor de um enum em tempo de execução, pois ele permite apenas leitura.
 
 *Atenção, é muito importante entender que `Elos[0]` não se refere exatamente a posição 1 como em um array, 0 vai se referir a chave que tiver seu valor. Ao decorrer do artigo isso vai ficar mais evidente.*
 
 ### Tipos de Enums
 
-Existem  três  tipos de enums, que são os numéricos, os de texto e os heterogêneos.
+Existem basicamente  três  tipos de enums. Os numéricos, os de texto e os heterogêneos.
 
 #### Numéricos
 
@@ -127,8 +131,8 @@ Conforme vimos no exemplo anterior, os enum numéricos podem ser iniciados ou n�
 enum Cartas {
   As = 1,
   J = 11,
-  Q, // 12
-  K // 13
+  Q, // Q tem o valor 12
+  K // K tem o valor 13
 }
 
 console.log(Cartas[11]); // J
@@ -137,7 +141,7 @@ console.log(Cartas.As); // 1
 
 #### Texto (String)
 
-Enums de strings não possuem o auto-incremento, logo todas as propriedades precisam ser inicializadas.
+Enums de strings não possuem o auto-incremento, logo todas as propriedades precisam ser inicializadas obrigatoriamente.
 
 ```typescript
 // VAI DAR ERRO!! =[
@@ -158,7 +162,7 @@ enum Cores {
 console.log(Cores.BLUE); // #00F
 ```
 
-Com enums de strings conseguimos acessar seus valores apenas usando o nome de cada chave, aqui não conseguimos fazer o mapeamento reverso como em enums numéricos. Ou seja... não da pra fazer `Cores["#0F0"]`sem receber um errão na cara.
+Usando strings conseguimos acessar seus valores usando apenas o nome de cada chave, aqui não conseguimos fazer o mapeamento reverso como em enums numéricos. Ou seja... não da pra fazer `Cores["#0F0"]`sem receber um errão na cara.
 
 #### Heterogêneos
 
@@ -171,4 +175,49 @@ enum BooleanLikeHeterogeneousEnum {
 }
 ```
 
-Isso é ótimo, pois ajuda muito na documentação dos projetos.
+Só pra matar sua curiosidade, logo abaixo tem uma imagem com o javascript que é gerado quando usamos um enum do typescript.
+
+![Resultado da transpilação de um enum para JS](assets/img/Screenshot from 2020-07-25 02-13-45.png "Resultado da transpilação de um enum para JS")
+
+### Type Assertion
+
+Existem algumas situações em que "sabemos" mais que o typescript, ou simplesmente queremos forçar uma conversão de tipo, nesse caso em que precisamos recorrer às asserções de tipos(type assertion).
+
+O type assertion é uma forma de falarmos para o compilador  confiar no que estamos escrevendo e que ele não precisa se preocupar fazendo qualquer tipo de verificações. 
+
+```typescript
+// Forma 1
+let someValue: any = "this is a string";
+let strLength: number = (<string>someValue).length;
+
+// Forma 2
+let someValue: any = "this is a string";
+let strLength: number = (someValue as string).length;
+```
+
+Às duas formas demonstradas logo acima são válidas, porém é mais comum encontrar códigos utilizando a forma 2.
+
+Atenção... Muito cuidado quando você for usar uma type assertion, pois o compilador vai usar a informação que você passou como "a mais pura verdade" e não vai fazer qualquer tipo de verificação. Logo, pode acontecer de você acabar criando alguma inconsistência acidentalmente.
+
+```typescript
+let someValue: any; // someValue tem o valor undefined
+let strLength: number = (someValue as number) + 2;
+
+console.log(strLength); // NaN
+```
+
+### Isso é tudo pessoal!
+
+![Isso é tudo pessoal!](https://i.pinimg.com/originals/2a/82/1e/2a821ee45ca3cbc384c0b70f730248ae.gif)
+
+Obrigado por chegar até aqui!! Espero que tenha conseguido te ajudar de alguma forma. =]
+
+Em breve irei escrever mais conteúdo sobre Typescript. 
+
+Então... Até mais!
+
+### Links importantes
+
+* [Typescript HandBook](https://www.typescriptlang.org/v2/docs/handbook/basic-types.html)
+* [Typescript Playground](https://www.typescriptlang.org/play/index.html)
+* [You Dont Know Js](https://github.com/getify/You-Dont-Know-JS)
