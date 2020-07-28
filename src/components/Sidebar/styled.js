@@ -19,6 +19,17 @@ export const SidebarWrapper = styled.aside`
   `}
 `;
 
+export const SidebarSVG = styled.div`
+  position: relative;
+  svg {
+    position: absolute;
+    bottom: 0;
+    path {
+      fill: var(--postCardBackground);
+    }
+  }
+`;
+
 export const SidebarGroup = styled.div`
   ${media.lessThan("large")`
     width: 100%;
