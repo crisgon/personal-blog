@@ -29,9 +29,9 @@ const Sidebar = () => {
 
   return (
     <S.SidebarWrapper>
-      <S.ChangePalette open={open}>
+      <S.ChangePalette open={open} ref={collorPalette}>
         <Palette height="30px" onClick={() => setOpen(!open)} />
-        <ul ref={collorPalette}>
+        <ul>
           <S.Palette
             color="#f39c12"
             onClick={() => {
