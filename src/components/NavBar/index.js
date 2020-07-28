@@ -4,6 +4,7 @@ import { Sun } from "styled-icons/boxicons-solid/Sun";
 import { Moon } from "styled-icons/boxicons-solid/Moon";
 import { Search } from "styled-icons/remix-line/Search";
 import { Grid } from "styled-icons/boxicons-solid/Grid";
+
 import { FormatListBulleted as List } from "styled-icons/material/FormatListBulleted";
 import { UpArrowAlt as Up } from "styled-icons/boxicons-regular/UpArrowAlt";
 import { Home } from "styled-icons/remix-line/Home";
@@ -28,15 +29,19 @@ const NavBar = () => {
     window.__onDisplayChange = () => setDisplay(window.__display);
   }, []);
 
+  function setColorSchema() {
+    const colorSchema = localStorage.getItem("colorPalette");
+    if (colorSchema) {
+      window.__setPreferredTheme(isDark ? colorSchema : "dark");
+    } else {
+      window.__setPreferredTheme(isDark ? "light" : "dark");
+    }
+  }
+
   return (
     <S.NavBar>
       <S.NavBarItem title="Voltar para o Início">
-        <S.NavBarLink
-          to="/"
-          fade
-          duration={0.6}
-          bg={getThemeColor()}
-        >
+        <S.NavBarLink to="/" fade duration={0.6} bg={getThemeColor()}>
           <S.IconWrapper>
             <Home />
           </S.IconWrapper>
@@ -44,12 +49,7 @@ const NavBar = () => {
       </S.NavBarItem>
 
       <S.NavBarItem title="Pesquisar">
-        <S.NavBarLink
-          to="/search"
-          fade
-          duration={0.6}
-          bg={getThemeColor()}
-        >
+        <S.NavBarLink to="/search" fade duration={0.6} bg={getThemeColor()}>
           <S.IconWrapper>
             <Search />
           </S.IconWrapper>
@@ -58,9 +58,7 @@ const NavBar = () => {
 
       <S.NavBarItem
         title={isDark ? "Desativar Dark Mode" : "Ativar Dark Mode"}
-        onClick={() => {
-          window.__setPreferredTheme(isDark ? "light" : "dark");
-        }}
+        onClick={setColorSchema}
       >
         <S.IconWrapper>{isDark ? <Sun /> : <Moon />}</S.IconWrapper>
       </S.NavBarItem>
@@ -73,7 +71,7 @@ const NavBar = () => {
 
       <S.NavBarItem
         title="Mudar visualização"
-        style={{ display: 'none' }}
+        style={{ display: "none" }}
         onClick={() => {
           window.__setPreferredDisplay(isGrid ? "list" : "grid");
         }}

@@ -19,6 +19,49 @@ export const SidebarWrapper = styled.aside`
   `}
 `;
 
+export const ChangePalette = styled.div`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: var(--postCardBackground);
+
+  svg {
+    cursor: pointer;
+  }
+
+  ul {
+    z-index: ${(props) => (props.open ? "1" : "-1")};
+    height: ${(props) => (props.open ? "105px" : "0px")};
+    opacity: ${(props) => (props.open ? "1" : "0")};
+    background-color: var(--postCardBackground);
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 0.25rem;
+    position: absolute;
+    top: 40px;
+    right: 0px;
+    transition: all 0.4s;
+  }
+`;
+
+export const Palette = styled.li`
+  width: 20px;
+  height: 20px;
+  display: block;
+  border-radius: 50%;
+  background-color: ${(props) => props.color};
+  transition: all 0.2s;
+
+  & + li {
+    margin-top: 5px;
+  }
+
+  &:hover {
+    border: 2px solid var(--postCardBackground);
+    cursor: pointer;
+  }
+`;
+
 export const SidebarSVG = styled.div`
   position: relative;
   svg {
@@ -28,6 +71,10 @@ export const SidebarSVG = styled.div`
       fill: var(--postCardBackground);
     }
   }
+
+  ${media.lessThan("large")`
+    display: none;
+  `}
 `;
 
 export const SidebarGroup = styled.div`

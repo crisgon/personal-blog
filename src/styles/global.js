@@ -88,6 +88,60 @@ border-spacing: 0;
     --quoteBackground: #ddd;
     --notFoundbackground: #ffffff;
   }
+
+  body.yellow {
+    --borders: #38444d;
+    --postCardBackground: #fff;
+    --sidebarBackground: #f39c12;
+    --sidebarShadow: #bdc3c7;
+    --highlight: #f39c12;
+    --background: #f2f2f2;
+    --white: #fff;
+    --black: #1e272e;
+    --gray: #ccc;
+    --darkRed: #b1710c;
+    --linkColor: #f39c12;
+    --paginateColor: #1e272e;
+    --titleColor: #f39c12;
+    --quoteBackground: #ddd;
+    --notFoundbackground: #ffffff;
+  }
+
+  body.blue {
+    --borders: #38444d;
+    --postCardBackground: #fff;
+    --sidebarBackground: #3498db;
+    --sidebarShadow: #bdc3c7;
+    --highlight: #3498db;
+    --background: #f2f2f2;
+    --white: #fff;
+    --black: #1e272e;
+    --gray: #ccc;
+    --darkRed: #1a6190;
+    --linkColor: #3498db;
+    --paginateColor: #1e272e;
+    --titleColor: #3498db;
+    --quoteBackground: #ddd;
+    --notFoundbackground: #ffffff;
+  }
+
+  body.purple {
+    --borders: #38444d;
+    --postCardBackground: #fff;
+    --sidebarBackground: #8e44ad;
+    --sidebarShadow: #bdc3c7;
+    --highlight: #8e44ad;
+    --background: #f2f2f2;
+    --white: #fff;
+    --black: #1e272e;
+    --gray: #ccc;
+    --darkRed: #511d67;
+    --linkColor: #8e44ad;
+    --paginateColor: #1e272e;
+    --titleColor: #8e44ad;
+    --quoteBackground: #ddd;
+    --notFoundbackground: #ffffff;
+  }
 `;
 
 export default GlobalStyles;
