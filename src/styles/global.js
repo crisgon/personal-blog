@@ -53,6 +53,24 @@ border-collapse: collapse;
 border-spacing: 0;
 }
 
+body {
+  &::-webkit-scrollbar {
+			height: 12px;
+		}
+
+		&::-webkit-scrollbar-track {
+			padding: 0.3rem;
+			border-bottom-left-radius: 4px;
+			border-bottom-right-radius: 4px;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			border: 1px solid #fff;
+			background-color: #7f8c8d;
+			border-radius: 50px;
+		}
+}
+
   body.dark {
     --borders: #38444d;
     --postCardBackground: #272727;
