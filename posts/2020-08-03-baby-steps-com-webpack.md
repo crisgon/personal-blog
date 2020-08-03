@@ -7,24 +7,21 @@ resume: >-
   Ferramentas como create-react-app, vue-cli, angular-cli e outras alternativas
   tornam toda configuração de um projeto bastante transparente e vemos apenas a
   mágica acontecer...
-date: '2020-08-02 10:28:25'
+date: "2020-08-02 10:28:25"
 image: assets/img/webpack.png
 category: JS
-tagColor: '#f1c40f'
+tagColor: "#f1c40f"
 ---
-Esse fim de semana resolvi dar uma brincada com algumas soluções de css-in-js e me esbarrei com o linária, que precisava de algumas configurações que o boilerplate do create-react-app não davam suporte sem que eu mexesse diretamente webpack. Então resolvi aproveitar a oportunidade pra escrever um guia básico sobre webpack. Espero que goste!!
 
 Antes de iniciar, você pode acessar o código final desse artigo [aqui](https://github.com/crisgon/webpack-basic).
 
-
-
 Ultimamente tem se tornado cada vez menos comum configurar o webpack do zero em algum projeto, principalmente quando falamos de pessoas que estão iniciando no desenvolvimento e se deparam com uma imensidão de coisas para estudar. Ferramentas como create-react-app, vue-cli, angular-cli e outras alternativas tornam toda configuração de um projeto bastante transparente e vemos apenas a mágica acontecer... Geralmente elas vão resolver nossos problemas, mas tem momentos em que precisamos fazer uma configuração mais específica e isso nem sempre é algo trivial, pois apesar da simplicidade, escrever um arquivo webpack.js pode ser meio confuso para um inciante.
 
-O que é?
+### O que é?
+
+![Estrutura inicial de pastas](assets/img/webpack.png "Estrutura inicial de pastas")
 
 De forma bem resumida, **o webpack é um empacotador de módulos**. Ele vai cuidar de pegar uma série de arquivos de entrada(com todas as suas dependências), trabalhar em cima desses arquivos(geralmente com ajudas de terceiros) e te oferecer um(ou vários) arquivo(s) de saída. Claro que essa ferramente não se resume apenas a isso, mas a imagem que você viu logo acima é um print do [webpack](https://webpack.js.org/) que ilustra bem o seu funcionamento base.
-
-
 
 ### O que iremos fazer?
 
@@ -38,19 +35,19 @@ Todos os arquivos foram criados manualmente e vazios, com exceção dos `package
 
 Os arquivos estão com o seguinte conteúdo até o momento:
 
-* O index.html tem uma estrutura padrão de html.
-* O global.scss tem apenas a definição do background do meu body.
+- O index.html tem uma estrutura padrão de html.
+- O global.scss tem apenas a definição do background do meu body.
 
 ```scss
 $red: red;
 
 body {
-	font-size: 4rem;
+  font-size: 4rem;
   background-color: $red;
 }
 ```
 
-* O sum.js tem uma função de soma:
+- O sum.js tem uma função de soma:
 
   Nos arquivos javascript eu tenho o seguinte código:
 
@@ -60,14 +57,14 @@ export function sum(a, b) {
 }
 ```
 
-* O index.js faz uso do arquivo sum.js e está da seguinte forma:
+- O index.js faz uso do arquivo sum.js e está da seguinte forma:
 
 ```jsx
-import {sum} from './sum.js';
+import { sum } from "./sum.js";
 
 const body = document.querySelector("body");
 
-const value = sum(2, 3)
+const value = sum(2, 3);
 
 body.innerHTML += value;
 ```
@@ -79,9 +76,7 @@ Agora que estamos devidamente alinhados, vamos ao que interessa!
 A primeira coisa que precisamos é fazer a instalação de duas dependências no nosso projeto, o webpack e o webpack-cli com o seguinte comando `npm install —save-dev webpack webpack-cli`. Também é interessante fazer a instalação global com o seguinte comando `npm install --global webpack`. Agora vamos trabalhar apenas no nosso arquivo `webpack.config.js` , que tem basicamente a exportação de um objeto onde cada propriedade será uma parte da nossa configuração final.
 
 ```jsx
-module.exports = {
- 
-};
+module.exports = {};
 ```
 
 ### Entry
@@ -98,8 +93,8 @@ module.exports = {
 
 Já tivemos o arquivo de entrada, agora precisamos definir o arquivo de saída. Aqui basicamente declaramos um objeto com duas propriedades bem intuitivas.
 
-* path: que se refere ao caminho da pasta que nosso arquivo final vai ocupar. Caso a pasta não exista o webpack irá criá-la.
-* filename: que se refere ao nome do nosso arquivo de saída.
+- path: que se refere ao caminho da pasta que nosso arquivo final vai ocupar. Caso a pasta não exista o webpack irá criá-la.
+- filename: que se refere ao nome do nosso arquivo de saída.
 
 Note que aqui fazemos uso da biblioteca path para definir qual é o caminho da nossa pasta. O resultado seria `"./public"`, bastante simples e poderíamos simplesmente digitar esse endereço, porém o path vai cuidar dos problemas que podem acontecer em sistemas operacionais diferentes por conta do uso de `\\` ou `/`
 
@@ -108,10 +103,10 @@ Note que aqui fazemos uso da biblioteca path para definir qual é o caminho da n
 const path = require("path");
 
 module.exports = {
-// Arquivo de entrada
+  // Arquivo de entrada
   entry: "./src/modules/index.js",
 
-// Arquivo de saída
+  // Arquivo de saída
   output: {
     path: path.resolve(__dirname, "public"),
     filename: "bundle.js",
@@ -145,10 +140,10 @@ module.exports = {
 
 A propriedade `rules` recebe um array de objetos que podem conter as seguintes propriedades:
 
-* test: recebe uma regex responsável por verificar a extensão dos arquivos que a configuração vai ser aplicada.
-* exclude: também recebe uma regex, mas para informar quais pastas devem ser ignoradas.
-* use: aqui definimos as regras do loader que vão ser aplicadas nos arquivos que fizeram match com nosso test
-* options: é uma propriedade que pode mudar para cada loader. No nosso caso iremos usá-la para que o babel cuide de tudo e não exista a necessidade de definir quais funcionalidades do JS devem ser ou não.
+- test: recebe uma regex responsável por verificar a extensão dos arquivos que a configuração vai ser aplicada.
+- exclude: também recebe uma regex, mas para informar quais pastas devem ser ignoradas.
+- use: aqui definimos as regras do loader que vão ser aplicadas nos arquivos que fizeram match com nosso test
+- options: é uma propriedade que pode mudar para cada loader. No nosso caso iremos usá-la para que o babel cuide de tudo e não exista a necessidade de definir quais funcionalidades do JS devem ser ou não.
 
 Até agora nosso webpack.config.js está assim:
 
@@ -157,10 +152,10 @@ Até agora nosso webpack.config.js está assim:
 const path = require("path");
 
 module.exports = {
-// Arquivo de entrada
+  // Arquivo de entrada
   entry: "./src/modules/index.js",
-	module: {
-// Configurações de loaders  
+  module: {
+    // Configurações de loaders
     rules: [
       {
         test: /\.js$/,
@@ -174,7 +169,7 @@ module.exports = {
       },
     ],
   },
-// Arquivo de saída
+  // Arquivo de saída
   output: {
     path: path.resolve(__dirname, "public"),
     filename: "bundle.js",
@@ -186,8 +181,8 @@ Agora iremos fazer uso de mais alguns loaders para lidar com nosso css/sass, aqu
 
 Pra isso vai ser necessário que você instale as seguintes dependências: `npm --save-dev sass sass-loader css-loader`
 
-* css-loader: vai ser responsável por lidar com todas as nossas importações @import em arquivos css.
-* sass-loader: vai transformar todos os nossos arquivos sass em css.
+- css-loader: vai ser responsável por lidar com todas as nossas importações @import em arquivos css.
+- sass-loader: vai transformar todos os nossos arquivos sass em css.
 
 A configuração para esses loaders ficou assim:
 
@@ -332,7 +327,7 @@ background-image: url("../images/bg.jpg");
 Logo após executar o webpack nossa imagem vai ter o nome com um hash e vai ser usada no css da mesma forma.
 
 ```css
-background-image:url(images/1a9e635a5b3b216d5970a6686071f80f.jpg)
+background-image: url(images/1a9e635a5b3b216d5970a6686071f80f.jpg);
 ```
 
 Pra trabalhar com fonts seria exatamente igual, você só precisa alterar a regex do test e a pasta de saída. Fica o desafio!
