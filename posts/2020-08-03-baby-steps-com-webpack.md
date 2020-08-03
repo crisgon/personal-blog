@@ -19,7 +19,7 @@ Ultimamente tem se tornado cada vez menos comum configurar o webpack do zero em 
 
 ### O que é?
 
-![Estrutura inicial de pastas](assets/img/webpack.png "Estrutura inicial de pastas")
+![Estrutura inicial de pastas](assets/img/webpack.png)
 
 De forma bem resumida, **o webpack é um empacotador de módulos**. Ele vai cuidar de pegar uma série de arquivos de entrada(com todas as suas dependências), trabalhar em cima desses arquivos(geralmente com ajudas de terceiros) e te oferecer um(ou vários) arquivo(s) de saída. Claro que essa ferramente não se resume apenas a isso, mas a imagem que você viu logo acima é um print do [webpack](https://webpack.js.org/) que ilustra bem o seu funcionamento base.
 
