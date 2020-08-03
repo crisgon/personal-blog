@@ -16,13 +16,13 @@ Esse fim de semana resolvi dar uma brincada com algumas soluções de css-in-js 
 
 Antes de iniciar, você pode acessar o código final desse artigo [aqui](https://github.com/crisgon/webpack-basic).
 
-
-
 Ultimamente tem se tornado cada vez menos comum configurar o webpack do zero em algum projeto, principalmente quando falamos de pessoas que estão iniciando no desenvolvimento e se deparam com uma imensidão de coisas para estudar. Ferramentas como create-react-app, vue-cli, angular-cli e outras alternativas tornam toda configuração de um projeto bastante transparente e vemos apenas a mágica acontecer... Geralmente elas vão resolver nossos problemas, mas tem momentos em que precisamos fazer uma configuração mais específica e isso nem sempre é algo trivial, pois apesar da simplicidade, escrever um arquivo webpack.js pode ser meio confuso para um inciante.
 
 O que é?
 
 De forma bem resumida, **o webpack é um empacotador de módulos**. Ele vai cuidar de pegar uma série de arquivos de entrada(com todas as suas dependências), trabalhar em cima desses arquivos(geralmente com ajudas de terceiros) e te oferecer um(ou vários) arquivo(s) de saída. Claro que essa ferramente não se resume apenas a isso, mas a imagem que você viu logo acima é um print do [webpack](https://webpack.js.org/) que ilustra bem o seu funcionamento base.
+
+![Print do site do webpack demonstrando o seu funcionamento. ](assets/img/webpack.png)
 
 
 
