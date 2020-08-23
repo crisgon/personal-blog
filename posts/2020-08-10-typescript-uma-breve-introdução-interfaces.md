@@ -14,6 +14,48 @@ Nos artigos anteriores a gente viu um pouco sobre tipos básicos, enums e type a
 * [Typescript - Uma breve introdução](https://www.crisgon.dev/typescript-uma-breve-introdu%C3%A7%C3%A3o/)
 * [Typescript - Uma breve introdução - Tuplas, Enums e Type Assertion](https://www.crisgon.dev/typescript-uma-breve-introdu%C3%A7%C3%A3o-parte-2/)
 
-
-
 Em quase todos os cenários apenas os tipos básicos não vão ser suficientes para que consigamos escrever uma aplicação robusta  usando typescript, pois a medida que os nossos dados ficam mais complexos as tipagem tendem a seguir o mesmo caminho. É pensando nesse cenário que o typescript nos oferece as interfaces para a criação de dados customizados.
+
+
+
+### Duck typing
+
+Antes de prosseguir preciso explicar um pouco sobre [Duck typing](https://pt.wikipedia.org/wiki/Duck_typing)(tipagem pato), pois é um conceito importante para entender o funcionamento de interfaces. 
+
+O uso do duck typing ou structural subtyping(tipagem estrutural) foca exatamente na forma que os valores apresentam, ela segue o princípio de que se anda como um pato, voa como um pato e grasna como um pato então é um pato. O nome desse conceito é associado ao [teste do pato](https://pt.wikipedia.org/wiki/Teste_do_pato) de [James Whitcomb Riley](https://pt.wikipedia.org/w/index.php?title=James_Whitcomb_Riley&action=edit&redlink=1 "James Whitcomb Riley (página não existe)").
+
+> Suponha que você vê um pássaro andar por volta de uma fazenda. Este pássaro não tem nenhuma placa que diz 'pato'. Mas o pássaro certamente parece a um pato. Também, ele vai ao tanque e você nota que ele nada como um pato. Então ele abre o seu bico e grasna como um pato. Bem, agora você conseguiu provavelmente a conclusão que o pássaro é um pato, mesmo que ele esteja usando uma placa ou não Harv,Immerman,1982, p.102
+
+Isso pode não ter feito muito sentido pra você, mas siga lendo o textinho que logo vai ficar claro como isso se comporta em termos de código.
+
+
+
+### Criando nossa primeira interface
+
+Vamos supor que temos uma função que recebe o tipo do pokemon e imprime um dos seus counters.
+
+```typescript
+function showPokemonCounter(pokemon: {name: string, type: 'fogo' | 'agua' | 'grama'}) {
+  const counters = {
+    fogo: 'agua',
+    agua: 'grama',
+    grama: 'fogo'
+  }
+  
+  console.log(pokemon.name + ' é fraco contra ' + counters[pokemon.type]);
+  
+}
+
+const charmander = {name: 'charmander', type: 'fogo'};
+showPokemonCounter(charmander);  // charmander é fraco contra agua 
+```
+
+
+
+O typescript verifica se o argumento passado para a função `showPokemonCounter` é exatamente um objeto que possue uma propriedade `name` do tipo string e uma propriedade `type` do tipo 'fogo', 'agua' ou 'grama'.
+
+Até aqui tudo bem... E agora que entra o duck typing. O que acontece se eu adicionar mais uma propriedade no argumento que vou passar para `showPokemonCounter` ?
+
+```
+
+```
