@@ -16,8 +16,6 @@ Nos artigos anteriores a gente viu um pouco sobre tipos básicos, enums e type a
 
 Em quase todos os cenários apenas os tipos básicos não vão ser suficientes para que consigamos escrever uma aplicação robusta  usando typescript, pois a medida que os nossos dados ficam mais complexos as tipagem tendem a seguir o mesmo caminho. É pensando nesse cenário que o typescript nos oferece as interfaces para a criação de dados customizados.
 
-
-
 ### Duck typing
 
 Antes de prosseguir preciso explicar um pouco sobre [Duck typing](https://pt.wikipedia.org/wiki/Duck_typing)(tipagem pato), pois é um conceito importante para entender o funcionamento de interfaces. 
@@ -28,14 +26,46 @@ O uso do duck typing ou structural subtyping(tipagem estrutural) foca exatamente
 
 Isso pode não ter feito muito sentido pra você, mas siga lendo o textinho que logo vai ficar claro como isso se comporta em termos de código.
 
-
-
 ### Criando nossa primeira interface
 
-Vamos supor que temos uma função que recebe o tipo do pokemon e imprime um dos seus counters.
+Pense que temos uma função que recebe um usuário como argumento e esse usuário precisa ter sempre nome e idade. A função ficaria assim:
 
 ```typescript
-function showPokemonCounter(pokemon: {name: string, type: 'fogo' | 'agua' | 'grama'}) {
+function showUser(user: {name: string, age: number}) {
+  console.log(user.name + 'tem ' + user.age + ' anos de idade');
+}
+
+showUser({name: 'Cristiano', age: 25});
+```
+
+Agora imagine que precisamos fazer operações com user em várias partes do nosso código e também precisamos garantir que ele sempre tenha name e age. A gente poderia simplesmente sair reescrevendo o objeto `{name: string, age: number}` em todo lugar que a gente precisar ou então poderíamos extrair isso em uma interface:
+
+```typescript
+interface User {
+  name: string;
+  age: number;
+}
+
+function showUser(user: User) {
+  console.log(user.name + 'tem ' + user.age + ' anos de idade');
+}
+
+const newUser: User = {
+  name: 'Cristiano',
+  age: 25
+};   
+```
+
+
+
+### Tá, mas cadê o duck typing?
+
+Calma... Vamos supor que temos uma função que recebe o nome e o tipo de um pokemon e imprime um dos seus counters.
+
+```typescript
+interface Pokemon {name: string, type: 'fogo' | 'agua' | 'grama'}
+
+function showPokemonCounter(pokemon: Pokemon) {
   const counters = {
     fogo: 'agua',
     agua: 'grama',
@@ -50,12 +80,17 @@ const charmander = {name: 'charmander', type: 'fogo'};
 showPokemonCounter(charmander);  // charmander é fraco contra agua 
 ```
 
-
-
 O typescript verifica se o argumento passado para a função `showPokemonCounter` é exatamente um objeto que possue uma propriedade `name` do tipo string e uma propriedade `type` do tipo 'fogo', 'agua' ou 'grama'.
 
 Até aqui tudo bem... E agora que entra o duck typing. O que acontece se eu adicionar mais uma propriedade no argumento que vou passar para `showPokemonCounter` ?
 
+```typescript
+interface FullPokemon {name: string, type: 'fogo' | 'agua' | 'grama', pokeNumber: number}
+
+const squirtle: FullPokemon = {name: 'squirtle', type: 'agua', number: 7};
+showPokemonCounter(squirtle); // squirtle é fraco contra grama 
 ```
 
-```
+Opa... Nenhum erro aconteceu! Isso graças a ação do **duck typing**, pois mesmo tendo a propriedade `number` o pokemon que passamos ainda tem o `name` e o `type` exatamente como a função esperava. 
+
+É como se a gente tivesse um pato que voa, nada, granas e fica invisível. Ele ta fazendo uma coisa diferente..., mas ele ainda faz as coisas que definimos como essenciais para classificá-lo como um pato.
