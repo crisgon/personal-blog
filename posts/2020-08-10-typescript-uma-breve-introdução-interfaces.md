@@ -95,6 +95,28 @@ Opa... Nenhum erro aconteceu! Isso graças a ação do **duck typing**, pois mes
 
 
 
+### Interfaces híbridas
+
+Até aqui você já deve ter percebido que as interfaces podem ser compostas por diversos tipos. Number, strings, booleans, functions e até tipos customizados.
+
+```typescript
+interface Addres {
+ city: string;
+  country: string;
+}
+
+interface User {
+  name: string;
+  surname: string;
+  address: Addres;
+  getFullName():string;
+}
+
+
+```
+
+
+
 ### Propriedades opcionais
 
 Podem existir casos em que algumas propriedades podem existir ou não e é muito fácil de definir isso, basta adicionar um `?` depois do nome da propriedade. Só é preciso tomar cuidado, pois uma propriedade não definida temo seu valor `undefined`.
@@ -108,4 +130,46 @@ interface User {
 const user = User = {name: 'Cris'};
 user.name // Cris
 user.age // undefined
+```
+
+### Propriedade de apenas leitura
+
+Para casos em que uma propriedade não pode ser alterada depois da sua definição a gente pode usar o `readonly`.
+
+```typescript
+interface User {
+ readonly id: number;
+  name: string;
+  age?: number;
+}
+
+const user: User = {id: 1, name: 'Cris'};
+
+user.name = 'Cristiano' // tudo ok
+user.id = 2 // Erro! Cannot assign to 'id' because it is a read-only property.
+```
+
+
+
+### Tipando funções
+
+As interfaces permitem tipar objetos de diversas formas, mas elas também são ótimas para descrever tipos de funções.
+
+```typescript
+interface SumType {
+  (a: number, b: number): number;
+}
+
+const sum: SumType = (a, b) => a + b;
+sum('a', 2) // Erro! Argument of type '"a"' is not assignable to parameter of type 'number'.
+
+sum(2, 2) // 4
+```
+
+### Estendendo interfaces
+
+Assim como classes, as interfaces podem ser estendidas e isso permite que a gente crie interfaces genéricas e reaproveitáveis.
+
+```
+
 ```
