@@ -56,8 +56,6 @@ const newUser: User = {
 };   
 ```
 
-
-
 ### Tá, mas cadê o duck typing?
 
 Calma... Vamos supor que temos uma função que recebe o nome e o tipo de um pokemon e imprime um dos seus counters.
@@ -94,3 +92,20 @@ showPokemonCounter(squirtle); // squirtle é fraco contra grama
 Opa... Nenhum erro aconteceu! Isso graças a ação do **duck typing**, pois mesmo tendo a propriedade `number` o pokemon que passamos ainda tem o `name` e o `type` exatamente como a função esperava. 
 
 É como se a gente tivesse um pato que voa, nada, granas e fica invisível. Ele ta fazendo uma coisa diferente..., mas ele ainda faz as coisas que definimos como essenciais para classificá-lo como um pato.
+
+
+
+### Propriedades opcionais
+
+Podem existir casos em que algumas propriedades podem existir ou não e é muito fácil de definir isso, basta adicionar um `?` depois do nome da propriedade. Só é preciso tomar cuidado, pois uma propriedade não definida temo seu valor `undefined`.
+
+```typescript
+interface User {
+  name: string;
+  age?: number;
+}
+
+const user = User = {name: 'Cris'};
+user.name // Cris
+user.age // undefined
+```
