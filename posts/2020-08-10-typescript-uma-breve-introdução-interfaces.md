@@ -93,8 +93,6 @@ Opa... Nenhum erro aconteceu! Isso graças a ação do **duck typing**, pois mes
 
 É como se a gente tivesse um pato que voa, nada, granas e fica invisível. Ele ta fazendo uma coisa diferente..., mas ele ainda faz as coisas que definimos como essenciais para classificá-lo como um pato.
 
-
-
 ### Interfaces híbridas
 
 Até aqui você já deve ter percebido que as interfaces podem ser compostas por diversos tipos. Number, strings, booleans, functions e até tipos customizados.
@@ -107,15 +105,16 @@ interface Addres {
 
 interface User {
   name: string;
-  surname: string;
   address: Addres;
-  getFullName():string;
+  sayHi():string;
 }
 
-
+const user: User = {
+  name: 'Cris',
+  address: {city: 'Alagoinhas', country: 'Brasil'},
+  sayHi: () => 'olá'
+}
 ```
-
-
 
 ### Propriedades opcionais
 
@@ -149,8 +148,6 @@ user.name = 'Cristiano' // tudo ok
 user.id = 2 // Erro! Cannot assign to 'id' because it is a read-only property.
 ```
 
-
-
 ### Tipando funções
 
 As interfaces permitem tipar objetos de diversas formas, mas elas também são ótimas para descrever tipos de funções.
@@ -170,6 +167,13 @@ sum(2, 2) // 4
 
 Assim como classes, as interfaces podem ser estendidas e isso permite que a gente crie interfaces genéricas e reaproveitáveis.
 
-```
+```typescript
+interface User {
+  name: string;
+  email: string;
+}
 
+interface Admin extends User {
+  isAdmin: boolean;
+}
 ```
