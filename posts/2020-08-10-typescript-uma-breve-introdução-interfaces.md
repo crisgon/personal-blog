@@ -78,9 +78,9 @@ const charmander = {name: 'charmander', type: 'fogo'};
 showPokemonCounter(charmander);  // charmander é fraco contra agua 
 ```
 
-O typescript verifica se o argumento passado para a função `showPokemonCounter` é exatamente um objeto que possue uma propriedade `name` do tipo string e uma propriedade `type` do tipo 'fogo', 'agua' ou 'grama'.
+O typescript verifica se o argumento passado para a função `showPokemonCounter` é exatamente um objeto que possuí uma propriedade `name` do tipo string e uma propriedade `type` do tipo 'fogo', 'agua' ou 'grama'.
 
-Até aqui tudo bem... E agora que entra o duck typing. O que acontece se eu adicionar mais uma propriedade no argumento que vou passar para `showPokemonCounter` ?
+Até aqui tudo bem... E agora que entra o **duck typing**. O que acontece se eu adicionar mais uma propriedade no argumento que vou passar para `showPokemonCounter` ?
 
 ```typescript
 interface FullPokemon {name: string, type: 'fogo' | 'agua' | 'grama', pokeNumber: number}
@@ -177,3 +177,79 @@ interface Admin extends User {
   isAdmin: boolean;
 }
 ```
+
+### Devo usar classes ou interfaces
+
+Existe a possibilidade de tipas nossos dados utilizando classes, porém quando nosso typescript é transformado em javascript a gente acaba tendo uma classe inútil, pois ela é declarada e não é usada em local nenhum. Isso acontece porque o typescript só fazia uso em tempo de execução. Veja as imagens abaixo.
+
+![Tipagem usando interfaces](assets/img/Screenshot from 2020-08-23 19-11-31.png "Tipagem usando interfaces")
+
+A imagem acima mostra o resultado de um código javascript tipado usando interfaces, note que a interface foi descartada e não polui o nosso código final.
+
+![Tipagem usando classes](assets/img/Screenshot from 2020-08-23 19-22-38.png "Tipagem usando classes")
+
+A imagem acima mostra  um código javascript tipado usando classes, note que uma classe é criada, mas não é usada em momento algum no nosso código final.\
+**PS: eu precisei iniciar as propriedades com um valor, pois o typescript reclamou que elas não tinham sido inicializadas no construtor.**
+
+Acredito que ficou claro qual opção escolher quando queremos apenas ter a segurança de tipos. 
+
+## Interfaces com tipos Indexáveis
+
+Os tipos indexáveis tem uma *assinatura de índice*  que descreve os tipos que podemos usar para indexar em um objeto, exemplo `a[10]` (usa um número como índice) `a['name']`(usa string como índice).
+
+```typescript
+interface NumberOrStringDictionary {
+  [key: number]: number | string;
+}
+
+const array: NumberOrStringDictionary = [1, 2, 'a']
+
+console.log(array[1]); // 2
+```
+
+É interessante que se tentarmos fazer um `array.push('b')` vamos ter um erro de tipo, pois `push` não foi definido na interface `NumberOrStringDictionary`. Teríamos que fazer algo assim:
+
+```typescript
+interface NumberOrStringDictionary {
+  [key: number]: number | string;
+  push(val: number | string): number;
+}
+
+const array: NumberOrStringDictionary = [1, 2, 'a']
+array.push('b')
+console.log(array[3]); // b
+```
+
+Também podemos usar tipos indexáveis para trabalhar com objetos ou array de objetos que as propriedades são dinâmicas. Eu costumo usar isso com uma certa constância.
+
+```typescript
+interface DynamicObject {
+  [key: string]: number;
+}
+
+
+const array: DynamicObject[] = [{'one': 1, 'two': 2}, {'three': 3}, {'four': 4}]
+
+console.log(array) // [ { "one": 1, "two": 2 }, { "three": 3 }, { "four": 4 } ] 
+```
+
+
+
+### Isso é tudo pessoal!
+
+![Isso é tudo pessoal](https://i.pinimg.com/originals/2a/82/1e/2a821ee45ca3cbc384c0b70f730248ae.gif)
+
+Obrigado por chegar até aqui!! Espero que tenha conseguido te ajudar de alguma forma. =]
+
+Em breve irei escrever mais conteúdo sobre Typescript.
+
+Então... Até mais!
+
+### Links importantes
+
+* [Typescript HandBook](https://www.typescriptlang.org/v2/docs/handbook/basic-types.html)
+* [Typescript Playground](https://www.typescriptlang.org/play/index.html)
+* [You Dont Know Js](https://github.com/getify/You-Dont-Know-JS)
+* [Classes x Interfaces](https://imasters.com.br/desenvolvimento/typescript-classes-vs-interfaces)
+* [TypeScript and Duck Typing](https://medium.com/@ajay.bhosale/typescript-and-duck-typing-7b3d7bb6f03c)
+* [Typescript Indexable Types](https://medium.com/@ole.ersoy/typescript-indexable-types-1e08780e5e13)
