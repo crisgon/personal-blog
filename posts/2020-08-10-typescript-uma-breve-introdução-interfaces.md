@@ -14,7 +14,7 @@ Nos artigos anteriores a gente viu um pouco sobre tipos básicos, enums e type a
 * [Typescript - Uma breve introdução](https://www.crisgon.dev/typescript-uma-breve-introdu%C3%A7%C3%A3o/)
 * [Typescript - Uma breve introdução - Tuplas, Enums e Type Assertion](https://www.crisgon.dev/typescript-uma-breve-introdu%C3%A7%C3%A3o-parte-2/)
 
-Em quase todos os cenários apenas os tipos básicos não vão ser suficientes para que consigamos escrever uma aplicação robusta  usando typescript, pois a medida que os nossos dados ficam mais complexos as tipagem tendem a seguir o mesmo caminho. É pensando nesse cenário que o typescript nos oferece as interfaces para a criação de dados customizados.
+Em quase todos os cenários apenas os tipos básicos não vão ser suficientes para que consigamos escrever uma aplicação robusta  usando typescript, pois a medida que os nossos dados ficam mais complexos as tipagem tendem a seguir o mesmo caminho. É pensando nesse cenário que o typescript nos oferece as interfaces para a criação de tipos customizados.
 
 ### Duck typing
 
@@ -89,13 +89,13 @@ const squirtle: FullPokemon = {name: 'squirtle', type: 'agua', number: 7};
 showPokemonCounter(squirtle); // squirtle é fraco contra grama 
 ```
 
-Opa... Nenhum erro aconteceu! Isso graças a ação do **duck typing**, pois mesmo tendo a propriedade `number` o pokemon que passamos ainda tem o `name` e o `type` exatamente como a função esperava. 
+Opa... Nenhum erro aconteceu! Isso graças a ação do **duck typing**, pois mesmo tendo a propriedade `number`, o pokemon que passamos ainda tem o `name` e o `type` exatamente como a função esperava. 
 
-É como se a gente tivesse um pato que voa, nada, granas e fica invisível. Ele ta fazendo uma coisa diferente..., mas ele ainda faz as coisas que definimos como essenciais para classificá-lo como um pato.
+É como se a gente tivesse um pato que voa, nada, grasna e fica invisível. Ele ta fazendo uma coisa diferente..., mas ele ainda faz as coisas que definimos como essenciais para classificá-lo como um pato.
 
 ### Interfaces híbridas
 
-Até aqui você já deve ter percebido que as interfaces podem ser compostas por diversos tipos. Number, strings, booleans, functions e até tipos customizados.
+Até aqui você já deve ter percebido que as interfaces podem ser compostas por diversos tipos. Number, strings, booleans, functions, etc e até tipos customizados.
 
 ```typescript
 interface Addres {
@@ -118,7 +118,7 @@ const user: User = {
 
 ### Propriedades opcionais
 
-Podem existir casos em que algumas propriedades podem existir ou não e é muito fácil de definir isso, basta adicionar um `?` depois do nome da propriedade. Só é preciso tomar cuidado, pois uma propriedade não definida temo seu valor `undefined`.
+Podem existir casos em que algumas propriedades podem existir ou não e é muito fácil de definir isso, basta adicionar um `?` depois do nome da propriedade. Só é preciso tomar cuidado, pois uma propriedade não definida tem o seu valor `undefined`.
 
 ```typescript
 interface User {
@@ -190,6 +190,7 @@ interface NumberOrStringDictionary {
 const array: NumberOrStringDictionary = [1, 2, 'a']
 
 console.log(array[1]); // 2
+console.log(array['2']); // Erro
 ```
 
 É interessante que se tentarmos fazer um `array.push('b')` vamos ter um erro de tipo, pois `push` não foi definido na interface `NumberOrStringDictionary`. Teríamos que fazer algo assim:
@@ -220,11 +221,11 @@ console.log(array) // [ { "one": 1, "two": 2 }, { "three": 3 }, { "four": 4 } ]
 
 ### Devo usar classes ou interfaces
 
-Existe a possibilidade de tipas nossos dados utilizando classes, porém quando nosso typescript é transformado em javascript a gente acaba tendo uma classe inútil, pois ela é declarada e não é usada em local nenhum. Isso acontece porque o typescript só fazia uso em tempo de execução. Veja as imagens abaixo.
+Existe a possibilidade de tipar nossos dados utilizando classes, porém quando nosso typescript é transformado em javascript a gente acaba tendo uma classe inútil, pois ela é declarada e não é usada em local nenhum. Isso acontece porque o typescript só fazia uso em tempo de execução. Veja as imagens abaixo.
 
 ![Tipagem usando interfaces](assets/img/Screenshot from 2020-08-23 19-11-31.png "Tipagem usando interfaces")
 
-A imagem acima mostra o resultado de um código javascript tipado usando interfaces, note que a interface foi descartada e não polui o nosso código final.
+A imagem acima mostra o resultado de um código javascript tipado usando interfaces, note que a interface foi descartada e não poluí o nosso código final.
 
 ![Tipagem usando classes](assets/img/Screenshot from 2020-08-23 19-22-38.png "Tipagem usando classes")
 
