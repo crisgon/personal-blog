@@ -178,21 +178,6 @@ interface Admin extends User {
 }
 ```
 
-### Devo usar classes ou interfaces
-
-Existe a possibilidade de tipas nossos dados utilizando classes, porém quando nosso typescript é transformado em javascript a gente acaba tendo uma classe inútil, pois ela é declarada e não é usada em local nenhum. Isso acontece porque o typescript só fazia uso em tempo de execução. Veja as imagens abaixo.
-
-![Tipagem usando interfaces](assets/img/Screenshot from 2020-08-23 19-11-31.png "Tipagem usando interfaces")
-
-A imagem acima mostra o resultado de um código javascript tipado usando interfaces, note que a interface foi descartada e não polui o nosso código final.
-
-![Tipagem usando classes](assets/img/Screenshot from 2020-08-23 19-22-38.png "Tipagem usando classes")
-
-A imagem acima mostra  um código javascript tipado usando classes, note que uma classe é criada, mas não é usada em momento algum no nosso código final.\
-**PS: eu precisei iniciar as propriedades com um valor, pois o typescript reclamou que elas não tinham sido inicializadas no construtor.**
-
-Acredito que ficou claro qual opção escolher quando queremos apenas ter a segurança de tipos. 
-
 ## Interfaces com tipos Indexáveis
 
 Os tipos indexáveis tem uma *assinatura de índice*  que descreve os tipos que podemos usar para indexar em um objeto, exemplo `a[10]` (usa um número como índice) `a['name']`(usa string como índice).
@@ -233,6 +218,20 @@ const array: DynamicObject[] = [{'one': 1, 'two': 2}, {'three': 3}, {'four': 4}]
 console.log(array) // [ { "one": 1, "two": 2 }, { "three": 3 }, { "four": 4 } ] 
 ```
 
+### Devo usar classes ou interfaces
+
+Existe a possibilidade de tipas nossos dados utilizando classes, porém quando nosso typescript é transformado em javascript a gente acaba tendo uma classe inútil, pois ela é declarada e não é usada em local nenhum. Isso acontece porque o typescript só fazia uso em tempo de execução. Veja as imagens abaixo.
+
+![Tipagem usando interfaces](assets/img/Screenshot from 2020-08-23 19-11-31.png "Tipagem usando interfaces")
+
+A imagem acima mostra o resultado de um código javascript tipado usando interfaces, note que a interface foi descartada e não polui o nosso código final.
+
+![Tipagem usando classes](assets/img/Screenshot from 2020-08-23 19-22-38.png "Tipagem usando classes")
+
+A imagem acima mostra  um código javascript tipado usando classes, note que uma classe é criada, mas não é usada em momento algum no nosso código final.\
+**PS: eu precisei iniciar as propriedades com um valor, pois o typescript reclamou que elas não tinham sido inicializadas no construtor.**
+
+Acredito que ficou claro qual opção escolher quando queremos apenas ter a segurança de tipos. 
 
 
 ### Isso é tudo pessoal!
