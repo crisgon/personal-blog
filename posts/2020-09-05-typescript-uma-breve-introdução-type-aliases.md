@@ -32,7 +32,9 @@ val = 'olá';
 val = false; // error
 ```
 
-Mas esse não é o único caso de uso... pra ficar mais claro, vamos supor que temos uma função que retorna o faturamento diário, semanal e mensal de uma empresa.
+Mas esse não é o único caso de uso... pra ficar mais claro vamos supor que temos uma função que retorna o faturamento diário, semanal e mensal de uma empresa.
+
+PS: Isso é baseado em um caso real...
 
 ```typescript
 function getRevenue(type:  "daily" | "weekly" | "monthly") {
@@ -56,7 +58,7 @@ let expenseType: "daily" | "weekly" | "monthly" = "weekly"
 getExpenses(expenseType) 
 ```
 
-Agora as coisas já começam a ficar complicadas... Imagine que nosso sistema também vai fornecer informações anuais. Nós precisamos alterar o código em pelo menos 4 lugares. Utilizando `type aliases` a gente pode resolver esse problema facilmente, concentrando nosso tipo em um único ponto do código.
+Agora as coisas já começam a ficar complicadas... Imagine que nosso sistema também vai fornecer informações anuais. Nós precisamos alterar o código acima em pelo menos 4 lugares. Utilizando `type aliases` nós podemos resolver esse problema facilmente, basta concentrar nosso tipo em um único ponto do código.
 
 ```typescript
 type period = "daily" | "weekly" | "monthly" | "yearly";
@@ -85,15 +87,20 @@ Daqui pra frente vou mostrar algumas comparações entre interfaces e `type alia
 
 ### Type Aliases x Interfaces
 
-Um `type aliases` pode se comportar como uma interface, porém com algumas diferenças.
+Um `type aliases` pode se comportar como uma interface, porém com algumas diferenças bem notáveis.
 
 ##### Tipos primitivos
 
 As interfaces não se dão muito bem com tipos primitivos...  Quando queremos ter um tipo que aceite múltiplos tipos primitivos `type` é a melhor opção.
 
 ```typescript
+// usanto type
 type id = number | string;
+
+
 ```
+
+Em contra-partida, interfaces são uma ótima pedida quando queremos fazer representação e composição de tipos que são objetos.
 
 ##### Extends
 
@@ -129,7 +136,7 @@ type Hero = Person & PowerInfo;
 
 ##### Tuplas
 
-Interfaces não funcionam para declaração de tuplas.😅
+Interfaces não funcionam para declaração de tuplas.😅 Você pode até tentar simular, mas logo vai ver que não funciona como esperado...
 
 ```typescript
 type tuple = [number, boolean, number];
@@ -173,7 +180,7 @@ Assim como pra quase toda pergunta da vida... A resposta pra pergunta acima é *
 
 Geralmente  `type aliases` vai te atender 100% e de quebra vai ter dar a segurança de  não fazer merges sem intenção, pois usando interfaces pode acontecer de você fazer uma redeclaração sem querer e acabar bagunçando sua tipagem...  
 
-Mas como eu disse, tudo depende do seu objetivo. Por exemplo, em uma lib pode ser que existam tipos que seja    precisam ser facilmente extensíveis.
+Mas como eu disse, tudo depende do seu objetivo. Por exemplo, em uma lib pode ser que existam tipos que     precisam ser facilmente extensíveis.
 
 E  por último, mas não menos importante, siga o padrão do seu time. Ele usa interface? Siga o padrão! Não existe a necessidade de sair mudando tudo pra type, pois não vai fazer tanta diferença assim.
 
