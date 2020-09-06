@@ -15,13 +15,9 @@ Nos artigos anteriores nós vimos um pouco sobre tipos básicos, enums, type ass
 * [Typescript - Uma breve introdução - Tuplas, Enums e Type Assertion](https://www.crisgon.dev/typescript-uma-breve-introdu%C3%A7%C3%A3o-parte-2/)
 * [Typescript - Uma breve introdução - Interfaces](https://www.crisgon.dev/typescript-uma-breve-introdu%C3%A7%C3%A3o-interfaces/)
 
-
-
 Hoje vamos aprender um pouco sobre `type aliases`(type alias), mais uma forma oferecida pelo typescript para criar tipos reutilizáveis de maneira bastante simples. 
 
-Em poucas palavras, `type aliases `nos permite dar "apelidos" para tipos primitivos, tuplas, tipos personalizados e qualquer outro tipo que você desejar. Em alguns casos um `type aliase` pode ser semelhante às interfaces, mas ambos tem peculiaridades que vamos entender ao longo deste artigo.
-
-
+Em poucas palavras, `type aliases`nos permite dar "apelidos" para tipos primitivos, tuplas, tipos personalizados e qualquer outro tipo que você desejar. Em alguns casos um `type aliase` pode ser semelhante às interfaces, mas ambos tem peculiaridades que vamos entender ao longo deste artigo.
 
 ### Criando nosso primeiro type aliase
 
@@ -46,7 +42,6 @@ function getRevenue(type:  "daily" | "weekly" | "monthly") {
 let revenueType: "daily" | "weekly" | "monthly" = "daily"
 
 getRevenue(revenueType) 
-
 ```
 
 Até aqui tudo bem... Mas vamos supor que agora temos uma função que retorna o total de despesas diário, semanal e mensal de uma empresa.
@@ -84,10 +79,36 @@ let expenseType: period = "weekly"
 getExpenses(expenseType) 
 ```
 
-
-
 Esse foi um caso clássico para uso de `type aliases`, mas podemos fazer seu uso em diversas outras situações. 
 
 Daqui pra frente vou mostrar algumas comparações entre interfaces e `type aliases` para facilitar sua compreensão.
 
 ### Type Aliases x Interfaces
+
+Um `type aliases` pode se comportar como uma interface, porém com algumas diferenças. A principal delas é que não podemos declarar duas `type aliases` com o mesmo nome, isso gera um erro, enquanto duas interfaces declaradas com o mesmo nome são mescladas.
+
+```typescript
+interface Person {
+ name: string;
+}
+
+
+interface Person {
+ age: number;
+}
+
+// Agora person é:
+interface Person {
+ name: string;
+ age: number;
+}
+
+
+type Animal = {
+ name: string;
+}
+
+type Animal = { // Error. Já existe um tipo declarado com o nome Animal
+ specie: string;
+}
+```
