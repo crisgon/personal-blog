@@ -9,7 +9,7 @@ import {
   FaVuejs,
   FaCss3,
   FaHtml5,
-  FaGitAlt
+  FaGitAlt,
 } from "react-icons/fa";
 
 import { DiJavascript1, DiReact } from "react-icons/di";
@@ -26,8 +26,15 @@ const About = () => {
     { label: "CSS", icon: FaCss3 },
     { label: "Git", icon: FaGitAlt },
     { label: "React JS", icon: DiReact },
-    { label: "Vue Js", icon: FaVuejs }
+    { label: "Vue Js", icon: FaVuejs },
   ];
+
+  const baseColor = () => {
+    return getComputedStyle(document.body).getPropertyValue(
+      "--sidebarBackground"
+    );
+  };
+
   return (
     <Layout>
       <SEO title="About" />
@@ -43,7 +50,7 @@ const About = () => {
             forma remota.
           </S.Text>
           <S.SkillsList>
-            {icons.map(item => {
+            {icons.map((item) => {
               const Icon = item.icon;
               return (
                 <li title={item.label}>
@@ -69,14 +76,14 @@ const About = () => {
           <Timeline>
             <TimelineEvent
               title="Meu Nascimento"
-              titleStyle={{ color: "#e74c3c" }}
+              titleStyle={{ color: baseColor() }}
               createdAt="Maior de 1995"
-              iconColor="#e74c3c"
+              iconColor={baseColor()}
               icon={<FiActivity />}
               contentStyle={{
                 lineHeight: "1.5rem",
                 fontSize: "1.2rem",
-                fontWeight: 300
+                fontWeight: 300,
               }}
             >
               Aqui começava a caminhada de um menino que queria ser astronauta,
@@ -85,14 +92,14 @@ const About = () => {
 
             <TimelineEvent
               title="Criei meu primeiro Blog"
-              titleStyle={{ color: "#e74c3c" }}
+              titleStyle={{ color: baseColor() }}
               createdAt="2011"
-              iconColor="#e74c3c"
+              iconColor={baseColor()}
               icon={<FaRegBookmark />}
               contentStyle={{
                 lineHeight: "1.5rem",
                 fontSize: "1.2rem",
-                fontWeight: 300
+                fontWeight: 300,
               }}
             >
               Sempre fui ligado em animes e coisas do tipo, por isso logo quando
@@ -107,14 +114,14 @@ const About = () => {
 
             <TimelineEvent
               title="Comecei o curso de Sistemas de Informação"
-              titleStyle={{ color: "#e74c3c" }}
+              titleStyle={{ color: baseColor() }}
               createdAt="Janeiro de 2012"
-              iconColor="#e74c3c"
+              iconColor={baseColor()}
               icon={<FaUniversity />}
               contentStyle={{
                 lineHeight: "1.5rem",
                 fontSize: "1.2rem",
-                fontWeight: 300
+                fontWeight: 300,
               }}
             >
               Iniciei um curso superior sem saber exatemente tudo que ia
@@ -123,14 +130,14 @@ const About = () => {
 
             <TimelineEvent
               title="Meu Primeiro emprego como FrontEnd"
-              titleStyle={{ color: "#e74c3c" }}
+              titleStyle={{ color: baseColor() }}
               createdAt="Julho de 2018"
-              iconColor="#e74c3c"
+              iconColor={baseColor()}
               icon={<MdComputer />}
               contentStyle={{
                 lineHeight: "1.5rem",
                 fontSize: "1.2rem",
-                fontWeight: 300
+                fontWeight: 300,
               }}
             >
               Iniciei meu primeiro emprego formal, depois de alguns anos como
@@ -140,14 +147,14 @@ const About = () => {
 
             <TimelineEvent
               title="Finalmente formado!"
-              titleStyle={{ color: "#e74c3c" }}
+              titleStyle={{ color: baseColor() }}
               createdAt="Novembro de 2018"
-              iconColor="#e74c3c"
+              iconColor={baseColor()}
               icon={<TiMortarBoard />}
               contentStyle={{
                 lineHeight: "1.5rem",
                 fontSize: "1.2rem",
-                fontWeight: 300
+                fontWeight: 300,
               }}
             >
               Depois de muito sofrimento...
@@ -155,14 +162,14 @@ const About = () => {
 
             <TimelineEvent
               title="Entrei na Cubos"
-              titleStyle={{ color: "#e74c3c" }}
+              titleStyle={{ color: baseColor() }}
               createdAt="Dezembro de 2018"
-              iconColor="#e74c3c"
+              iconColor={baseColor()}
               icon={<MdComputer />}
               contentStyle={{
                 lineHeight: "1.5rem",
                 fontSize: "1.2rem",
-                fontWeight: 300
+                fontWeight: 300,
               }}
             >
               Aceitei um novo desafio, trabalhar com uma stack totalmente
