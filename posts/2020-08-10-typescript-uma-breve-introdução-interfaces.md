@@ -1,5 +1,5 @@
 ---
-title: Typescript - Uma breve introdução -Interfaces
+title: Typescript - Uma breve introdução - Interfaces
 resume: >-
   Nos últimos artigos aprendemos um pouco sobre o básico para iniciar no
   typescript, porém existem momentos em que os tipos básicos não atendem todas
