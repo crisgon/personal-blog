@@ -30,9 +30,11 @@ const About = () => {
   ];
 
   const baseColor = () => {
-    return getComputedStyle(document.body).getPropertyValue(
-      "--sidebarBackground"
-    );
+    return typeof window !== "undefined"
+      ? window
+          .getComputedStyle(document.body)
+          .getPropertyValue("--sidebarBackground")
+      : "#e74c3c";
   };
 
   return (
