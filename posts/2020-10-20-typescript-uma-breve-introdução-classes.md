@@ -24,8 +24,6 @@ Antes prosseguirmos gostaria de deixar claro que não vamos abordar orientação
 >
 > *[MDN](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Classes)*
 
-
-
 ```typescript
 class Student {
     constructor(name, n1, n2, n3) {
@@ -46,8 +44,60 @@ console.log(cristiano.name); // Cristiano
 console.log(cristiano.getAverage()); // 8
 ```
 
-
-
-Até aqui não tem nada de typescript... Todo código acima é vanilla js e você consegue executar ele no console do navegador sem grandes problemas. Pra entender mais um pouco classes no javascript recomendo conferir a [documentação do MDN](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Classes).
+Até aqui não tem nada de typescript... Todo código acima é vanilla js e você consegue executar ele no console do navegador sem grandes problemas. Recomendo conferir a [documentação do MDN](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Classes), caso não esteja confortável com classes no javascript.
 
 ### Tá, mas onde tem typescript?
+
+![Will Smith pensativo](https://media1.tenor.com/images/8ba280cf79c3a988bfb7cce7258e39d6/tenor.gif?itemid=4813460)
+
+Certo, é hora de focar no que o typescript oferece além do básico de classes que você já deve conhecer.  Vamos aprender um pouco sobre modificadores de acesso e classes abstratas. 
+
+> Em programação orientada a objetos,**modificador de acesso**, também chamado de**visão de método**ou ainda**visão de atributo**, é a palavra-chave que define um atributo, método ou classe como público, privado ou protegido.
+>
+> *[Wikipédia](https://pt.wikipedia.org/wiki/Modificador_de_acesso)*
+
+#### Público
+
+Por padrão tudo no typescript é público até que você diga o contrário. Isso quer dizer que conseguimos acessar e manipular os métodos e atributos das nossas classes livremente. É interessante utilizar a palavra-chave `public` de forma explicita para deixar tudo padronizado, mas você verá que é algo opcional.
+
+```typescript
+class Employee {
+  public name: string;
+  public salary: number;
+  
+  public constructor(name: string, salary: number) {
+    this.name = name;
+    this.salary = salary;
+  }
+}
+
+const programmer = new Employee('John', 12000);
+
+console.log(programmer.name); // John
+console.log(programmer.salary); // 12000
+
+programmer.salary = 9999;
+
+console.log(programmer.salary); // 9999
+```
+
+Com o modificador public(ou não utilizando nenhum modificador) conseguimos pintar e bordar com nosso objeto. Você notou que conseguimos alterar até o salário depois que instanciamos a classe e criamos o objeto `programmer`?
+
+A classe declarada abaixo tem o **MESMO** efeito da que declaramos anteriormente, a única diferença é que não estamos explicitando que os atributos são públicos.
+
+```typescript
+class Employee {
+   name: string;
+   salary: number;
+  
+   constructor(name: string, salary: number) {
+    this.name = name;
+    this.salary = salary;
+  }
+}
+
+const programmer = new Employee('John', 12000);
+
+console.log(programmer.name); // John
+console.log(programmer.salary); // 12000
+```
