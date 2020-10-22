@@ -101,3 +101,48 @@ const programmer = new Employee('John', 12000);
 console.log(programmer.name); // John
 console.log(programmer.salary); // 12000
 ```
+
+#### Privado
+
+Também podemos declarar atributos e métodos como privado, isso fará com que eles não sejam acessíveis fora da sua classe.
+
+```typescript
+class User {
+  private username: string;
+  private password: string;
+  
+  constructor(name: string, pass: string) {
+    this.username = name;
+    this.password: pass;
+  }
+};
+
+const admin = new User('Cristiano', '123');
+console.log(admin.username); // Property 'username' is private and only accessible within class 'User'.
+```
+
+Aqui só conseguimos acessar `username` ou `password` expondo por meio de algum método, ou atributo público.
+
+```typescript
+class User {
+  private username: string;
+  private password: string;
+  
+  constructor(name: string, pass: string) {
+    this.username = name;
+    this.password: pass;
+  }
+  
+  public getInfo() {
+    return {
+     username: this.username,
+      password: this.passowrd
+      
+    }
+  }
+};
+
+const admin = new User('Cristiano', '123');
+console.log(admin.getInfo());
+
+```
