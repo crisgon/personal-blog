@@ -56,7 +56,7 @@ Certo, é hora de focar no que o typescript oferece além do básico de classes 
 >
 > *[Wikipédia](https://pt.wikipedia.org/wiki/Modificador_de_acesso)*
 
-#### Público
+#### Público(public)
 
 Por padrão tudo no typescript é público até que você diga o contrário. Isso quer dizer que conseguimos acessar e manipular os métodos e atributos das nossas classes livremente. É interessante utilizar a palavra-chave `public` de forma explicita para deixar tudo padronizado, mas você verá que é algo opcional.
 
@@ -102,7 +102,7 @@ console.log(programmer.name); // John
 console.log(programmer.salary); // 12000
 ```
 
-#### Privado
+#### Privado(private)
 
 Também podemos declarar atributos e métodos como privado, isso fará com que eles não sejam acessíveis fora da sua classe.
 
@@ -146,7 +146,7 @@ const admin = new User('Cristiano', '123');
 console.log(admin.getInfo());
 ```
 
-#### Protegido
+#### Protegido(protected)
 
 Métodos e atributos protegidos são semelhantes aos privados. A única diferença é que conseguimos acessá-los em classes derivadas. 
 
@@ -196,11 +196,12 @@ class Employee extends User {
 const admin = new Employee('Cristiano', 999);
 console.log(admin.username); // Property 'username' is protected and only accessible within class 'User' and its subclasse
 console.log(admin.getInfo());
-
 ```
 
-A classe `Employee `é derivada de `Use`, por isso ela consegue acessar `username` no método `getInfo.` Porém, vamos ter um erro ao tentar acessar `username` em um objeto criado de `Employee.`
+A classe `Employee`é derivada de `Use`, por isso ela consegue acessar `username` no método `getInfo.` Porém, vamos ter um erro ao tentar acessar `username` em um objeto criado de `Employee.`
+
+#### Apenas leitura(readonly)
 
 ``
 
-### `Classes Abstratas`
+### Classes Abstratas
