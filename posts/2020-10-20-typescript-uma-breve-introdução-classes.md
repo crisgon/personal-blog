@@ -144,5 +144,63 @@ class User {
 
 const admin = new User('Cristiano', '123');
 console.log(admin.getInfo());
+```
+
+#### Protegido
+
+Métodos e atributos protegidos são semelhantes aos privados. A única diferença é que conseguimos acessá-los em classes derivadas. 
+
+Como assim?
+
+```typescript
+class User {
+  protected username: string;
+  
+  constructor(name: string) {
+    this.username = name;
+  }
+};
+
+const user = new User('Cristiano');
+
+user.username; //Property 'username' is protected and only accessible within class 'User' and its subclasse
+```
+
+O código acima nos gera um erro, pois estamos tentando acessar uma propriedade protegida que só pode ser acessada na própria classe ou nas classes derivadas dela.
+
+Segue o exemplo:
+
+```typescript
+class User {
+  protected username: string;
+  
+  constructor(name: string) {
+    this.username = name;
+  }
+
+};
+
+class Employee extends User {
+  private salary: number;
+
+  constructor(username: string, salary: number) {
+    super(username);
+    this.salary = salary;
+  }
+
+  getInfo() {
+    return `${this.username} recebe o salário de ${this.salary}`
+  }
+}
+ 
+const admin = new Employee('Cristiano', 999);
+console.log(admin.username); // Property 'username' is protected and only accessible within class 'User' and its subclasse
+console.log(admin.getInfo());
 
 ```
+
+A classe `Employee `é derivada de `Use`, por isso ela consegue acessar `username` no método `getInfo.` Porém, vamos ter um erro ao tentar acessar `username` em um objeto criado de `Employee.`
+
+``
+
+### `Classes Abstratas`
