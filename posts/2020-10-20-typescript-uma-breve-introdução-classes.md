@@ -52,7 +52,7 @@ Até aqui não tem nada de typescript... Todo código acima é vanilla js e voc�
 
 Certo, é hora de focar no que o typescript oferece além do básico de classes que você já deve conhecer.  Vamos aprender um pouco sobre modificadores de acesso e classes abstratas. 
 
-> Em programação orientada a objetos,**modificador de acesso**, também chamado de**visão de método**ou ainda**visão de atributo**, é a palavra-chave que define um atributo, método ou classe como público, privado ou protegido.
+> Em programação orientada a objetos,**modificador de acesso**, também chamado de **visão de método** ou ainda **visão de atributo**, é a palavra-chave que define um atributo, método ou classe como público, privado ou protegido.
 >
 > *[Wikipédia](https://pt.wikipedia.org/wiki/Modificador_de_acesso)*
 
@@ -202,6 +202,23 @@ A classe `Employee`é derivada de `Use`, por isso ela consegue acessar `username
 
 #### Apenas leitura(readonly)
 
-``
+Propriedades e métodos readonly são públicos, mas apenas para leitura. Não conseguimos fazer alterações no seu valor depois de iniciados.
+
+```typescript
+class User {
+  readonly username: string;
+  
+  constructor(name: string) {
+    this.username = name;
+  }
+
+};
+
+const user = new User('Cristiano');
+console.log(user.username); // Cristiano
+user.username = 'João'; // Cannot assign to 'username' because it is a read-only property.
+```
+
+ 
 
 ### Classes Abstratas
