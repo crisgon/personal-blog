@@ -219,6 +219,28 @@ console.log(user.username); // Cristiano
 user.username = 'João'; // Cannot assign to 'username' because it is a read-only property.
 ```
 
- 
+### Estática(static)
+
+Até o momento só vimos propriedades que vão aparecer no objeto quando uma classe for instanciada, mas também podemos declarar propriedades visíveis apenas a classe e para uso inter. Pra isso basta utilizar a palavra-chave `static` e para acessar ao invés do `this` usamos o nome da classe.
+
+```typescript
+class User {
+  static id = '22'  
+  public username: string;
+
+  constructor(name: string) {
+    this.username = name;
+  }
+
+  getInfo() {
+    console.log({id: User.id, name: this.username});
+  }
+
+};
+
+const user = new User('Cristiano');
+user.getInfo(); // { id: "22", name: "Cristiano" }
+
+```
 
 ### Classes Abstratas
