@@ -50,7 +50,7 @@ Até aqui não tem nada de typescript... Todo código acima é vanilla js e voc�
 
 ![Will Smith pensativo](https://media1.tenor.com/images/8ba280cf79c3a988bfb7cce7258e39d6/tenor.gif?itemid=4813460)
 
-Certo, é hora de focar no que o typescript oferece além do básico de classes que você já deve conhecer.  Vamos aprender um pouco sobre modificadores de acesso e classes abstratas. 
+Certo, é hora de focar no que o typescript oferece, além do básico de classes que você já deve conhecer.  Vamos aprender um pouco sobre modificadores de acesso e classes abstratas. 
 
 > Em programação orientada a objetos,**modificador de acesso**, também chamado de **visão de método** ou ainda **visão de atributo**, é a palavra-chave que define um atributo, método ou classe como público, privado ou protegido.
 >
@@ -58,7 +58,7 @@ Certo, é hora de focar no que o typescript oferece além do básico de classes 
 
 #### Público(public)
 
-Por padrão tudo no typescript é público até que você diga o contrário. Isso quer dizer que conseguimos acessar e manipular os métodos e atributos das nossas classes livremente. É interessante utilizar a palavra-chave `public` de forma explicita para deixar tudo padronizado, mas você verá que é algo opcional.
+Por padrão tudo no typescript é público até que você diga o contrário. Isso quer dizer que conseguimos acessar e manipular os métodos e propriedades(atributos) das nossas classes livremente. É interessante utilizar a palavra-chave `public` de forma explicita para deixar tudo padronizado, mas você verá que é algo opcional.
 
 ```typescript
 class Employee {
@@ -83,7 +83,7 @@ console.log(programmer.salary); // 9999
 
 Com o modificador public(ou não utilizando nenhum modificador) conseguimos pintar e bordar com nosso objeto. Você notou que conseguimos alterar até o salário depois que instanciamos a classe e criamos o objeto `programmer`?
 
-A classe declarada abaixo tem o **MESMO** efeito da que declaramos anteriormente, a única diferença é que não estamos explicitando que os atributos são públicos.
+A classe declarada abaixo tem o **MESMO** efeito da que declaramos anteriormente, a única diferença é que não estamos explicitando que as propriedades são públicas.
 
 ```typescript
 class Employee {
@@ -104,7 +104,7 @@ console.log(programmer.salary); // 12000
 
 #### Privado(private)
 
-Também podemos declarar atributos e métodos como privado, isso fará com que eles não sejam acessíveis fora da sua classe.
+Também podemos declarar propriedades e métodos como privado, isso fará com que eles não sejam acessíveis fora da sua classe.
 
 ```typescript
 class User {
@@ -198,7 +198,7 @@ console.log(admin.username); // Property 'username' is protected and only access
 console.log(admin.getInfo());
 ```
 
-A classe `Employee`é derivada de `Use`, por isso ela consegue acessar `username` no método `getInfo.` Porém, vamos ter um erro ao tentar acessar `username` em um objeto criado de `Employee.`
+A classe `Employee` é derivada de `User`, por isso ela consegue acessar `username` no método `getInfo.` Porém, vamos ter um erro ao tentar acessar `username` em um objeto criado de `Employee.`
 
 #### Apenas leitura(readonly)
 
@@ -244,9 +244,9 @@ user.getInfo(); // { id: "22", name: "Cristiano" }
 
 ### Classes Abstratas(abstract)
 
-Classes abstratas são classes bases que outras classes podem ser derivadas, porém, não podemos fazer instância de uma classe abstrata. Para criar uma classe abstrata basta usar a palavra reservada `abstract` e quando você tentar fazer uma instância receberá um erro.
+Classes abstratas são classes bases que outras classes podem ser derivadas, porém, não podemos fazer instância de uma classe abstrata.  É algo que você pode usar **APENAS** como "inspiração" para criar outras classes.
 
-
+Para criar uma classe abstrata basta usar a palavra reservada `abstract` e quando você tentar fazer uma instância receberá um erro.
 
 ```typescript
 abstract class Player {
@@ -276,10 +276,7 @@ class PlayerOne extends Player {
 const p1 = new PlayerOne();
 p1.jump(); // "jumping"
 p1.walk(); // "walking" 
-
 ```
-
-
 
 Também podemos criar métodos abstratos sem nenhuma implementação, fazendo isso na classe derivada.
 
@@ -305,7 +302,6 @@ class Boss extends Player {
 const finalBoss = new Boss();
 finalBoss.jump(); // "jumping""
 finalBoss.attack(); // attacking
-
 ```
 
 ### Isso é tudo pessoal!
