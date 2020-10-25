@@ -240,7 +240,87 @@ class User {
 
 const user = new User('Cristiano');
 user.getInfo(); // { id: "22", name: "Cristiano" }
+```
+
+### Classes Abstratas(abstract)
+
+Classes abstratas são classes bases que outras classes podem ser derivadas, porém, não podemos fazer instância de uma classe abstrata. Para criar uma classe abstrata basta usar a palavra reservada `abstract` e quando você tentar fazer uma instância receberá um erro.
+
+
+
+```typescript
+abstract class Player {
+  jump(): void {
+    console.log("jumping");
+  }
+}
+
+const player1 = new Player(); // Cannot create an instance of an abstract class.
+```
+
+Porém, você pode estender essa classe e usar os seus métodos ou propriedades.
+
+```typescript
+abstract class Player {
+  jump(): void {
+    console.log("jumping");
+  }
+}
+
+class PlayerOne extends Player {
+  walk() {
+    console.log('walking');
+  }
+}
+
+const p1 = new PlayerOne();
+p1.jump(); // "jumping"
+p1.walk(); // "walking" 
 
 ```
 
-### Classes Abstratas
+
+
+Também podemos criar métodos abstratos sem nenhuma implementação, fazendo isso na classe derivada.
+
+```typescript
+abstract class Player {
+ abstract attack(): void;
+
+  jump(): void {
+    console.log("jumping");
+  }
+}
+
+class Boss extends Player {
+  constructor() {
+    super();
+  }
+
+  attack() {
+    console.log('attacking')
+  }
+}
+
+const finalBoss = new Boss();
+finalBoss.jump(); // "jumping""
+finalBoss.attack(); // attacking
+
+```
+
+### Isso é tudo pessoal!
+
+![Isso é tudo pessoal](https://i.pinimg.com/originals/2a/82/1e/2a821ee45ca3cbc384c0b70f730248ae.gif)
+
+Obrigado por chegar até aqui!! Espero que tenha conseguido te ajudar de alguma forma. =]
+
+Em breve irei escrever mais conteúdo sobre Typescript.
+
+Então... Até mais!
+
+### Links importantes
+
+* [Typescript HandBook](https://www.typescriptlang.org/v2/docs/handbook/basic-types.html)
+* [Typescript Playground](https://www.typescriptlang.org/play/index.html)
+* [You Dont Know Js](https://github.com/getify/You-Dont-Know-JS)
+* [Mini-curso de Typescript do Willian Justen](https://www.youtube.com/playlist?list=PLlAbYrWSYTiPanrzauGa7vMuve7_vnXG_)
