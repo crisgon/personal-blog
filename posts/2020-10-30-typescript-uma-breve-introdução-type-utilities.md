@@ -24,11 +24,33 @@ Type utilities são um conjunto de utilitários que o typescript nos oferece  pa
 
 O padrão dos utilitários é `NOME<ARGUMENTOS>`. É como se estivéssemos invocando uma função, porém usando <>.
 
-
-
 #### Partial
 
+Esse utilitário faz com que todas as propriedades de uma interface se tornem opcionais.
 
+Seu uso é bastante simples, basta passar o tipo como "argumento" `Partial<MeuTipo>`
+
+```typescript
+interface Music {
+  name: string;
+  artist: string;
+  duration: number;
+}
+
+type newMusic = Partial<Music>;
+// É isso que newMusic representa
+// interface newMusic {
+//   name?: string;
+//   artist?: string;
+//   duration?: number;
+// }
+
+
+const song: newMusic  = {
+  name: 'yura yura '
+};
+
+```
 
 
 
