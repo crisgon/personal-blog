@@ -49,7 +49,6 @@ type newMusic = Partial<Music>;
 const song: newMusic  = {
   name: 'yura yura '
 };
-
 ```
 
 
