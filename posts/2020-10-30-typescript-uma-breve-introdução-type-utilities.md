@@ -51,7 +51,34 @@ const song: newMusic  = {
 };
 ```
 
+#### Readonly
 
+Conforme o nome sugere, esse utilitário faz com que todos os itens de um tipo sejam apenas de leitura. Isso impossibilita que um valor seja reatribuído em tempo de execução. Ou seja, você não consegue alterar um valor enquanto desenvolve, mas é possível fazer reatribuições depois que o typescript for compilado para javascript, pois no fim das contas o objeto não é congelado com [Object.freeze](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze).
+
+
+
+```typescript
+interface Music {
+  name: string;
+  artist: string;
+  duration: number;
+}
+
+type newMusic = Readonly<Music>
+
+const song: newMusic  = {
+  name: 're: re',
+  artist: 'Asian kung -u generation',
+  duration: 5.32
+}
+
+song.duration = 5.33 // Cannot assign to 'duration' because it is a read-only property
+
+```
+
+![Playground typescript](assets/img/Captura de tela de 2020-11-03 23-59-04.png "Resultado do typescript compilado")
+
+A imagem acima mostra lado a lado os códigos typescript e javascript. Note que o typescript apresenta um erro de compilação, mas meu foco é apenas o javascript... veja que eu tenho uma reatribuição e um console no meu javascript. Logo abaixo temos o resultado do console e você pdoe ver que consegui alterar a `duration` de `5.32` para `5.33`
 
 ### Isso é tudo pessoal!
 
