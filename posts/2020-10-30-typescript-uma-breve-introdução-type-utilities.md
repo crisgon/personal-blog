@@ -75,7 +75,7 @@ song.duration = 5.33 // Cannot assign to 'duration' because it is a read-only pr
 
 ![Playground typescript](assets/img/Captura de tela de 2020-11-03 23-59-04.png "Resultado do typescript compilado")
 
-A imagem acima mostra lado a lado os códigos typescript e javascript. Note que o typescript apresenta um erro de compilação e isso falharia com nosso build, mas meu foco é apenas o javascript após uma compilação de sucesso... veja que eu tenho uma reatribuição e um console no meu javascript. Logo abaixo temos o resultado do console e você pdoe ver que consegui alterar a `duration` de `5.32` para `5.33`
+A imagem acima mostra lado a lado os códigos typescript e javascript. Note que o typescript apresenta um erro de compilação e isso falharia com nosso build, mas meu foco é apenas o javascript após uma compilação de sucesso... veja que eu tenho uma reatribuição e um console no meu javascript. Logo abaixo temos o resultado do console e você pode ver que consegui alterar a `duration` de `5.32` para `5.33`. É muito importante entender que o `Readonly` não substitui o [Object.freeze](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze). 
 
 ### Isso é tudo pessoal!
 
