@@ -1,5 +1,5 @@
 ---
-title: Typescript - Uma breve introdução - Type utilities
+title: Typescript - Uma breve introdução - Type utilities - Parte 1
 resume: >-
   No último artigo aprendemos um pouco sobre classes. Hoje vamos aprender a
   melhorar nosso fluxo de trabalho usando type utilities.
@@ -24,7 +24,7 @@ Type utilities são um conjunto de utilitários que o typescript nos oferece  pa
 
 O padrão dos utilitários é `NOME<ARGUMENTOS>`. É como se estivéssemos invocando uma função, porém usando <>.
 
-#### Partial
+#### Partial<Type>
 
 Esse utilitário faz com que todas as propriedades de uma interface se tornem opcionais.
 
@@ -51,7 +51,7 @@ const song: newMusic  = {
 };
 ```
 
-#### Readonly
+#### Readonly<Type>
 
 Conforme o nome sugere, esse utilitário faz com que todos os itens de um tipo sejam apenas de leitura. Isso impossibilita que um valor seja reatribuído em tempo de execução. Ou seja, você não consegue alterar um valor enquanto desenvolve, mas é possível fazer reatribuições depois que o typescript for compilado para javascript, pois no fim das contas o objeto não é congelado com [Object.freeze](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze).
 
@@ -76,6 +76,51 @@ song.duration = 5.33 // Cannot assign to 'duration' because it is a read-only pr
 ![Playground typescript](assets/img/Captura de tela de 2020-11-03 23-59-04.png "Resultado do typescript compilado")
 
 A imagem acima mostra lado a lado os códigos typescript e javascript. Note que o typescript apresenta um erro de compilação e isso falharia com nosso build, mas meu foco é apenas o javascript após uma compilação de sucesso... veja que eu tenho uma reatribuição e um console no meu javascript. Logo abaixo temos o resultado do console e você pode ver que consegui alterar a `duration` de `5.32` para `5.33`. É muito importante entender que o `Readonly` não substitui o [Object.freeze](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze). 
+
+### Record<Keys, Type>
+
+O record recebe dois "parâmetros"  que são utilizados para construir uma nova interface. Os parâmetros são as keys, que serão as propriedades da interface, e o o type que vai ser usado como o tipo de cada uma das propriedades. É meio confuso, mas com os exemplos vai ser fácil de absorver a ideia.
+
+```typescript
+interface Character {
+  name: string;
+  level: number;
+}
+
+type Classes = "mage" | "paladin" | "warrior";
+
+type TeamType = Record<Classes, Character>;
+
+const team: TeamType = {
+  mage: {name: 'Cris', level: 1},
+  paladin: {name: 'Jon', level: 5},
+  warrior: {name: 'Maria', level: 22}
+};
+
+
+```
+
+No código acima declaramos o `TeamType` que seria equivalente a declarar a interface abaixo:
+
+```typescript
+interface TeamType {
+  mage: {
+    name: string;
+    level: number;
+  },
+  paladin: {
+    name: string;
+    level: number;
+  },
+  warrior: {
+    name: string;
+    level: number;
+  }
+}
+
+```
+
+Mas porque usar Record ao invés de simplesmente declarar uma interface?
 
 ### Isso é tudo pessoal!
 
