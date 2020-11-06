@@ -96,8 +96,6 @@ const team: TeamType = {
   paladin: {name: 'Jon', level: 5},
   warrior: {name: 'Maria', level: 22}
 };
-
-
 ```
 
 No código acima declaramos o `TeamType` que seria equivalente a declarar a interface abaixo:
@@ -117,10 +115,9 @@ interface TeamType {
     level: number;
   }
 }
-
 ```
 
-Mas porque usar Record ao invés de simplesmente declarar uma interface?
+Mas porque usar `Record` ao invés de simplesmente declarar uma interface? Usando o `Record` temos algo mais dinâmico, pense o seguinte: atualmente temos apenas as classes de rpg **mage**, **paladin** e **warrior**. E se futuramente as classes **barbarian** e **shaman** forem introduzidas? Com `Record` só precisamo alterar o nosso type Classes ao invés de criar 2 novas interfaces.
 
 ### Isso é tudo pessoal!
 
