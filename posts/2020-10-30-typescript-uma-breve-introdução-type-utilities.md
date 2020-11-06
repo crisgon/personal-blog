@@ -79,7 +79,7 @@ A imagem acima mostra lado a lado os códigos typescript e javascript. Note que 
 
 ### Record<Keys, Type>
 
-O record recebe dois "parâmetros"  que são utilizados para construir uma nova interface. Os parâmetros são as keys, que serão as propriedades da interface, e o o type que vai ser usado como o tipo de cada uma das propriedades. É meio confuso, mas com os exemplos vai ser fácil de absorver a ideia.
+O `Record` recebe dois "parâmetros"  que são utilizados para construir uma nova interface. Os parâmetros são as keys, que serão as propriedades da interface, e o o type que vai ser usado como o tipo de cada uma das propriedades. É meio confuso, mas com os exemplos vai ser fácil de absorver a ideia.
 
 ```typescript
 interface Character {
@@ -118,6 +118,60 @@ interface TeamType {
 ```
 
 Mas porque usar `Record` ao invés de simplesmente declarar uma interface? Usando o `Record` temos algo mais dinâmico, pense o seguinte: atualmente temos apenas as classes de rpg **mage**, **paladin** e **warrior**. E se futuramente as classes **barbarian** e **shaman** forem introduzidas? Com `Record` só precisamo alterar o nosso type Classes ao invés de criar 2 novas interfaces.
+
+### Pick<Type, Keys>
+
+Com esse utilitário nós podemos criar um  tipo escolhendo quais partes de um tipo base queremos utilizar. Os "argumentos" que o `Pick` recebe são os mesmos do `Record`, um tipo e uma lista de chaves separadas por `|`.
+
+```typescript
+interface Music {
+  name: string;
+  artist: string;
+  duration: number;
+  style: string;
+}
+
+type Artist = Pick<Music, 'artist' | 'style'>;
+
+const newArtist: Artist = {
+  artist: 'Emicida',
+  style: 'Rap'
+}
+```
+
+### Omit<Type, keys>
+
+O `Omit` faz exatamente o contrário do `Pick`. Ele extrai todas as propriedades de um tipo, com exceção das que forem passadas como argumento. Quando escolher omit ao invés do pick? Isso é simples, não faz sentido listar todas as propriedades de um tipo com pick, quando podemos apenas passar as propriedades que não queremos.
+
+```typescript
+type Artist = {
+  name: string;
+}
+interface MovieDetails {
+  name: string;
+  poster: string;
+  year: number;
+  duration: number;
+  category: string;
+  rate: number;
+  sinopse: string;
+  casting: string[]
+}
+
+type Movie = Omit<MovieDetails, 'casting'>;
+
+const newmovie: Movie = {
+  name: 'O Castelo Animado',
+  category: 'animation',
+  poster: 'https://castelo.png',
+  year: 2004,
+  duration: 1.59,
+  rate: 4.6,
+  sinopse: 'Uma bruxa lança uma terrível maldição sobre a jovem Sophie...'
+}
+```
+
+Seria bem mais trabalhoso se a gente usasse pick para listar todas as propriedades que iriamos reaproveitar no nosso tipo.
 
 ### Isso é tudo pessoal!
 
