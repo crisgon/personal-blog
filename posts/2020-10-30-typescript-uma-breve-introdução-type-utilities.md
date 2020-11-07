@@ -51,6 +51,29 @@ const song: newMusic  = {
 };
 ```
 
+#### Required<Type>
+
+Faz exatamente o oposto do `Partial`. Com eles todas as propriedades de um tipo se tornam obrigatórias.
+
+```typescript
+interface User {
+  name?: string;
+  age?: number;
+}
+
+const oldUser: User = {
+name: 'Cristiano'
+}
+
+const newUser: Required<User> = {
+  name: 'Cristiano'
+}
+
+//Property 'age' is missing in type '{ name: string; }' but required in type 'Required<User>'.
+```
+
+
+
 #### Readonly<Type>
 
 Conforme o nome sugere, esse utilitário faz com que todos os itens de um tipo sejam apenas de leitura. Isso impossibilita que um valor seja reatribuído em tempo de execução. Ou seja, você não consegue alterar um valor enquanto desenvolve, mas é possível fazer reatribuições depois que o typescript for compilado para javascript, pois no fim das contas o objeto não é congelado com [Object.freeze](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze).
@@ -173,11 +196,44 @@ const newmovie: Movie = {
 
 Seria bem mais trabalhoso se a gente usasse pick para listar todas as propriedades que iriamos reaproveitar no nosso tipo.
 
+### NonNullable<Type>
+
+Esse é um utilitário bem simples, pois ele apenas remove `null` e `undefined` do nosso tipo. Vale lembrar que se temos uma interface com uma propriedade null/undefined e usarmos o `NonNullable` nada irá acontecer.
+
+```typescript
+// Caso onde NonNullable funciona
+type GenericType = string | number | undefined | null | boolean[];
+
+const someThing: NonNullable<GenericType> = null;
+//Type 'null' is not assignable to type 'string | number | boolean[]'.
+
+interface User {
+  name: undefined;
+  age: number;
+}
+
+// Caso onde NonNullable não funciona
+
+const newUser: NonNullable<User> = {
+  age: 22
+}
+
+//Property 'name' is missing in type '{ age: number; }' but required in type 'User'.
+
+
+```
+
+
+
 ### Isso é tudo pessoal!
 
 ![Isso é tudo pessoal](https://i.pinimg.com/originals/2a/82/1e/2a821ee45ca3cbc384c0b70f730248ae.gif)
 
 Obrigado por chegar até aqui!! Espero que tenha conseguido te ajudar de alguma forma. =]
+
+A lista de utilitários é grande, por isso resolvi dividir esse tópico em duas partes.
+
+
 
 Em breve irei escrever mais conteúdo sobre Typescript.
 
@@ -185,7 +241,7 @@ Então... Até mais!
 
 ### Links importantes
 
-* [Typescript HandBook](https://www.typescriptlang.org/v2/docs/handbook/basic-types.html)
+* [Typescript HandBook](https://www.typescriptlang.org/docs/handbook/intro.html)
 * [Typescript Playground](https://www.typescriptlang.org/play/index.html)
 * [You Dont Know Js](https://github.com/getify/You-Dont-Know-JS)
 * [Mini-curso de Typescript do Willian Justen](https://www.youtube.com/playlist?list=PLlAbYrWSYTiPanrzauGa7vMuve7_vnXG_)
