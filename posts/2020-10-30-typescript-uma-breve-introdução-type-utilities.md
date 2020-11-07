@@ -68,11 +68,10 @@ name: 'Cristiano'
 const newUser: Required<User> = {
   name: 'Cristiano'
 }
+// Aqui vamos ter um pequeno erro
 
 //Property 'age' is missing in type '{ name: string; }' but required in type 'Required<User>'.
 ```
-
-
 
 #### Readonly<Type>
 
@@ -93,7 +92,9 @@ const song: newMusic  = {
   duration: 5.32
 }
 
-song.duration = 5.33 // Cannot assign to 'duration' because it is a read-only property
+song.duration = 5.33 
+// Aqui vamos ter um pequeno erro
+// Cannot assign to 'duration' because it is a read-only property
 ```
 
 ![Playground typescript](assets/img/Captura de tela de 2020-11-03 23-59-04.png "Resultado do typescript compilado")
@@ -178,7 +179,7 @@ interface MovieDetails {
   category: string;
   rate: number;
   sinopse: string;
-  casting: string[]
+  casting: Artist[]
 }
 
 type Movie = Omit<MovieDetails, 'casting'>;
@@ -205,6 +206,7 @@ Esse é um utilitário bem simples, pois ele apenas remove `null` e `undefined` 
 type GenericType = string | number | undefined | null | boolean[];
 
 const someThing: NonNullable<GenericType> = null;
+// Aqui vamos ter um pequeno erro
 //Type 'null' is not assignable to type 'string | number | boolean[]'.
 
 interface User {
@@ -218,22 +220,17 @@ const newUser: NonNullable<User> = {
   age: 22
 }
 
+// Aqui vamos ter um pequeno erro
 //Property 'name' is missing in type '{ age: number; }' but required in type 'User'.
-
-
 ```
-
-
 
 ### Isso é tudo pessoal!
 
 ![Isso é tudo pessoal](https://i.pinimg.com/originals/2a/82/1e/2a821ee45ca3cbc384c0b70f730248ae.gif)
 
-Obrigado por chegar até aqui!! Espero que tenha conseguido te ajudar de alguma forma. =]
+Obrigado por chegar até aqui!! Espero que tenha conseguido te ajudar de alguma forma. 😊
 
 A lista de utilitários é grande, por isso resolvi dividir esse tópico em duas partes.
-
-
 
 Em breve irei escrever mais conteúdo sobre Typescript.
 
