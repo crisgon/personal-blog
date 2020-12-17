@@ -21,7 +21,7 @@ Nos artigos anteriores nós vimos um pouco sobre tipos básicos, enums, type ass
 
 ### Exclude<Type, Keys>
 
-Se funcionamento é muito simples. Esse type utilitie cria um novo tipo removendo tudo que é passado na lista de keys. 
+Se funcionamento é muito simples. Esse utilitário cria um novo tipo removendo tudo que é passado na lista de keys. 
 
 ```typescript
 type Tiers = 'Ferro' | 'Bronze' | 'Prata' | 'Mestre' | 'Desafiante';
