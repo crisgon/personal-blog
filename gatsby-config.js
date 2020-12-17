@@ -17,18 +17,9 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-webfonts`,
+      resolve: `gatsby-plugin-google-fontss`,
       options: {
-        fonts: [
-          {
-            family: `Roboto`,
-            variants: [`400`, `700`],
-          },
-          {
-            family: `Roboto`,
-            subsets: [`latin`],
-          },
-        ],
+        fonts: [`Roboto`, `400,700`],
       },
     },
     `gatsby-plugin-react-helmet`,
