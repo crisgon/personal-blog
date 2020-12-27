@@ -46,7 +46,7 @@ function showInfo(value: string | number) {
 showInfo(42); // {value: 42}
 ```
 
-Problema resolvido! E se agora eu quiser mostrar logs de um tipo \`Person\` que tem a seguinte estrutura \`{name: string; age: number}\`? Eu poderia simplesmente adicionar esse tipo na minha função, mas note que isso já começa a se tornar algo muito trabalho... É ai que entram os generics e a nossa função fica da seguinte forma.
+Problema resolvido! E se agora eu quiser mostrar logs de um tipo `Person` que tem a seguinte estrutura `{name: string; age: number`}? Eu poderia simplesmente adicionar esse tipo na minha função, mas note que isso já começa a se tornar algo muito trabalho... É ai que entram os generics e a nossa função fica da seguinte forma.
 
 ```typescript
 function showInfo<MeuTipo>(value: MeuTipo) {
@@ -59,7 +59,12 @@ interface Person {
   age: number;
 }
 
-const 
+const umaPessoa: Person = {
+  name: "Cris",
+  age: 25
+}
 
-showInfo<Person>({}); // {value: 42}
+showInfo<Person>(umaPessoa);
 ```
+
+Os generics são "argumentos" passados entre `<>` igualzinho ao que vimos com [type utilities](https://www.crisgon.dev/typescript-uma-breve-introdu%C3%A7%C3%A3o-type-utilities/). No exemplo acima dizemos que a função `showInfo` vai receber um generic chamado `MeuTipo` e esse generic vai ser usado como tipo para o argumento `value` da minha função.
