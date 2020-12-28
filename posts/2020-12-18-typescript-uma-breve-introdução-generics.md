@@ -102,3 +102,41 @@ function showInfo<MeuTipo>(value: MeuTipo) {
 showInfo(false); // Aqui value vai ser do tipo boolean
 showInfo(42); // Aqui value vai ser do tipo number
 ```
+
+### Só consigo usar generics com funções?
+
+Não, a gente consegue utilizar generics em classes e até para construir interfaces. A ideia é a mesma das funções, você passa os argumentos do seu generic logo após o nome e os utiliza dentro da sua classe ou interface. Vamos aos exemplos! 
+
+
+
+```typescript
+class GenericClass<T>{
+    constructor(value: T,) {
+        this.value = value;
+    }
+
+  value: T;
+
+  changeValue(v: T) {
+      this.value = v;
+  }
+
+  getValue(): T {
+      return this.value;
+  }
+}
+
+let num = new GenericClass<Number>(0);
+
+num.getValue(); // 0
+
+num.changeValue(10); // 10
+
+let str = new GenericClass<string>('');
+
+str.getValue(); // ''
+
+str.changeValue(10); // Erro! Argument of type 'number' is not assignable to parameter of type 'string'.
+
+str.changeValue('Cris'); // Cris
+```
