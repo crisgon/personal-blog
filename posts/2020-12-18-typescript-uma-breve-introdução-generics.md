@@ -46,7 +46,7 @@ function showInfo(value: string | number) {
 showInfo(42); // {value: 42}
 ```
 
-Problema resolvido! E se agora eu quiser mostrar logs de um tipo `Person` que tem a seguinte estrutura `{name: string; age: number`}? Eu poderia simplesmente adicionar esse tipo na minha função, mas note que isso já começa a se tornar algo muito trabalho... É ai que entram os generics e a nossa função fica da seguinte forma.
+Problema resolvido! E se agora eu quiser mostrar logs de um tipo `Person` que tem a seguinte estrutura `{name: string; age: number`}? Eu poderia simplesmente adicionar esse tipo na minha função, mas note que isso já começa a se tornar algo muito trabalho... Outra solução seria tipar como any, mas vamos perder toda a segurança dos nossos tipos.É ai que entram os generics e a nossa função fica da seguinte forma.
 
 ```typescript
 function showInfo<MeuTipo>(value: MeuTipo) {
@@ -67,4 +67,38 @@ const umaPessoa: Person = {
 showInfo<Person>(umaPessoa);
 ```
 
-Os generics são "argumentos" passados entre `<>` igualzinho ao que vimos com [type utilities](https://www.crisgon.dev/typescript-uma-breve-introdu%C3%A7%C3%A3o-type-utilities/). No exemplo acima dizemos que a função `showInfo` vai receber um generic chamado `MeuTipo` e esse generic vai ser usado como tipo para o argumento `value` da minha função.
+Os generics são "argumentos" passados entre `<>` igualzinho ao que vimos com [type utilities](https://www.crisgon.dev/typescript-uma-breve-introdu%C3%A7%C3%A3o-type-utilities/). No exemplo acima dizemos que a função `showInfo` vai receber um generic chamado `MeuTipo` e esse generic vai ser usado como tipo para o argumento `value` da minha função. É como se após invocar a função ela ficasse assim:
+
+```typescript
+showInfo<Person>(umaPessoa);
+
+// A função ficaria assim
+
+function showInfo(value: Person) {
+  console.log({value});
+}
+```
+
+No nosso exemplo eu utilizei `MeuTipo`, mas o comum é encontrar apenas letras como T, U, etc. Vale lembrar que podemos passar mais de um argumento pro nosso generic.
+
+```typescript
+function showOtherValues<T, U>(value: T, otherValue: U): T {
+    console.log({value, otherValue});
+  return value;
+}
+
+showOtherValues<String, Boolean>(false, false); // Erro! Argument of type 'boolean' is not assignable to parameter of type 'String'.
+
+showOtherValues<String, Boolean>('Cris', false); // A função retorna a string 'Cris'
+```
+
+Mais um ponto importante é que caso nenhum tipo seja informado o typescript vai tentar fazer a inferência de tipos e utilizar any quando não conseguir.
+
+```typescript
+function showInfo<MeuTipo>(value: MeuTipo) {
+  console.log({value});
+}
+
+showInfo(false); // Aqui value vai ser do tipo boolean
+showInfo(42); // Aqui value vai ser do tipo number
+```
