@@ -22,9 +22,9 @@ Nos artigos anteriores nós vimos um pouco sobre tipos básicos, enums, type ass
 
 ### O que é um generic?
 
-Uma das nossas atribuições como programadores e programadoras é escrever códigos que possam ser reaproveitado na maior parte dos casos. O ideal seria que o trecho de código feito para um dado X possa ser facilmente adaptado ou reutilizado para um dado Y no futuro. 
+Uma das nossas atribuições como programadores e programadoras é escrever códigos que possam ser reaproveitados na maior parte dos casos. O ideal seria que o trecho de código feito para um dado X pudesse ser facilmente adaptado ou reutilizado para um dado Y no futuro. 
 
-Nos últimos artigos nós aprendemos a criar tipos e logo depois a utilizar esses tipos nas nossas funções, classes ou variáveis, mas até aqui só usamos tipos "estáticos". O que eu quero dizer com "estáticos" é que se criarmos uma interface, ao longo do nosso código ela vai permanecer a mesma em todos os lugares(a não ser que a gente reescreva essa interface, mas isso não vem ao caso). Pode ter ficado um pouco confuso, mas ao longo do artigo você compreender facilmente.
+Nos últimos artigos nós aprendemos a criar tipos e logo depois a utilizar esses tipos nas nossas funções, classes ou variáveis, mas até aqui só usamos tipos "estáticos". O que eu quero dizer com "estáticos" é que se criarmos uma interface, ao longo do nosso código ela vai permanecer a mesma em todos os lugares(a não ser que a gente reescreva essa interface, mas isso não vem ao caso). Pode ter ficado um pouco confuso, mas ao longo do artigo você vai compreender facilmente.
 
 Tá, mas o que é um generic? Basicamente, um generic é uma forma de passar algum "argumento" de tipo para uma função, classe ou interface fazendo com que eles possam ser utilizados de maneiras diferentes, em cenários diferentes.  Uma forma clara de entender um generic é pensando em uma função, então vamos ao exemplo.
 
@@ -107,8 +107,6 @@ showInfo(42); // Aqui value vai ser do tipo number
 
 Não, a gente consegue utilizar generics em classes e até para construir interfaces. A ideia é a mesma das funções, você passa os argumentos do seu generic logo após o nome e os utiliza dentro da sua classe ou interface. Vamos aos exemplos! 
 
-
-
 ```typescript
 class GenericClass<T>{
     constructor(value: T,) {
@@ -140,3 +138,45 @@ str.changeValue(10); // Erro! Argument of type 'number' is not assignable to par
 
 str.changeValue('Cris'); // Cris
 ```
+
+Agora veja um exemplo utilizando interfaces.
+
+```typescript
+interface GenericInterface<T> {
+    value: T;
+    getValue(): T;
+}
+
+const myObj: GenericInterface<Number> = {
+    value: 0,
+    getValue() {
+        return this.value;
+    }
+}
+```
+
+### Finalizando...
+
+Generic é uma forma de escrever algo genérico, assim como o nome sugere... Utilizando essa funcionalidade podemos construir tipos fáceis de serem aproveitados para as nossas aplicações. Isso que vimos aqui é apenas  o essencial para que você não se assuste quando ver um código como esse que acabei de tirar da tipagem do React.
+
+![Generics na tipagem do React](assets/img/hooks.png "Generics na tipagem do React")
+
+### Isso é tudo pessoal!
+
+![Isso é tudo pessoal](https://i.pinimg.com/originals/2a/82/1e/2a821ee45ca3cbc384c0b70f730248ae.gif)
+
+Obrigado por chegar até aqui!! Espero que tenha conseguido te ajudar de alguma forma. 😊
+
+Existem outros utilitários do typescript, porém, eles não são tão convencionais e acredito que as chances de você precisar usar um deles é muito remota. Mas basta acessar a [documentação](https://www.typescriptlang.org/docs/handbook/utility-types.html#partialtype),  caso queira conhecer a lista completa.
+
+Em breve irei escrever mais conteúdo sobre Typescript.
+
+Então... Até mais!
+
+### Links importantes
+
+* [Typescript HandBook](https://www.typescriptlang.org/docs/handbook/intro.html)
+* [Typescript Playground](https://www.typescriptlang.org/play/index.html)
+* [You Dont Know Js](https://github.com/getify/You-Dont-Know-JS)
+* [Mini-curso de Typescript do Willian Justen](https://www.youtube.com/playlist?list=PLlAbYrWSYTiPanrzauGa7vMuve7_vnXG_)
+* [TypeScript - Entendendo Generics por completo](https://oieduardorabelo.medium.com/typescript-entendendo-generics-por-completo-40a372aeea5)
