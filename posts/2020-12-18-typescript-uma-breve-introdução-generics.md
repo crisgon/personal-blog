@@ -20,13 +20,13 @@ Nos artigos anteriores nós vimos um pouco sobre tipos básicos, enums, type ass
 * [Typescript - Uma breve introdução - Type utilities - Parte 1](https://www.crisgon.dev/typescript-uma-breve-introdu%C3%A7%C3%A3o-type-utilities/)
 * [Typescript - Uma breve introdução - Type utilities - Parte 2](https://www.crisgon.dev/typescript-uma-breve-introdu%C3%A7%C3%A3o-type-utilities-parte-2/)
 
+
+
+Nos últimos artigos nós aprendemos a criar tipos e logo em seguida a utilizar esses tipos nas nossas funções, classes ou variáveis, mas até aqui só usamos tipos "estáticos". O que eu quero dizer com "estáticos" é que se criarmos uma interface, ao longo do nosso código ela vai permanecer a mesma em todos os lugares que a gente utilizar(a não ser que a gente reescreva essa interface, mas isso não vem ao caso). Porém, uma das nossas atribuições como programadores e programadoras é escrever códigos que possam ser reaproveitados na maior parte dos casos. O ideal seria que um trecho de código feito para um dado X pudesse ser facilmente adaptado ou reutilizado para um dado Y no futuro. Existem muitas formas de alcançar esse feito e uma delas é utilizando generics. 
+
 ### O que é um generic?
 
-Uma das nossas atribuições como programadores e programadoras é escrever códigos que possam ser reaproveitados na maior parte dos casos. O ideal seria que o trecho de código feito para um dado X pudesse ser facilmente adaptado ou reutilizado para um dado Y no futuro. 
-
-Nos últimos artigos nós aprendemos a criar tipos e logo depois a utilizar esses tipos nas nossas funções, classes ou variáveis, mas até aqui só usamos tipos "estáticos". O que eu quero dizer com "estáticos" é que se criarmos uma interface, ao longo do nosso código ela vai permanecer a mesma em todos os lugares(a não ser que a gente reescreva essa interface, mas isso não vem ao caso). Pode ter ficado um pouco confuso, mas ao longo do artigo você vai compreender facilmente.
-
-Tá, mas o que é um generic? Basicamente, um generic é uma forma de passar algum "argumento" de tipo para uma função, classe ou interface fazendo com que eles possam ser utilizados de maneiras diferentes, em cenários diferentes.  Uma forma clara de entender um generic é pensando em uma função, então vamos ao exemplo.
+Tá, mas o que é um generic? Basicamente, um generic é uma forma de passar algum "argumento" de tipo para uma função, classe ou interface fazendo com que eles possam ser utilizados de maneiras diferentes e/ou em cenários diferentes.  Uma forma clara de entender um generic é pensando em uma função, então vamos ao exemplo.
 
 ```typescript
 function showInfo(value: string) {
@@ -46,7 +46,7 @@ function showInfo(value: string | number) {
 showInfo(42); // {value: 42}
 ```
 
-Problema resolvido! E se agora eu quiser mostrar logs de um tipo `Person` que tem a seguinte estrutura `{name: string; age: number`}? Eu poderia simplesmente adicionar esse tipo na minha função, mas note que isso já começa a se tornar algo muito trabalho... Outra solução seria tipar como any, mas vamos perder toda a segurança dos nossos tipos.É ai que entram os generics e a nossa função fica da seguinte forma.
+Problema resolvido! E se agora eu quiser mostrar logs de um tipo `Person` que tem a seguinte estrutura `{name: string; age: number`}? Eu poderia simplesmente adicionar esse tipo na minha função, mas note que isso já começa a se tornar algo muito trabalho... Outra solução seria tipar como any, mas assim vamos perder toda a segurança dos nossos tipos.É ai que entram os generics e a nossa função fica da seguinte forma.
 
 ```typescript
 function showInfo<MeuTipo>(value: MeuTipo) {
@@ -79,7 +79,7 @@ function showInfo(value: Person) {
 }
 ```
 
-No nosso exemplo eu utilizei `MeuTipo`, mas o comum é encontrar apenas letras como T, U, etc. Vale lembrar que podemos passar mais de um argumento pro nosso generic.
+No nosso exemplo eu utilizei `MeuTipo`, mas o comum é encontrar apenas letras como T, U, etc. Vale lembrar que podemos passar mais de um argumento pro nosso generic, basta separar por vírgula.
 
 ```typescript
 function showOtherValues<T, U>(value: T, otherValue: U): T {
@@ -105,7 +105,7 @@ showInfo(42); // Aqui value vai ser do tipo number
 
 ### Só consigo usar generics com funções?
 
-Não, a gente consegue utilizar generics em classes e até para construir interfaces. A ideia é a mesma das funções, você passa os argumentos do seu generic logo após o nome e os utiliza dentro da sua classe ou interface. Vamos aos exemplos! 
+Não, a gente consegue utilizar generics em classes e até para construir interfaces. A ideia é a mesma das funções, você passa os "argumentos" do seu generic logo após o nome da sua classe/interface. Vamos aos exemplos! 
 
 ```typescript
 class GenericClass<T>{
@@ -166,8 +166,6 @@ Generic é uma forma de escrever algo genérico, assim como o nome sugere... Uti
 ![Isso é tudo pessoal](https://i.pinimg.com/originals/2a/82/1e/2a821ee45ca3cbc384c0b70f730248ae.gif)
 
 Obrigado por chegar até aqui!! Espero que tenha conseguido te ajudar de alguma forma. 😊
-
-Existem outros utilitários do typescript, porém, eles não são tão convencionais e acredito que as chances de você precisar usar um deles é muito remota. Mas basta acessar a [documentação](https://www.typescriptlang.org/docs/handbook/utility-types.html#partialtype),  caso queira conhecer a lista completa.
 
 Em breve irei escrever mais conteúdo sobre Typescript.
 
