@@ -19,10 +19,8 @@ Antes de aprender uma tecnologia é interessante entender que tipo de problema e
 
 No código acima vimos 3 situações que provam que verificar apenas o tamanho da string não é garantia de que teremos um CPF válido, pois essa é uma verificação muito rasa que não garante que todos os caracteres passados são numéricos. Para conseguir ter a certeza de que os caracteres atendem aos requisitos que desejamos é preciso definir e verificar padrões e isso pode ser feito com uso de expressões regulares.
 
-
-
 ### O que é uma expressão regular?
 
-> Em ciência da computação, uma **expressão regular** ou "Regex" (ou os estrangeirismos ***regex*** ou **regexp** [\[1]](https://pt.wikipedia.org/wiki/Express%C3%A3o_regular#cite_note-1) , abreviação do inglês *regular expression*) provê uma forma concisa e flexível de identificar cadeias de caracteres de interesse, como caracteres particulares, palavras ou padrões de caracteres. Expressões regulares são escritas numa linguagem formal que pode ser interpretada por um processador de expressão regular, um programa que serve um gerador de analisador sintático ou examina o texto e identifica as partes que casam com a especificação dada.
+> Em ciência da computação, uma **expressão regular** ou "Regex" (ou os estrangeirismos ***regex*** ou **regexp**) , abreviação do inglês *regular expression*) provê uma forma concisa e flexível de identificar cadeias de caracteres de interesse, como caracteres particulares, palavras ou padrões de caracteres. Expressões regulares são escritas numa linguagem formal que pode ser interpretada por um processador de expressão regular, um programa que serve um gerador de analisador sintático ou examina o texto e identifica as partes que casam com a especificação dada.
 >
 > [Wikipédia](https://pt.wikipedia.org/wiki/Express%C3%A3o_regular)
