@@ -2,7 +2,7 @@
 title: Expressões Regulares - Um guia para iniciantes
 resume: Durante o desenvolvimento existem momentos em que precisamos validar
   palavras, frases e textos ou simplesmente precisamos encontrar padrões de
-  textos sem se preocupar com o conteúdo. Quando esses momentos aparecem você
+  textos sem nos preocupar com o conteúdo. Quando esses momentos aparecem você
   provavelmente vai precisar de uma regex para resolver esse problema.
 date: 2021-01-12 08:36:24
 image: assets/img/1_gxrxu9czy1iahspufd95zw.png
