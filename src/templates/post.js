@@ -2,6 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 import { Calendar } from "styled-icons/feather/Calendar";
 import { Twitter } from "styled-icons/boxicons-logos/Twitter";
+import { Facebook } from "@styled-icons/boxicons-logos/Facebook";
 import { AccessTime as Timer } from "styled-icons/material/AccessTime";
 
 import Layout from "../components/Layout";
@@ -43,6 +44,15 @@ const Post = ({ data, pageContext }) => {
               </S.IconWrapper>
               Tweet
           </S.TwitterShareButton>
+
+          <S.FacebookShareButton target="_blank" href={`https://www.facebook.com/sharer/sharer.php?u=https://www.crisgon.dev${slug}`}>
+            <S.IconWrapper>
+              <Facebook /> 
+            </S.IconWrapper>
+
+            Compartilhar
+          </S.FacebookShareButton>
+
         </S.PostDate>
       </S.PostHeader>
       <S.PostMainContent>
