@@ -261,6 +261,12 @@ export const IconWrapper = styled.div`
   cursor: pointer;
 `;
 
+export const SocialShareButtons = styled.div`
+  width: 100%;
+  display: flex;
+  margin-left: 1rem;
+`;
+
 export const TwitterShareButton = styled.a`
   width: 70px;
   height: 20px;
@@ -295,3 +301,21 @@ export const FacebookShareButton = styled.a`
   align-items: center;
   cursor: pointer;
 `;
+
+export const LinkedinShareButton = styled.a`
+  width: 115px;
+  height: 20px;
+  background-color: #0077b5;
+  border-radius: 3px;
+  padding: 1px 8px 1px 6px;
+  margin-left: 5px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  cursor: pointer;
+`;
+
