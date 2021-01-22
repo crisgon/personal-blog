@@ -1,6 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 import { Calendar } from "styled-icons/feather/Calendar";
+import { Twitter } from "styled-icons/boxicons-logos/Twitter";
 import { AccessTime as Timer } from "styled-icons/material/AccessTime";
 
 import Layout from "../components/Layout";
@@ -11,6 +12,8 @@ import * as S from "../components/Post/styled";
 
 const Post = ({ data, pageContext }) => {
   const postData = data.markdownRemark;
+  const {slug} = pageContext;
+
 
   return (
     <Layout>
@@ -29,7 +32,17 @@ const Post = ({ data, pageContext }) => {
           <S.IconWrapper>
             <Timer />
           </S.IconWrapper>
-          {postData.timeToRead} min de leitura
+          {postData.timeToRead} min de leitura &nbsp;|&nbsp;
+
+          <S.TwitterShareButton
+              href={`https://twitter.com/intent/tweet?text=${postData.frontmatter.title} | by @Gonkristiano https://www.crisgon.dev${slug}`} 
+              target="_blank"
+              rel="noopener noreferrer">
+              <S.IconWrapper>
+                <Twitter /> 
+              </S.IconWrapper>
+              Tweet
+          </S.TwitterShareButton>
         </S.PostDate>
       </S.PostHeader>
       <S.PostMainContent>
