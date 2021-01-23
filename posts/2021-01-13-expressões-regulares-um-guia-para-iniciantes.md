@@ -92,3 +92,15 @@ As duas opções vão reproduzir o resultado abaixo:
 ![Regex ocorrênciasn globais de letras](assets/img/captura-de-tela-de-2021-01-15-01-16-07.png)
 
 Se você analisar o resultado com cuidado vai ver que temos um pequeno problema... Não conseguimos encontrar todas as letras do nosso texto. Todas que possuem algum caractere especial(è,ã) foram ignoradas.
+
+### Classes de caracteres abreviados: o famoso shorthand
+
+Ter que sempre escrever `[0-9] `ou `[a-zA-z`] seria um saco, mas felizmente existem maneiras de fazer as mesmas coisas escrevendo menos. Vou listar alguns das principais formas abreviadas
+
+* `\d` corresponde a qualquer caractere numérico. O mesmo que `[0-9]`
+* `\D` corresponde a tudo que não é um digito, incluindo caracteres especiais como `!, ç~` e etc.
+* `\s `corresponde a espaços em branco, tabs, quebra de linhas.
+* `\S `corresponde a tudo que não for espaços em branco, tabs, quebras de linha.
+* `\w` corresponde a tudo que é alfanumérico. O mesmo que `[a-zA-z0-9_]`
+* `\W` corresponde a tudo que não é alfanumérico. Pode ser utilizado em conjunto com \w para encontrar caracteres alfanuméricos e não alfanuméricos.` [\w\W]`
+* `.` é considerado um coringa, pois com ele podemos encontrar qualquer caractere, menos quebras de linha.
