@@ -42,7 +42,7 @@ const Post = ({ data, pageContext }) => {
 
         <S.SocialShareButtons>
           <S.TwitterShareButton
-              href={`https://twitter.com/intent/tweet?text=${postData.frontmatter.title} | by @Gonkristiano https://www.crisgon.dev${slug}`} 
+              href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(`${postData.frontmatter.title} \nBy @Gonkristiano\nhttps://www.crisgon.dev${slug}`)}`} 
               target="_blank"
               rel="noopener noreferrer">
               <S.IconWrapper>
