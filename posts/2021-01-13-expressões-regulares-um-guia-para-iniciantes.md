@@ -95,12 +95,48 @@ Se você analisar o resultado com cuidado vai ver que temos um pequeno problema.
 
 ### Classes de caracteres abreviados: o famoso shorthand
 
-Ter que sempre escrever `[0-9] `ou `[a-zA-z`] seria um saco, mas felizmente existem maneiras de fazer as mesmas coisas escrevendo menos. Vou listar alguns das principais formas abreviadas
+Ter que sempre escrever `[0-9]`ou `[a-zA-z`] seria um saco, mas felizmente existem maneiras de fazer as mesmas coisas escrevendo menos. Vou listar alguns das principais formas abreviadas
 
 * `\d` corresponde a qualquer caractere numérico. O mesmo que `[0-9]`
 * `\D` corresponde a tudo que não é um digito, incluindo caracteres especiais como `!, ç~` e etc.
-* `\s `corresponde a espaços em branco, tabs, quebra de linhas.
-* `\S `corresponde a tudo que não for espaços em branco, tabs, quebras de linha.
+* `\s`corresponde a espaços em branco, tabs, quebra de linhas.
+* `\S`corresponde a tudo que não for espaços em branco, tabs, quebras de linha.
 * `\w` corresponde a tudo que é alfanumérico. O mesmo que `[a-zA-z0-9_]`
-* `\W` corresponde a tudo que não é alfanumérico. Pode ser utilizado em conjunto com \w para encontrar caracteres alfanuméricos e não alfanuméricos.` [\w\W]`
+* `\W` corresponde a tudo que não é alfanumérico. Pode ser utilizado em conjunto com \w para encontrar caracteres alfanuméricos e não alfanuméricos.`[\w\W]`
 * `.` é considerado um coringa, pois com ele podemos encontrar qualquer caractere, menos quebras de linha.
+
+
+
+### Quantificadores
+
+Os quantificadores, também podem ser conhecidos como repetidores, dizem quantas vezes determinada ocorrência pode se repetir. Até o momento fizemos buscas por letras ou números, mas não chegamos a especificar quantas letras seguidas queremos encontrar, ou quantos números seguidos. 
+
+Pense na seguinte situação, precisamos encontra o número de uma placa de carro em um texto qualquer. 
+
+![Placa de carro](assets/img/placa-de-carro.jpeg "Placa de carro")
+
+Uma placa de carro tem a seguinte estrutura: **ABC-1234** (3 letras 1 hífen e 4 números). Note que apenas com o que aprendemos até agora é impossível encontrar o número da placa no texto abaixo:
+
+*O carro com a placa de número ABC-1234 foi furtado na manhã de domingo.*
+
+
+
+É ai que os quantificadores entram! Nós vamos dizer exatamente quantas vezes cada caractere vai se repetir para atender ao nosso padrão. Logo, nossa regex ficaria assim: `/[a-zA-Z]{3}-\d{4}/g`
+
+A expressão regular é bem simples! Podemos separar ela em 3 partes para ficar mais fácil de entender:
+
+* `[a-zA-Z]{3}`  Essa parte diz que qualquer coisa de a-z tem que aparecer 3 vezes
+* `-` Aqui indica que é preciso ter um hífen
+* `\d{4}` Essa parte diz que 4 números quaisquer devem aparecer seguidos.
+
+![](assets/img/captura-de-tela-de-2021-01-26-21-49-35.png)
+
+Agora que você já tem uma ideia de como um quantificador pode ser usado, veja uma lista com outros quantificadores importantes:
+
+* `{n}` exatamente `n` repetições/ocorrências.
+* `{n,m}` no mínimo `n` ocorrências e no máximo `m` ocorrências.
+* `{n, }` no mínimo `n` ocorrências e o limite máximo não existe.
+* `{, m}` no máximo `m` ocorrências. Nesse caso o mínimo é 0. 
+* `?` 0 ou 1 ocorrência;  a mesma coisa que `{, 1}`
+* `+`  1 ou mais ocorrências; mesma coisa que `{1, }`
+* `*` 0 ou mais ocorrências.
