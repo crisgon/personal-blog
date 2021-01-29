@@ -105,8 +105,6 @@ Ter que sempre escrever `[0-9]`ou `[a-zA-z`] seria um saco, mas felizmente exist
 * `\W` corresponde a tudo que não é alfanumérico. Pode ser utilizado em conjunto com \w para encontrar caracteres alfanuméricos e não alfanuméricos.`[\w\W]`
 * `.` é considerado um coringa, pois com ele podemos encontrar qualquer caractere, menos quebras de linha.
 
-
-
 ### Quantificadores
 
 Os quantificadores, também podem ser conhecidos como repetidores, dizem quantas vezes determinada ocorrência pode se repetir. Até o momento fizemos buscas por letras ou números, mas não chegamos a especificar quantas letras seguidas queremos encontrar, ou quantos números seguidos. 
@@ -118,8 +116,6 @@ Pense na seguinte situação, precisamos encontra o número de uma placa de carr
 Uma placa de carro tem a seguinte estrutura: **ABC-1234** (3 letras 1 hífen e 4 números). Note que apenas com o que aprendemos até agora é impossível encontrar o número da placa no texto abaixo:
 
 *O carro com a placa de número ABC-1234 foi furtado na manhã de domingo.*
-
-
 
 É ai que os quantificadores entram! Nós vamos dizer exatamente quantas vezes cada caractere vai se repetir para atender ao nosso padrão. Logo, nossa regex ficaria assim: `/[a-zA-Z]{3}-\d{4}/g`
 
@@ -140,3 +136,7 @@ Agora que você já tem uma ideia de como um quantificador pode ser usado, veja 
 * `?` 0 ou 1 ocorrência;  a mesma coisa que `{, 1}`
 * `+`  1 ou mais ocorrências; mesma coisa que `{1, }`
 * `*` 0 ou mais ocorrências.
+
+### Âncoras
+
+Âncoras definem posições para que os caracteres sejam correspondidos. Uma âncora pode definir o início, o fim ou um limite para que o match seja feito. Vamos a seguinte situação: temos uma frase que precisa sempre ser iniciada com um número.
