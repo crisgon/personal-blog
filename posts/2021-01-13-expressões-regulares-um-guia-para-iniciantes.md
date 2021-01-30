@@ -139,4 +139,39 @@ Agora que você já tem uma ideia de como um quantificador pode ser usado, veja 
 
 ### Âncoras
 
-Âncoras definem posições para que os caracteres sejam correspondidos. Uma âncora pode definir o início, o fim ou um limite para que o match seja feito. Vamos a seguinte situação: temos uma frase que precisa sempre ser iniciada com um número.
+Âncoras definem posições para que os caracteres sejam correspondidos. Uma âncora pode definir o início, o fim ou um limite para que o match seja feito. Vamos a seguinte situação: temos que encontrar arquivos que tenham um formato `.gif`. Pra que isso funcione precisamos garantir que o nome do arquivo sempre vai terminar com .`gif`. Nossa regex ficaria assim: `/\w+.gif$/`
+
+![Uso da âncora $](assets/img/captura-de-tela-de-2021-01-30-16-07-35.png)
+
+**Explicando nossa regex...**
+
+* `\w+`  essa parte quer dizer para encontrar um ou mais letrar, números e underline.
+* `.gif$` essa parte quer dizer que a ocorrência deve terminar com `.gif`
+
+
+
+Agora que você já tem uma ideia de como uma âncora pode ser usado, veja uma lista com outras âncoras importantes:
+
+* `^` inicio de um texto ou de uma linha, caso esteja utilizando a flag para multiline(`m`)
+* `\A` inicio de um texto
+* `$` fim de um texto ou de uma linha, caso esteja utilizando a flag para multiline(`m`)
+* `\Z` fim de um texto
+* `\b` indica uma "borda" para a ocorrência, ou no inicio da palavra, ou no fim.
+
+**Um pequeno exemplo utilizando a âncora `\b`:** 
+
+Nossa missão é encontrar todas às vezes que a preposição **de** aparece na frase abaixo.
+
+![Match com a preposição de](assets/img/captura-de-tela-de-2021-01-30-16-18-23.png)
+
+Note que com a expressão `/de/` conseguimos pegar tudo que tem **de**, incluindo as palavras dez e desânimo. Uma solução é mudar nossa expressão para `/\bde\b/`.
+
+![Match com a preposição de usando âncora](assets/img/captura-de-tela-de-2021-01-30-16-25-10.png)
+
+### Alternância
+
+Esse é bem simples, pois existem casos onde queremos capturar uma ou outra ocorrência. Onde queremos encontrar o número 1 ou o número 2, a palavra rei ou a palavra rato. Pra isso só precisamos colocar  que queremos encontrar entre parenteses e separar por uma `|`. 
+
+Vamos ao exemplo onde queremos encontrar as palavras rato e rei  no texto abaixo. A expressão regular vai ficar assim: `/(rato|rei)/`
+
+![Alternância entra duas palavras](assets/img/captura-de-tela-de-2021-01-30-16-33-50.png)
