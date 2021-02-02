@@ -148,8 +148,6 @@ Agora que você já tem uma ideia de como um quantificador pode ser usado, veja 
 * `\w+`  essa parte quer dizer para encontrar um ou mais letrar, números e underline.
 * `.gif$` essa parte quer dizer que a ocorrência deve terminar com `.gif`
 
-
-
 Agora que você já tem uma ideia de como uma âncora pode ser usado, veja uma lista com outras âncoras importantes:
 
 * `^` inicio de um texto ou de uma linha, caso esteja utilizando a flag para multiline(`m`)
@@ -175,3 +173,19 @@ Esse é bem simples, pois existem casos onde queremos capturar uma ou outra ocor
 Vamos ao exemplo onde queremos encontrar as palavras rato e rei  no texto abaixo. A expressão regular vai ficar assim: `/(rato|rei)/`
 
 ![Alternância entra duas palavras](assets/img/captura-de-tela-de-2021-01-30-16-33-50.png)
+
+### Isso é tudo pessoal!
+
+![Isso é tudo pessoal](https://i.pinimg.com/originals/2a/82/1e/2a821ee45ca3cbc384c0b70f730248ae.gif)
+
+Obrigado por chegar até aqui!! Espero que tenha conseguido te ajudar de alguma forma. 😊
+
+Tudo que abordei até aqui é apenas o começo desse assunto tão vasto , mas acredito que seja o suficiente para que você dê um pontapé inicial e não fique tão perdido quando o assunto for expressões regulares. Recomendo dar uma conferida nos links que vou deixar mais abaixo, caso queira se aprofundar mais no assunto.
+
+
+### Links importantes
+
+* [Expressões Regulares](https://www.regular-expressions.info/index.html)
+* [Expressões Regulares: introdução](http://turing.com.br/material/regex/introducao.html)
+* [Regex 101](https://regex101.com/)
+* [Expressões Regulares: Mozila Developers](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Regular_Expressions)
