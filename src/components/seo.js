@@ -28,8 +28,10 @@ function SEO({ description, lang, meta, title, image }) {
 
   const metaDescription = description || site.siteMetadata.description;
   const coverImage =
-    image ||
+    image ? "https://www.crisgon.dev/" + image : 
     "https://www.crisgon.dev/static/7dea4e14d8cac0f8210c2d542ba56bbd/954df/profile.jpg";
+
+    console.log({image})
 
   return (
     <Helmet
