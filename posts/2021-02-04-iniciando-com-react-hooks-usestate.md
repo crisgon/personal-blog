@@ -88,11 +88,23 @@ Entenda o funcionamento do useState:
 * O useState recebe um argumento que vai ser utilizado como o valor inicial do nosso estado.
 * O useState retorna um array com duas posições, onde a primeira é o valor atual do state e o segundo é uma função que atualiza o state.
 
+A imagem abaixo indica cada parte do hook useState:
 
+![ Detalhamento o useState](assets/img/usesate.png)
 
+### Atualizando state
 
+No nosso exemplo utilizamos o seguinte trecho de código para atualizar nosso estado: `setCount(count + 1)`
 
+Porém, tem um grande problema em utilizar dessa forma, pois, pode acontecer algum efeito colateral que deixe o nosso estado(`count`) desatualizado. Para resolver esse problema a função que atualiza o estado pode aceitar um valor de qualquer tipo, incluindo uma função. Como assim uma função? Vou mostrar um exemplo e explicar que tudo vai fazer sentido.
 
+`setCount((old) => old + 1)`
+
+Nosso setCount, que poderia ter qualquer nome, recebe uma função que recebe um argumento que representado o nosso estado atual. Aqui temos a total certeza de que o estado está correto, garantia total. 
+
+Dessa forma nossa reatribuição fica mais segura.
+
+Ficou confuso? A imagem a seguir vai deixar mais claro.
 
 ### Regras importantes ao usar um hook
 
