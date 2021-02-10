@@ -100,13 +100,33 @@ Porém, tem um grande problema em utilizar dessa forma, pois, pode acontecer alg
 
 `setCount((old) => old + 1)`
 
-Nosso setCount, que poderia ter qualquer nome, recebe uma função que recebe um argumento que representado o nosso estado atual. Aqui temos a total certeza de que o estado está correto, garantia total. 
+Nosso `setCount`, que poderia ter qualquer nome, recebe uma função que recebe um argumento que representado o nosso estado atual, aqui temos a garantia total de que o estado está correto.  Essa mesma função precisa retornar um valor que será reatribuído ao nosso estado.
 
 Dessa forma nossa reatribuição fica mais segura.
 
-Ficou confuso? A imagem a seguir vai deixar mais claro.
+Ficou confuso? A imagem a seguir deixa mais claro.
+
+![Atualizando state](assets/img/usestate.png)
+
+Antes de sair utilizando um hook é importante você ficar atento a algumas [regras importantes](https://pt-br.reactjs.org/docs/hooks-rules.html).
 
 ### Regras importantes ao usar um hook
 
 * Você pode usar hooks em componentes react ou hooks customizados
 * Você não deve usar hooks dentro de loops, condicionais ou funções aninhadas
+
+
+
+
+
+### Isso é tudo pessoal!
+
+![Isso é tudo pessoal](https://i.pinimg.com/originals/2a/82/1e/2a821ee45ca3cbc384c0b70f730248ae.gif)
+
+Obrigado por chegar até aqui!! Espero que tenha conseguido te ajudar de alguma forma. 😊
+
+Esse foi o início de uma série que irei fazer abordando os hooks disponíveis no react. Fique atento aqui no blog e no meu [twitter](https://twitter.com/Gonkristiano) que em breve irei postar mais artigos sobre hooks.
+
+### Links importantes
+
+* [Documentação do react](https://pt-br.reactjs.org/docs/getting-started.html)
