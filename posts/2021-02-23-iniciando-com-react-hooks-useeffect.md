@@ -82,6 +82,38 @@ Dois pontos são bem importantes no código acima:
 
 
 
+Vamos pra mais um exemplo!
+
+```javascript
+import React, { Component } from "react";
+
+export class PokemonInfo extends Component {
+  state = { pokemon: null };
+  
+   getPokemon() {
+    this.getPokemonInfo(this.props.pokemonNumber)
+    .then((pokemon) => {
+      this.setState({pokemon})
+    });
+  }
+  
+  componentDidUpdate(prevProps){
+     if (prevProps.pokemonNumber !== this.props.pokemonNumber) {
+      this.getPokemon();
+    }
+  }
+
+  render() {
+    return (
+      <input type="number" value={this.props.pokemonNumber} onChange={this.props.changePokemonNumber} />
+    );
+  }
+}
+
+```
+
+
+
 ### Isso é tudo pessoal!
 
 ![Isso é tudo pessoal](https://i.pinimg.com/originals/2a/82/1e/2a821ee45ca3cbc384c0b70f730248ae.gif)
