@@ -12,8 +12,6 @@ A primeira coisa que precisa ficar clara é que o hook `useEffect` não é uma v
 
 Isso mesmo, provavelmente você entendeu errado... assim como eu. Mas nunca é tarde para aprender, então vamos lá.
 
-
-
 ### Tá, mas o que é o useEffect?
 
 useEffect é um hook que tem como principal objetivo sincronizar estados e executar efeitos colaterais. Esse hook é uma função que pode receber até 2 argumentos, uma função e um array de dependências. 
@@ -32,7 +30,7 @@ Geralmente o que encontramos por ai é uma explicação que diz o seguinte:
   ✅ O correto é dizer que esse useEffect não vai estar em sincronia com nenhum estado do componente, por isso ele vai ser executado apenas uma vez.
 * usar o useEffect passando uma lista de estados no segundo argumento
 
-  ❌ Quer dizer que esse useEffect vai ser executado sempre que os estados  atualizarem, semelhante ao `componentDidUpdate. `Também existem algumas explicações que tratam essa forma como uma alternativa ao antigo `componentWillReceiveProps`
+  ❌ Quer dizer que esse useEffect vai ser executado sempre que os estados  atualizarem, semelhante ao `componentDidUpdate.`Também existem algumas explicações que tratam essa forma como uma alternativa ao antigo `componentWillReceiveProps`
 
   ✅ O correto é dizer que esse useEffect vai estar em sincronia com todos os estados que forem passados no segundo argumento.
 
@@ -40,9 +38,47 @@ Pode parecer besteira, mas é importante entender essas  pequenas diferenças.
 
 ### Ainda não ficou claro? Vamos ao exemplo!
 
-Pra fixar iremos utilizar o exemplo do [artigo do Kent C.Dodds](https://epicreact.dev/myths-about-useeffect/). O código é referente a aplicação do gif abaixo:
+Vamos utilizar um exemplo bem simples utilizando Classes e logo em seguida o mesmo componente utilizando hooks.
 
-![Dog Info App](https://d33wubrfki0l68.cloudfront.net/5ee9bfb60fddcc2cf1cd4bcf57f6a46de53de69d/a841a/09be13feda555c17404ce714f2d1f013/dogs.gif "Dog Info App")
+```javascript
+import React, { Component } from "react";
+
+export class SimpleComponent extends Component {
+  componentDidMount() {
+    alert('Component montou!')
+  }
+
+  componentWillUnmount() {
+    alert('Component desmontou');
+  }
+
+  render() {
+    return (
+      <h1>Component Simples</h1>
+    );
+  }
+}
+
+```
+
+```javascript
+import React, { useEffect } from "react";
+
+export function SimpleComponent() {
+  useEffect(() => {
+    alert('Component montou!');
+    
+    return alert('Component desmontou');
+  }, []);
+  
+  return <h1>Component Simples</h1>;
+}
+```
+
+Dois pontos são bem importantes no código acima: 
+
+1. O código que vai ser executado quando o componente for desmontar é passado no retorno da função do useEffect. 
+2. O segundo argumento passado para o useEffect é um array vazio, pois não queremos que ele sincronize com nenhum estado.
 
 
 
