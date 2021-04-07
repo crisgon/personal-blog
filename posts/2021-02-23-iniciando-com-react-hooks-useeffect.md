@@ -12,7 +12,7 @@ Hey, esse artigo faz parte de uma série sobre react hooks. Se ainda não leus o
 
 * [Iniciando com React Hooks - useState](https://www.crisgon.dev/iniciando-com-react-hooks-usestate/)
 
-![React JS](assets/img/react.png)
+![React JS](assets/img/hooks-wallpaper.png)
 
 A primeira coisa que precisa ficar clara é que o hook `useEffect` não é uma versão dos ciclos de vida`constructor`, `componentDidMount`, `componentDidUpdate`, e `componentWillUnmount`.
 
