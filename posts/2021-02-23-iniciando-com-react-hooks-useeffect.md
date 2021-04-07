@@ -8,6 +8,12 @@ image: assets/img/react.png
 category: React
 tagColor: "#3498db"
 ---
+Hey, esse artigo faz parte de uma série sobre react hooks. Se ainda não leus os artigos passados, da uma conferida nos links abaixo:
+
+* [Iniciando com React Hooks - useState](https://www.crisgon.dev/iniciando-com-react-hooks-usestate/)
+
+![React JS](assets/img/react.png)
+
 A primeira coisa que precisa ficar clara é que o hook `useEffect` não é uma versão dos ciclos de vida`constructor`, `componentDidMount`, `componentDidUpdate`, e `componentWillUnmount`.
 
 Isso mesmo, provavelmente você entendeu errado... assim como eu. Mas nunca é tarde para aprender, então vamos lá.
@@ -41,8 +47,6 @@ Pode parecer besteira, mas é importante entender essas  pequenas diferenças.
 Vamos utilizar um exemplo bem simples utilizando Classes e logo em seguida o mesmo componente utilizando hooks.
 
 ```javascript
-import React, { Component } from "react";
-
 export class SimpleComponent extends Component {
   componentDidMount() {
     alert('Component montou!')
@@ -61,8 +65,6 @@ export class SimpleComponent extends Component {
 ```
 
 ```javascript
-import React, { useEffect } from "react";
-
 export function SimpleComponent() {
   useEffect(() => {
     alert('Component montou!');
@@ -82,8 +84,6 @@ Dois pontos são bem importantes no código acima:
 ##### Vamos para mais um exemplo!
 
 ```javascript
-import React, { Component } from "react";
-
 export class PokemonInfo extends Component {
   state = { pokemon: null };
   
@@ -112,8 +112,6 @@ export class PokemonInfo extends Component {
 ```
 
 ```javascript
-import React, { useEffect, useState } from "react";
-
 export function PokemonInfo(props){
 
   const [pokemon, setPokemon] = useState(null);
@@ -150,7 +148,7 @@ No exemplo acima é importante notar que nosso hook se `useEffect` recebeu uma p
 
 ### Evite ter um único useEffect gigantesco
 
-Isso é algo bastante comum e acontece porque na maioria das vezes confundimos useEffect com ciclos de vida do react. Sempre falamos "vou chamar todas as funções aqui porque quero executar apenas quando meu componente montar", mas useEffect é sobre sincronizar estados e não sobre ciclos de vida. 
+Isso é algo bastante comum e acontece porque na maioria das vezes confundimos `useEffect` com ciclos de vida do react. Sempre falamos "vou chamar todas as funções aqui porque quero executar apenas quando meu componente montar", mas `useEffect` é sobre sincronizar estados e não sobre ciclos de vida. 
 
 Antes dos hooks nós escrevíamos algo assim, pois era baseado em ciclos de vida.
 
@@ -177,9 +175,7 @@ class ChatFeed extends React.Component {
 }
 ```
 
-
-
-Por falta de entendimento do funcionamento do useEffect é comum imaginar que a melhor abordagem é escrever  o mesmo código em hooks dessa forma:
+Por falta de entendimento do funcionamento do `useEffect` é comum imaginar que a melhor abordagem é escrever  o mesmo código em hooks dessa forma:
 
 ```javascript
 function ChatFeed() {
@@ -202,7 +198,7 @@ function ChatFeed() {
 }
 ```
 
-Podemos utilizar um useEffect para cada lógica individual!
+Podemos utilizar um `useEffect` para cada lógica individual!
 
 ```javascript
 function ChatFeed() {
@@ -247,9 +243,56 @@ function ChatFeed() {
 }
 ```
 
+### Evite criar funções desnecessárias
+
+Nem sempre é necessário criar uma função se ela vai ser utilizada a penas no `useEffect`. 
+
+```javascript
+import React, {useState, useEffect }  from 'react';
+
+export function PokeInfo(props) {
+  const [pokemon, setPokemon] = useState(null);
+  
+  useEffect(() => {
+    getPokemonInfo();
+  }, [props.id]);
+  
+  const getPokemonInfo = useCallback(() => {
+    api.getPokemon(props.id).then((poke) => {
+      setPokemon(poke);
+    }).catch(e => {
+      console.error(e.message);
+    });
+  }, []);
 
 
+  return <div>{/*Pokemon info*/}<div/>
+}
+```
 
+Por hora ignore o `useCallback`, em breve teremos um post sobre ele.
+
+```javascript
+import React, {useState, useEffect }  from 'react';
+
+export function PokeInfo(props) {
+  const [pokemon, setPokemon] = useState(null);
+  
+  useEffect(() => {
+     api.getPokemon(props.id).then((poke) => {
+      setPokemon(poke);
+    }).catch(e => {
+      console.error(e.message);
+    });
+  }, [props.id]);
+  
+
+
+  return <div>{/*Pokemon info*/}<div/>
+}
+```
+
+Toda aquela complexidade desnecessária com uma função que nem estava sendo reaproveitada foi simplificada com o código acima. Lembre-se, o primeiro argumento do `useEffect` já é uma função.
 
 ### Isso é tudo pessoal!
 
@@ -257,8 +300,9 @@ function ChatFeed() {
 
 Obrigado por chegar até aqui!! Espero que tenha conseguido te ajudar de alguma forma. 😊
 
-Esse foi o início de uma série que irei fazer abordando os hooks disponíveis no react. Fique atento aqui no blog e no meu [twitter](https://twitter.com/Gonkristiano) que em breve irei postar mais artigos sobre hooks.
+Fique atento(a) aqui no blog e no meu [twitter](https://twitter.com/Gonkristiano) que em breve irei postar mais artigos sobre hooks.
 
 ### Links importantes
 
 * [Documentação do react](https://pt-br.reactjs.org/docs/getting-started.html)
+* [Mitos sobre useEffect](https://epicreact.dev/myths-about-useeffect/)
