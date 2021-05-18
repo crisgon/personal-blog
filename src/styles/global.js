@@ -82,14 +82,34 @@ body {
     --black: #fff;
     --gray: #ccc;
     --darkRed: #7f8c8d;
-    --linkColor: #e74c3c;
+    --linkColor: #ec4b88;
     --paginateColor: #fff;
     --titleColor: #ccc;
     --quoteBackground: #38444d;
     --notFoundbackground: #121212;
   }  
 
+  
   body.light {
+    --borders: #38444d;
+    --postCardBackground: #fff;
+    --sidebarBackground: #ec4b88;
+    --sidebarShadow: #bdc3c7;
+    --highlight: ;
+    --background: #f2f2f2;
+    --white: #fff;
+    --black: #1e272e;
+    --gray: #ccc;
+    --darkRed: #ba2b61;
+    --linkColor: #ec4b88;
+    --paginateColor: #1e272e;
+    --titleColor: #ec4b88;
+    --quoteBackground: #ddd;
+    --notFoundbackground: #ffffff;
+  }
+  
+
+  body.red {
     --borders: #38444d;
     --postCardBackground: #fff;
     --sidebarBackground: #e74c3c;
@@ -160,6 +180,7 @@ body {
     --quoteBackground: #ddd;
     --notFoundbackground: #ffffff;
   }
+
 `;
 
 export default GlobalStyles;

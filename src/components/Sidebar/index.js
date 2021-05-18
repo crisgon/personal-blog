@@ -53,6 +53,12 @@ const Sidebar = () => {
           <S.Palette
             color="#e74c3c"
             onClick={() => {
+              setColorPalette("red");
+            }}
+          />
+          <S.Palette
+            color="#ec4b88"
+            onClick={() => {
               setColorPalette("light");
             }}
           />
