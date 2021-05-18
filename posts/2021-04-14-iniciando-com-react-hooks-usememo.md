@@ -26,7 +26,7 @@ Tá, mas o que é essa tal de memoization?
 
 Na computação é uma técnica que consiste em armazenar resultados de uma função em cache  e retornar esses resultados que estão cacheados quando as mesmas entradas forem passadas novamente, evitando uma execução repetida.
 
-Segue abaixo um pequeno exemplo bem básico para ilustrar como funcionária a técnica de memoization.
+Segue abaixo um pequeno exemplo bem básico para ilustrar como funcionária a técnica de **memoization**.
 
 ```javascript
 const cache = new Map();
@@ -55,7 +55,7 @@ Nesse exemplo o cálculo é simples e ter valores em cache não faz nenhuma dife
 
 ### Mas e no React?
 
-No React nós não precisamos nos preocupar com a implementação de uma função de memoization, pois o hook useMemo faz todo o trabalho pesado para a gente.
+No React nós não precisamos nos preocupar com a implementação de uma função de **memoization**, pois o hook useMemo faz todo o trabalho pesado para a gente.
 
 Para usar essa belezinha é muito simples, pois o useMemo também é uma função que recebe dois argumentos(semelhante ao useEffect): uma função e uma lista de valores para serem memoizados. Lembrando que o useMemo sempre vai retornar um valor que memoizado.
 
@@ -75,8 +75,6 @@ const valorMemoizado = useMemo(() => valor * valor, [valor]);
 
 Um ótimo exemplo de uso é quando existe uma série de dados que buscamos na api em tempo real e precisamos retornar um valor consolidado. Só faz sentido que esse calculo seja feito quando os dados da api forem modificados e não toda vez que existir uma nova renderização no nosso componente.
 
-
-
 ```javascript
 const valorTotal = useMemo(() => {
   return vendas.reduce((acc, curr) => acc + curr.valor, 0)
@@ -85,13 +83,12 @@ const valorTotal = useMemo(() => {
 
 ### Importante
 
-
-
 * A função do useMemo é executada durante o processo de renderização, então é importante não fazer nada que não poderia ser feito durante esse momento. Side-effects são responsabilidades do useEffect e não do useMemo.
 * Se nada for passada para o array a função do useMemo vai ser executada a cada renderização.
 * É importante que você coloque no array todos os valores que forem utilizados dentro da sua função.
 * Os valores passados no array NÃO SÃO argumentos para sua função.
 * Escreva seu código para que ele funcione sem o useMemo, pois ele é uma otimização e pode acontecer momentos em que o React vai esquecer os valores salvos para liberar memória e refazer os cálculos novamente.
+* Nem sempre é preciso utilizar useMemo e ele pode deixar seu código mais complexo.
 
 ### Isso é tudo pessoal!
 
@@ -104,3 +101,4 @@ Fique atento(a) aqui no blog e no meu [twitter](https://twitter.com/Gonkristiano
 ### Links importantes
 
 * [Documentação do react](https://pt-br.reactjs.org/docs/getting-started.html)
+* [When to useMemo and useCallback](https://kentcdodds.com/blog/usememo-and-usecallback)
