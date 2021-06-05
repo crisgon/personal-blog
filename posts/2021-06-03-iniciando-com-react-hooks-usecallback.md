@@ -21,8 +21,6 @@ Hoje vamos aprender sobre useCallback, mas tome muito cuidado para não confundi
 
 Antes de prosseguir é importante ressaltar que devemos sempre evitar [otimização prematura](https://woliveiras.com.br/posts/como-evitar-a-otimizacao-prematura/)! Por padrão o react já é extremamente rápido e na maioria das vezes não vamos precisar fazer uso de um hook como o useCallback. Antes de sair utilizando useCallback em todas as funções da sua aplicação lembre-se que isso tem um custo e pode ser que seja um custo alto para um ganho baixo.
 
-
-
 ### O que faz esse useCallback
 
 Seu uso é bastante simples e bem fácil de entender!
@@ -34,8 +32,6 @@ Ai você se questiona... "Mas qual o real objetivo do useCallback?"
 ![Will smith com dúvida](assets/img/will.gif "Will smith com dúvida")
 
 Para explicar isso é preciso entender um pouco sobre igualdade de funções no javascript.
-
-
 
 ### Igualdade de funções no javascript
 
@@ -54,13 +50,9 @@ soma === soma2; // false
 soma2 === soma2; // false
 ```
 
-
-
-Uma breve explicação sobre o trecho de código acima. Basicamente temos uma função `calc `que ao ser executada retorna uma função que recebe 2 argumentos. Ou seja, soma ficaria assim `const soma = (a,b) => a + b;` . O mesmo acontece com soma2.
+Uma breve explicação sobre o trecho de código acima. Basicamente temos uma função `calc`que ao ser executada retorna uma função que recebe 2 argumentos. Ou seja, soma ficaria assim `const soma = (a,b) => a + b;` . O mesmo acontece com soma2.
 
 As duas funções(soma e soma2) fazem exatamente a mesma coisa e retornam valores iguais quando recebem os mesmos argumentos, porém o javascript nos diz que elas são diferentes. Isso acontece, pois no javascript funções são objetos e cada nova instância de um objeto é diferente da outra.
-
-
 
 ### E onde o react entra nisso?
 
@@ -84,16 +76,51 @@ function MyComponent() {
   }, []);
 ```
 
+Você deve ter notado que a estrutura do useCallback é como a de outros hooks, sempre recebendo uma função como primeiro parâmetro e um array de dependências como segundo argumento.
+
+> Importante!! A funcão declarada com useCallback só vai ser redeclarada quando um dos itens do array de dependencia forem modificados. Caso contrário a funcão vai se manter a mesma caso o componente seja rerenderizado. 
+
+
+
+### Quando useCallback é uma boa escolha
+
+Imagine que temos uma página com uma lista de filmes que são buscados em uma api com base em uma categoria. Nessa mesma página também podemos filtrar o filme por status (lançado ou não).
+
+Você concorda que a função que trata categoria só deveria ser redeclarada quando a categoria mudar? E não quando a lista for atualizada por conta do status? 
+
+É exatamente isso que o useCallback abaixo faz. A função onMovieClick só vai ser redeclarada quando a categoria altera, logo, não importa quantas vezes você alterar o filtro de status, essa função vai se manter a mesma.
+
+```javascript
+function MovieList({ category, handleMovieClick }) {
+  const movies = useMovie(category);
+
+  const map = movie => <div onClick={handleMovieClick}>{movie}</div>;
+
+  return <div>{movies.map(map)}</div>;
+}
+
+export default function Container({ category }) {
+  const onMovieClick = useCallback(event => {
+    console.log('Clicou', event.currentTarget);
+  }, [category]);
+
+  return (
+    <MovieList
+      category={category}
+      handleItemClick={onMovieClick}
+    />
+  );
+}
+```
+
+
+
 
 
 
 
 https://dmitripavlutin.com/dont-overuse-react-usecallback/
 
-
-
 https://www.robinwieruch.de/react-usecallback-hook
-
-
 
 https://kentcdodds.com/blog/usememo-and-usecallback
