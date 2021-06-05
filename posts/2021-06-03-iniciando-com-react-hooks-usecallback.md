@@ -54,7 +54,7 @@ Uma breve explicação sobre o trecho de código acima. Basicamente temos uma fu
 
 As duas funções(soma e soma2) fazem exatamente a mesma coisa e retornam valores iguais quando recebem os mesmos argumentos, porém o javascript nos diz que elas são diferentes. Isso acontece, pois no javascript funções são objetos e cada nova instância de um objeto é diferente da outra.
 
-### E onde o react entra nisso?
+### E onde o React entra nisso?
 
 Quando criamos uma função que é utilizada em um componente ela é sempre uma nova instância de objeto a cada renderização.
 
@@ -80,11 +80,9 @@ Você deve ter notado que a estrutura do useCallback é como a de outros hooks, 
 
 > Importante!! A funcão declarada com useCallback só vai ser redeclarada quando um dos itens do array de dependencia forem modificados. Caso contrário a funcão vai se manter a mesma caso o componente seja rerenderizado. 
 
-
-
 ### Quando useCallback é uma boa escolha
 
-Imagine que temos uma página com uma lista de filmes que são buscados em uma api com base em uma categoria. Nessa mesma página também podemos filtrar o filme por status (lançado ou não).
+Imagine que temos uma página com uma lista de filmes que são buscados em uma api com base em uma categoria. Nessa mesma página também podemos filtrar os filmes por status (lançado ou não).
 
 Você concorda que a função que trata categoria só deveria ser redeclarada quando a categoria mudar? E não quando a lista for atualizada por conta do status? 
 
@@ -92,7 +90,7 @@ Você concorda que a função que trata categoria só deveria ser redeclarada qu
 
 ```javascript
 function MovieList({ category, handleMovieClick }) {
-  const movies = useMovie(category);
+  const movies = getMovies(category);
 
   const map = movie => <div onClick={handleMovieClick}>{movie}</div>;
 
@@ -113,14 +111,25 @@ export default function Container({ category }) {
 }
 ```
 
+### Muito cuidado!!
 
+É preciso tomar muito cuidado ao optar por usar useCallback pelos seguintes motivos: 
 
+* você vai adicionar mais complexidade ao seu código e talvez o custo de manutenção seja maior que o ganho em desempenho.
+* algumas funções são simples e aceitáveis de serem rerenderizadas.
+* otimização prematura pode ser problemática
 
+### Isso é tudo pessoal!
 
+![Isso é tudo pessoal](https://i.pinimg.com/originals/2a/82/1e/2a821ee45ca3cbc384c0b70f730248ae.gif)
 
+Obrigado por chegar até aqui!! Espero que tenha conseguido te ajudar de alguma forma. 😊
 
-https://dmitripavlutin.com/dont-overuse-react-usecallback/
+Fique atento(a) aqui no blog e no meu [twitter](https://twitter.com/Gonkristiano) que em breve irei postar mais artigos sobre hooks.
 
-https://www.robinwieruch.de/react-usecallback-hook
+### Links importantes
 
-https://kentcdodds.com/blog/usememo-and-usecallback
+* [Documentação do react](https://pt-br.reactjs.org/docs/getting-started.html)
+* [Your Guide to React.useCallback()](https://dmitripavlutin.com/dont-overuse-react-usecallback/)
+* [When to useMemo and useCallback](https://kentcdodds.com/blog/usememo-and-usecallback)
+* [How to useCallback in React](https://www.robinwieruch.de/react-usecallback-hook)
