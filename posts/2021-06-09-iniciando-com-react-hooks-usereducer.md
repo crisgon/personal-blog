@@ -15,8 +15,13 @@ Hey, esse artigo faz parte de uma série sobre react hooks. Se você ainda não 
 * [iniciando com React Hooks  - useMemo](https://www.crisgon.dev/iniciando-com-react-hooks-usememo/)
 * [iniciando com React Hooks  - useCallback](https://www.crisgon.dev/iniciando-com-react-hooks-usecallback/)
 
+Ao trabalhar com react o padrão quando falamos em gerenciar estado é utilizar o useState, porém essa não é a única forma de trabalhar com estados. 
 
 
-Ao trabalhar com react o padrão quando falamos em gerenciar estado é utilizar o useState, porém essa não é a única forma de trabalhar com estados no react. 
 
-Existem situações onde nossos estados podem ser complexos e extensos. Como no exemplo abaixo:
+```javascript
+const [name, setName] = useState("");
+const [age, setAge] = useState(26);
+const [email, setEmail] = useState("");
+const [nationality, setNationality] = useState("brazilian");
+```
