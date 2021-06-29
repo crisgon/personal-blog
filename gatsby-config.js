@@ -5,7 +5,7 @@ module.exports = {
   siteMetadata: {
     title: `Cristiano Gonçalves`,
     position: "Desenvolvedor FrontEnd",
-    description: `Desenvolvedor na Mimic, baiano com orgulho, amante de tecnologias, viagens, músicas e cultura japonesa.`,
+    description: `Desenvolvedor na Zak, baiano com orgulho, amante de tecnologias, viagens, músicas e cultura japonesa.`,
     author: `@Gonkristiano`,
     siteUrl: "https://crisgon.dev",
   },
