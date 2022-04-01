@@ -44,12 +44,11 @@ const About = () => {
         <S.About>
           <S.Title>Quem sou?</S.Title>
           <S.Text>
-            Como você já deve ter notado, me chamo Cristiano Gonçalves. Sou
-            desenvolvedor Front End na
-            <a href="https://cubos.io/"> Cubos Tecnologia </a>e bacharel em
-            Sistemas de Informação pela Universidade do Estado da Bahia.
-            Atualmente moro em Alagoinhas, interior da Bahia, e trabalho de
-            forma remota.
+            Como você já deve ter notado, me chamo Cristiano Gonçalves. Sou Tech
+            Lead & desenvolvedor Front End na
+            <a href="https://zak.app/"> Zak </a>e bacharel em Sistemas de
+            Informação pela Universidade do Estado da Bahia. Atualmente moro em
+            Alagoinhas, interior da Bahia, e trabalho de forma remota.
           </S.Text>
           <S.SkillsList>
             {icons.map((item) => {
@@ -66,7 +65,10 @@ const About = () => {
 
           <S.Text>
             Mais informações no meu{" "}
-            <a href="https://drive.google.com/file/d/10N-hlUnYc4sH1JMv_Xa0U4LRW-R4He78/view?usp=sharing">
+            <a
+              href="https://github.com/crisgon/personal-blog/blob/master/static/Curriculo%20-%20Front%20-%20Cristiano.pdf"
+              target="_blank"
+            >
               {" "}
               currículo
             </a>
@@ -77,19 +79,102 @@ const About = () => {
         <S.TimelineContainer>
           <Timeline>
             <TimelineEvent
-              title="Meu Nascimento"
+              title="Enfim, Tech Lead"
               titleStyle={{ color: baseColor() }}
-              createdAt="Maior de 1995"
+              createdAt="Junho de 2021"
               iconColor={baseColor()}
-              icon={<FiActivity />}
+              icon={<MdComputer />}
               contentStyle={{
                 lineHeight: "1.5rem",
-                fontSize: "1.2rem",
+                fontSize: "1rem",
                 fontWeight: 300,
               }}
             >
-              Aqui começava a caminhada de um menino que queria ser astronauta,
-              cientista ou veterinário..
+              Depois de muito trabalho duro eu recebi a oportunidade que tanto
+              almejava... Enfim Tech Lead!
+            </TimelineEvent>
+
+            <TimelineEvent
+              title="Cheguei na Zak"
+              titleStyle={{ color: baseColor() }}
+              createdAt="Abril de 2021"
+              iconColor={baseColor()}
+              icon={<MdComputer />}
+              contentStyle={{
+                lineHeight: "1.5rem",
+                fontSize: "1rem",
+                fontWeight: 300,
+              }}
+            >
+              Após completar um ciclo na cubos foi hora de alçar um novo voo no
+              desafio da zak no papel de maior referência de frontend do nosso
+              produto.
+            </TimelineEvent>
+
+            <TimelineEvent
+              title="Entrei na Cubos"
+              titleStyle={{ color: baseColor() }}
+              createdAt="Dezembro de 2018"
+              iconColor={baseColor()}
+              icon={<MdComputer />}
+              contentStyle={{
+                lineHeight: "1.5rem",
+                fontSize: "1rem",
+                fontWeight: 300,
+              }}
+            >
+              Aceitei um novo desafio, trabalhar com uma stack totalmente
+              desconhecida pra mim. React + Typsecript + Mobx. Fiz uma ótima
+              escolha, tenho aprendido bastante e cada vez gosto mais dessa
+              stack.
+            </TimelineEvent>
+
+            <TimelineEvent
+              title="Finalmente formado!"
+              titleStyle={{ color: baseColor() }}
+              createdAt="Novembro de 2018"
+              iconColor={baseColor()}
+              icon={<TiMortarBoard />}
+              contentStyle={{
+                lineHeight: "1.5rem",
+                fontSize: "1rem",
+                fontWeight: 300,
+              }}
+            >
+              Depois de muito sofrimento...
+            </TimelineEvent>
+
+            <TimelineEvent
+              title="Meu Primeiro emprego como FrontEnd"
+              titleStyle={{ color: baseColor() }}
+              createdAt="Julho de 2018"
+              iconColor={baseColor()}
+              icon={<MdComputer />}
+              contentStyle={{
+                lineHeight: "1.5rem",
+                fontSize: "1rem",
+                fontWeight: 300,
+              }}
+            >
+              Iniciei meu primeiro emprego formal, depois de alguns anos como
+              bolsita estagiário. Foi um grande desafio, onde trabalhei
+              remotamente utilizando Vue JS.
+            </TimelineEvent>
+
+            <TimelineEvent
+              title="Comecei o curso de Sistemas de Informação"
+              titleStyle={{ color: baseColor() }}
+              createdAt="Janeiro de 2012"
+              iconColor={baseColor()}
+              icon={<FaUniversity />}
+              contentStyle={{
+                lineHeight: "1.5rem",
+                fontSize: "1rem",
+                fontWeight: 300,
+              }}
+            >
+              Iniciei um curso superior sem saber exatemente tudo que ia
+              encontrar lá, mas já tinha o desejo de trabalhar com web.
             </TimelineEvent>
 
             <TimelineEvent
@@ -100,7 +185,7 @@ const About = () => {
               icon={<FaRegBookmark />}
               contentStyle={{
                 lineHeight: "1.5rem",
-                fontSize: "1.2rem",
+                fontSize: "1rem",
                 fontWeight: 300,
               }}
             >
@@ -115,69 +200,19 @@ const About = () => {
             </TimelineEvent>
 
             <TimelineEvent
-              title="Comecei o curso de Sistemas de Informação"
+              title="Meu Nascimento"
               titleStyle={{ color: baseColor() }}
-              createdAt="Janeiro de 2012"
+              createdAt="Maior de 1995"
               iconColor={baseColor()}
-              icon={<FaUniversity />}
+              icon={<FiActivity />}
               contentStyle={{
                 lineHeight: "1.5rem",
-                fontSize: "1.2rem",
+                fontSize: "1rem",
                 fontWeight: 300,
               }}
             >
-              Iniciei um curso superior sem saber exatemente tudo que ia
-              encontrar lá, mas já tinha o desejo de trabalhar com web.
-            </TimelineEvent>
-
-            <TimelineEvent
-              title="Meu Primeiro emprego como FrontEnd"
-              titleStyle={{ color: baseColor() }}
-              createdAt="Julho de 2018"
-              iconColor={baseColor()}
-              icon={<MdComputer />}
-              contentStyle={{
-                lineHeight: "1.5rem",
-                fontSize: "1.2rem",
-                fontWeight: 300,
-              }}
-            >
-              Iniciei meu primeiro emprego formal, depois de alguns anos como
-              bolsita estagiário. Foi um grande desafio, onde trabalhei
-              remotamente utilizando Vue JS.
-            </TimelineEvent>
-
-            <TimelineEvent
-              title="Finalmente formado!"
-              titleStyle={{ color: baseColor() }}
-              createdAt="Novembro de 2018"
-              iconColor={baseColor()}
-              icon={<TiMortarBoard />}
-              contentStyle={{
-                lineHeight: "1.5rem",
-                fontSize: "1.2rem",
-                fontWeight: 300,
-              }}
-            >
-              Depois de muito sofrimento...
-            </TimelineEvent>
-
-            <TimelineEvent
-              title="Entrei na Cubos"
-              titleStyle={{ color: baseColor() }}
-              createdAt="Dezembro de 2018"
-              iconColor={baseColor()}
-              icon={<MdComputer />}
-              contentStyle={{
-                lineHeight: "1.5rem",
-                fontSize: "1.2rem",
-                fontWeight: 300,
-              }}
-            >
-              Aceitei um novo desafio, trabalhar com uma stack totalmente
-              desconhecida pra mim. React + Typsecript + Mobx. Fiz uma ótima
-              escolha, tenho aprendido bastante e cada vez gosto mais dessa
-              stack.
+              Aqui começava a caminhada de um menino que queria ser astronauta,
+              cientista ou veterinário..
             </TimelineEvent>
           </Timeline>
         </S.TimelineContainer>

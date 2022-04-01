@@ -4,7 +4,7 @@ const queries = require("./src/utils/algolia_queries");
 module.exports = {
   siteMetadata: {
     title: `Cristiano Gonçalves`,
-    position: "Desenvolvedor FrontEnd",
+    position: "Tech Lead & Desenvolvedor FrontEnd",
     description: `Desenvolvedor na Zak, baiano com orgulho, amante de tecnologias, viagens, músicas e cultura japonesa.`,
     author: `@Gonkristiano`,
     siteUrl: "https://crisgon.dev",
@@ -112,6 +112,6 @@ module.exports = {
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-netlify-cms`,
-    `gatsby-plugin-feed`
+    `gatsby-plugin-feed`,
   ],
 };

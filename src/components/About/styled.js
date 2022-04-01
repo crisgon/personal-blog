@@ -43,7 +43,7 @@ export const Title = styled.h1`
 
 export const Text = styled.p`
   color: var(--black);
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 300;
   line-height: 1.5;
   letter-spacing: 0.069rem;
