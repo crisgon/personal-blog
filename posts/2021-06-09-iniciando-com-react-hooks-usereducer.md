@@ -78,6 +78,7 @@ No código acima nossa função redutora pode atualizar o estado de duas formas 
 ```javascript
 counterReducer(1, { type: "DECREASE" }); // retorno 0
 counterReducer(1, { type: "INCREASE" }); // retorno 2
+counterReducer(1, { type: "OPS" }); // retorno 1
 ```
 
 > Essas adições não mudam a principal característica da função redutora, ser pura e sempre retornar o mesmo valor para os mesmos argumentos.
