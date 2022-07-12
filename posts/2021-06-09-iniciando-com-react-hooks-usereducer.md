@@ -36,7 +36,7 @@ A função redutora acima tem um objetivo único que é o de sempre acrescentar 
 
 
 
-Analisando a mesma função você deve ter percebido que ela é uma função bem direta ao ponto e que sempre vai retornar o mesmo valor se os argumentos passados forem sempre os mesmos.  Isso quer dizer que ela é uma função pura e que não tem efeitos colaterais. Ou seja, se essa função for executada dez vezes passando sempre o valor 1 o resultado retornado será 2 nas dez vezes.
+Analisando a mesma função você deve ter percebido que ela é uma função bem direta ao ponto e que sempre vai retornar o mesmo valor se os argumentos passados forem sempre os mesmos. 
 
 ```javascript
 counterReducer(1); // retorno 2
@@ -45,6 +45,10 @@ counterReducer(1); // retorno 2
 counterReducer(1); // retorno 2
 counterReducer(1); // retorno 2
 ```
+
+ Isso quer dizer que ela é uma função pura e que não tem efeitos colaterais. Ou seja, se essa função for executada dez vezes passando sempre o valor 1 o resultado retornado será 2 nas dez vezes.
+
+
 
 Em suma isso é uma função redutora, porém ainda não falamos sobre a ação, nosso segundo argumento.  A ação costuma ser um objeto com duas propriedades: uma instrução(type) e um novo valor(value).
 
