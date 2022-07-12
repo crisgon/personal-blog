@@ -15,6 +15,41 @@ Hey, esse artigo faz parte de uma série sobre react hooks. Se você ainda não 
 * [iniciando com React Hooks  - useMemo](https://www.crisgon.dev/iniciando-com-react-hooks-usememo/)
 * [iniciando com React Hooks  - useCallback](https://www.crisgon.dev/iniciando-com-react-hooks-usecallback/)
 
+
+
+Antes de focar no nosso objeto de estudo é preciso dar dois passos para trás e entender um pouco sobre redutores. Esse é um conceito que se popularizou com o surgimento do [redux ](https://redux.js.org/)para gerenciamento de estados. 
+
+Você provavelmente já deve ter se esbarrado com algum projeto que utiliza redux, mas se esse for um tema totalmente novo não se assuste. Em breve irei escrever um artigo explicando um pouco sobre redux e a arquitetura flux, mas no momento você só precisa saber que redux é uma biblioteca javascript para gerenciamento de estados de uma aplicação.
+
+Voltando aos redutores... eles basicamente existem para controlar estados de aplicações, exatamente como já conhecemos no react. De maneira bem simplificada, um redutor é uma função que recebe dois argumentos(o **estado** atual da aplicação e uma **ação)** e retorna um **novo estado**.
+
+Exemplo: 
+
+```javascript
+function counterReducer(count, action) {
+  return count + 1;  
+}
+
+```
+
+A função redutora acima tem um objetivo único que é o de sempre acrescentar 1 ao estado atual e retornar um novo estado.
+
+
+
+Analisando a mesma função você deve ter percebido que ela é uma função que sempre vai retornar o mesmo valor se os argumentos passados forem sempre os mesmos.  Isso quer dizer que ela é uma função pura e que não tem efeitos colaterais. Ou seja, se essa função for executada dez vezes passando sempre o valor 1 o resultado retornado será 2 nas dez vezes.
+
+```javascript
+counterReducer(1); // retorno 2
+counterReducer(1); // retorno 2
+counterReducer(1); // retorno 2
+counterReducer(1); // retorno 2
+counterReducer(1); // retorno 2
+```
+
+
+
+
+
 Ao trabalhar com react o padrão quando falamos em gerenciar estado é utilizar o useState, porém essa não é a única forma de trabalhar com estados. 
 
 O useReducer é uma alternativa para o useState quando temos estados complexos, muito aninhados ou que precisam sempre do estado anterior antes de uma nova atualização.
