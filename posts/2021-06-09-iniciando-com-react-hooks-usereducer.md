@@ -75,8 +75,6 @@ counterReducer(1, { type: "OPS" }); // retorno 1
 
 > Essas adições não mudam a principal característica da função redutora, ser pura e sempre retornar o mesmo valor para os mesmos argumentos.
 
-
-
 Outro ponto-chave é que o estado recebido  pelas funções redutoras são sempre imutáveis, ou seja, um novo estado será criado para o retorno da função.
 
 Esse ponto fica mais claro se o estado que nossa função redutora receber for um objeto como no exemplo abaixo.
@@ -120,11 +118,15 @@ Resultado
 
 No exemplo acima o funcionamento não mudou, apenas passamos a utilizar um switch ao invés de ifs e note que para o retorno da função sempre criamos um objeto. Em nenhum momento fizemos uma reatribuição do person que foi recebido como atributo.
 
+## Mas e o useReducer? 
+
+Agora que você já sabe como funciona uma função redutora, você também já sabe como funciona o useReducer! [😎](https://emojipedia.org/smiling-face-with-sunglasses/)
+
+O hook useReducer é bem semelhante ao useState que retorna dois valores, o estado e uma função que atualiza esse estado. Para o useReducer temos praticamente a mesma coisa... Ele nos retorna sempre
 
 
- 
 
-
+![Detalhamento do useReducer](assets/img/usereducer-2x.png "Detalhamento do useReducer")
 
 Vamos pensar no seguinte cenário, onde temos que armazenar nome, idade, email, nacionalidade e endereço de um usuário.  O primeiro pensamento que temos é utilizar um estado para cada campo.
 
