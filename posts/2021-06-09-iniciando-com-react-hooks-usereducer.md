@@ -17,7 +17,9 @@ Hey, esse artigo faz parte de uma série sobre react hooks. Se você ainda não 
 
 
 
-Antes de focar no nosso objeto de estudo é preciso dar dois passos para trás e entender um pouco sobre redutores, conceito que se popularizou com o surgimento do [redux ](https://redux.js.org/)para gerenciamento de estados. 
+Ao trabalhar com react o padrão quando falamos em gerenciar estado é utilizar o useState, porém essa não é a única forma de trabalhar com estados. 
+
+O useReducer é uma alternativa para o useState quando temos estados complexos, muito aninhados ou que precisam sempre do estado anterior antes de uma nova atualização. Porém, antes de focar no nosso objeto de estudo é preciso dar dois passos para trás e entender um pouco sobre redutores, conceito que se popularizou com o surgimento do [redux ](https://redux.js.org/)para gerenciamento de estados. 
 
 Você provavelmente já deve ter se esbarrado com algum projeto que utiliza redux, mas se esse for um tema que foge do seu conhecimento, não se assuste. Em breve irei escrever um artigo explicando um pouco sobre redux e a arquitetura flux, mas no momento você só precisa saber que redux é uma biblioteca javascript para gerenciamento de estados de uma aplicação.
 
@@ -29,12 +31,9 @@ Exemplo:
 function counterReducer(count, action) {
   return count + 1;  
 }
-
 ```
 
 A função redutora acima tem um objetivo único que é o de sempre acrescentar 1 ao estado atual e retornar um novo estado.
-
-
 
 Analisando a mesma função você deve ter percebido que ela é uma função bem direta ao ponto e que sempre vai retornar o mesmo valor se os argumentos passados forem sempre os mesmos. 
 
@@ -48,11 +47,7 @@ counterReducer(1); // retorno 2
 
  Isso quer dizer que ela é uma função pura e que não tem efeitos colaterais. Ou seja, se essa função for executada dez vezes passando sempre o valor 1 o resultado retornado será 2 nas dez vezes.
 
-
-
 Em suma isso é uma função redutora, porém ainda não falamos sobre a ação, nosso segundo argumento.  A ação costuma ser um objeto com duas propriedades: uma instrução(type) e um novo valor(value).
-
-
 
 Vamos melhorar nosso redutor de contador e tudo vai ficar mais claro
 
@@ -68,10 +63,7 @@ function counterReducer(count, action) {
  
   return count;
 }
-
 ```
-
-
 
 No código acima nossa função redutora pode atualizar o estado de duas formas diferentes  e também pode não fazer nada caso o type informado não exista,
 
@@ -85,11 +77,54 @@ counterReducer(1, { type: "OPS" }); // retorno 1
 
 
 
+Outro ponto-chave é que o estado recebido  pelas funções redutoras são sempre imutáveis, ou seja, um novo estado será criado para o retorno da função.
+
+Esse ponto fica mais claro se o estado que nossa função redutora receber for um objeto como no exemplo abaixo.
+
+```javascript
+function personReducer(person, action) {
+  switch(action.type) {
+    case "INCREASE_AGE":
+      return {...person, age: person.age + 1};
+    case "CHANGE_LASTNAME":
+      return {...person, lastname: action.value};
+      
+    default:
+      return person;
+  }
+}
+
+const person = {
+  name: "Cristiano",
+  lastName: "Gonçalves",
+  age: 27
+}
+
+const action = {
+  type: "CHANGE_LASTNAME",
+  value: "Santos"
+}
+
+const result = personReducer(person, action);
+
+/*
+Resultado
+{
+  name: "Cristiano",
+  lastName: "Santos",
+  age: 27
+}
+*/
+
+```
+
+No exemplo acima o funcionamento não mudou, apenas passamos a utilizar um switch ao invés de ifs e note que para o retorno da função sempre criamos um objeto. Em nenhum momento fizemos uma reatribuição do person que foi recebido como atributo.
 
 
-Ao trabalhar com react o padrão quando falamos em gerenciar estado é utilizar o useState, porém essa não é a única forma de trabalhar com estados. 
 
-O useReducer é uma alternativa para o useState quando temos estados complexos, muito aninhados ou que precisam sempre do estado anterior antes de uma nova atualização.
+ 
+
+
 
 Vamos pensar no seguinte cenário, onde temos que armazenar nome, idade, email, nacionalidade e endereço de um usuário.  O primeiro pensamento que temos é utilizar um estado para cada campo.
 
