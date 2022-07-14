@@ -15,8 +15,6 @@ Hey, esse artigo faz parte de uma série sobre react hooks. Se você ainda não 
 * [iniciando com React Hooks  - useMemo](https://www.crisgon.dev/iniciando-com-react-hooks-usememo/)
 * [iniciando com React Hooks  - useCallback](https://www.crisgon.dev/iniciando-com-react-hooks-usecallback/)
 
-
-
 Ao trabalhar com react o padrão quando falamos em gerenciar estado é utilizar o useState, porém essa não é a única forma de trabalhar com estados. 
 
 O useReducer é uma alternativa para o useState quando temos estados complexos, muito aninhados ou que precisam sempre do estado anterior antes de uma nova atualização. Porém, antes de focar no nosso objeto de estudo é preciso dar dois passos para trás e entender um pouco sobre redutores, conceito que se popularizou com o surgimento do [redux ](https://redux.js.org/)para gerenciamento de estados. 
@@ -35,7 +33,7 @@ function counterReducer(count, action) {
 
 A função redutora acima tem um objetivo único que é o de sempre acrescentar 1 ao estado atual e retornar um novo estado.
 
-Analisando a mesma função você deve ter percebido que ela é uma função bem direta ao ponto e que sempre vai retornar o mesmo valor se os argumentos passados forem sempre os mesmos. 
+Analisando mais profundamente o código acima você deve ter percebido que ela é uma função bem direta ao ponto e que sempre vai retornar o mesmo valor se os argumentos passados forem sempre os mesmos. 
 
 ```javascript
 counterReducer(1); // retorno 2
@@ -45,9 +43,20 @@ counterReducer(1); // retorno 2
 counterReducer(1); // retorno 2
 ```
 
- Isso quer dizer que ela é uma função pura e que não tem efeitos colaterais. Ou seja, se essa função for executada dez vezes passando sempre o valor 1 o resultado retornado será 2 nas dez vezes.
+ Isso quer dizer que ela é uma função pura e que não tem efeitos colaterais. Ou seja, se essa função for executada dez vezes passando sempre o valor 1 o resultado retornado será 2 nas dez vezes. Logo abaixo existe um exemplo de uma função não pura.
 
-Em suma isso é uma função redutora, porém ainda não falamos sobre a ação, nosso segundo argumento.  A ação costuma ser um objeto com duas propriedades: uma instrução(type) e um novo valor(value).
+
+
+```javascript
+function counterReducer(count, action) {
+  return count + Math.random();  
+}
+
+counterReducer(1); // 1.7854420380755345
+counterReducer(1); // 1.5816188682194945
+```
+
+Certo, falamos sobre o primeiro argumento da função redutora, porém ainda não falamos sobre a ação, nosso segundo argumento.  A ação costuma ser um objeto com duas propriedades: uma instrução(type) e um novo valor(value).
 
 Vamos melhorar nosso redutor de contador e tudo vai ficar mais claro
 
@@ -113,22 +122,19 @@ Resultado
   age: 27
 }
 */
-
 ```
 
-No exemplo acima o funcionamento não mudou, apenas passamos a utilizar um switch ao invés de ifs e note que para o retorno da função sempre criamos um objeto. Em nenhum momento fizemos uma reatribuição do person que foi recebido como atributo.
+No exemplo acima o funcionamento não mudou, apenas passamos a utilizar um switch ao invés de ifs e note que para o retorno da função sempre criamos um novo objeto. Em nenhum momento fizemos uma reatribuição do person que foi recebido como atributo.
 
-## Mas e o useReducer? 
+## Mas e o useReducer?
 
 Agora que você já sabe como funciona uma função redutora, você também já sabe como funciona o useReducer! [😎](https://emojipedia.org/smiling-face-with-sunglasses/)
 
-O hook useReducer é bem semelhante ao useState que retorna dois valores, o estado e uma função que atualiza esse estado. Para o useReducer temos praticamente a mesma coisa... Ele nos retorna sempre
-
-
+O hook useReducer é bem semelhante ao useState que retorna dois valores, o estado e uma função que atualiza esse estado. Para o useReducer temos praticamente a mesma coisa... Ele sempre nos retorná um array com o estado(`state`) e uma função(`dispatch`) responsável ela atualização do estado.
 
 ![Detalhamento do useReducer](assets/img/usereducer-2x.png "Detalhamento do useReducer")
 
-Vamos pensar no seguinte cenário, onde temos que armazenar nome, idade, email, nacionalidade e endereço de um usuário.  O primeiro pensamento que temos é utilizar um estado para cada campo.
+Para a aplicação do useReducer ficar mais clara vamos pensar no seguinte cenário, onde temos que armazenar nome, idade, email, nacionalidade e endereço de um usuário.  O primeiro pensamento que temos é utilizar um estado para cada campo.
 
 ```javascript
 const [name, setName] = useState("");
@@ -142,4 +148,96 @@ const [address, setAddress] = useState({
 })
 ```
 
-Uma outra forma de armazenar as mesmas informações seria
+Outra forma de armazenar as mesmas informações seriam com o useReducer e ficaria assim:
+
+
+
+```javascript
+function reducerPerson(state, action) {
+    switch(action.type) {
+    case "CHANGE_AGE":
+      return {...state, age: action.value};
+    case "CHANGE_NAME":
+      return {...state, lastname: action.value};
+      ... // Resto da implementação
+    default:
+      return person;
+  }
+}
+
+const initialPersonState = {
+  name: null,
+  age: null,
+  email: null,
+  nationality: null,
+  address: null
+}
+const [personState, dispatch] = useReducer(initialPersonState, reducer);
+```
+
+
+
+A atualização do estado ficaria da seguinte forma:
+
+```javascript
+
+console.log(personState);
+/*
+{
+  name: null,
+  age: null,
+  email: null,
+  nationality: null,
+  address: null
+}
+*/
+
+dispatch({type: "CHANGE_AGE", value: 27});
+console.log(personState);
+/*
+{
+  name: null,
+  age: null,
+  email: null,
+  nationality: null,
+  address: null
+}
+*/
+
+
+```
+
+
+
+O useReducer ainda tem mais um detalhe, seu terceiro argumento, que geralmente é pouco utilizado. Esse argumento é o `init `e ele é responsável por controlar o nosso estado inicial, isso é bastante útil para conseguir ter a lógica do estado inicial isolado do useReducer e ainda nos possibilita um reset do estado sem grandes problemas. 
+
+```javascript
+function init(personState) {
+  if(personState.email === null) 
+     return initialState;
+  return personState;
+}
+
+function reducerPerson(state, action) {
+    switch(action.type) {
+    case "RESET":
+      return  init(action.value);
+      ... // Resto da implementação
+    default:
+      return person;
+  }
+}
+
+
+
+```
+
+O código acima permite que a gente tenha uma regra de negócio embutida na nossa função de iniciar o estado, onde ela sempre vai garantir que nosso estado só vai ser resetado se o usuário não possuir um email informado.
+
+
+
+## Devo trocar useState por useReducer?
+
+
+
+Depende da situação...
