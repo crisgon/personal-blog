@@ -130,7 +130,7 @@ Agora que você já sabe como funciona uma função redutora, você também já 
 
 O hook useReducer é bem semelhante ao useState que retorna dois valores, o estado e uma função que atualiza esse estado. Para o useReducer temos praticamente a mesma coisa... Ele sempre nos retorná um array com o estado(`state`) e uma função(`dispatch`) responsável ela atualização do estado.
 
-![Detalhamento do useReducer](assets/img/usereducer-2x.png "Detalhamento do useReducer")
+![Detalhamento do useReducer](assets/img/usereducer-2x-1-.png "Detalhamento do useReducer")
 
 Para a aplicação do useReducer ficar mais clara vamos pensar no seguinte cenário, onde temos que armazenar nome, idade, email, nacionalidade e endereço de um usuário.  O primeiro pensamento que temos é utilizar um estado para cada campo.
 
