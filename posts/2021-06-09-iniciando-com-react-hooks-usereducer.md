@@ -4,7 +4,7 @@ resume: É muito comum que nossas aplicações tenham estados complexos onde ape
   o useState não é o suficiente. Nesses casos o react nos oferece o hook
   useReducer.
 date: 2021-06-08 10:26:23
-image: assets/img/react.png
+image: assets/img/hooks-wallpaper.png
 category: React
 tagColor: "#3498db"
 ---
@@ -45,8 +45,6 @@ counterReducer(1); // retorno 2
 
  Isso quer dizer que ela é uma função pura e que não tem efeitos colaterais. Ou seja, se essa função for executada dez vezes passando sempre o valor 1 o resultado retornado será 2 nas dez vezes. Logo abaixo existe um exemplo de uma função não pura.
 
-
-
 ```javascript
 function counterReducer(count, action) {
   return count + Math.random();  
@@ -56,7 +54,7 @@ counterReducer(1); // 1.7854420380755345
 counterReducer(1); // 1.5816188682194945
 ```
 
-Certo, falamos sobre o primeiro argumento da função redutora, porém ainda não falamos sobre a ação, nosso segundo argumento.  A ação costuma ser um objeto com duas propriedades: uma instrução(type) e um novo valor(value).
+Certo, falamos sobre o primeiro argumento da função redutora, porém ainda não falamos sobre a ação, nosso segundo argumento.  A ação costuma ser um objeto com duas propriedades: uma instrução(type) e um novo valor(value ou payload).
 
 Vamos melhorar nosso redutor de contador e tudo vai ficar mais claro
 
@@ -150,8 +148,6 @@ const [address, setAddress] = useState({
 
 Outra forma de armazenar as mesmas informações seriam com o useReducer e ficaria assim:
 
-
-
 ```javascript
 function reducerPerson(state, action) {
     switch(action.type) {
@@ -175,12 +171,9 @@ const initialPersonState = {
 const [personState, dispatch] = useReducer(initialPersonState, reducer);
 ```
 
-
-
 A atualização do estado ficaria da seguinte forma:
 
 ```javascript
-
 console.log(personState);
 /*
 {
@@ -203,13 +196,9 @@ console.log(personState);
   address: null
 }
 */
-
-
 ```
 
-
-
-O useReducer ainda tem mais um detalhe, seu terceiro argumento, que geralmente é pouco utilizado. Esse argumento é o `init `e ele é responsável por controlar o nosso estado inicial, isso é bastante útil para conseguir ter a lógica do estado inicial isolado do useReducer e ainda nos possibilita um reset do estado sem grandes problemas. 
+O useReducer ainda tem mais um detalhe, seu terceiro argumento, que geralmente é pouco utilizado. Esse argumento é o `init`e ele é responsável por controlar o nosso estado inicial, isso é bastante útil para conseguir ter a lógica do estado inicial isolado do useReducer e ainda nos possibilita um reset do estado sem grandes problemas. 
 
 ```javascript
 function init(personState) {
@@ -227,17 +216,59 @@ function reducerPerson(state, action) {
       return person;
   }
 }
-
-
-
 ```
 
 O código acima permite que a gente tenha uma regra de negócio embutida na nossa função de iniciar o estado, onde ela sempre vai garantir que nosso estado só vai ser resetado se o usuário não possuir um email informado.
 
-
-
 ## Devo trocar useState por useReducer?
 
+Depende da situação... Segundo a própria [documentação do react](https://pt-br.reactjs.org/docs/hooks-reference.html#usestate) o useReducer é a opção mais adequada para gerenciar objetos de estado que contém sub-valores. Mas isso não quer dizer que você deve sair trocando todos os seus useState que possuem objetos por um useReducer, antes de escolher por um ou outro é importante ter em mente os seguintes prós e contras:
 
 
-Depende da situação...
+
+##### Prós
+
+* Toda a sua atualização de estados fica centralizada em um único lugar, ao invés de ter múltiplas funções de setters.
+* As funções redutoras são puras e mais simples de serem testadas.
+* Podemos ter um código mais organizado com estado inicial função redutora isolados do resto da nossa aplicação.
+
+  * Aliado ao [typescript ](https://www.crisgon.dev/typescript-uma-breve-introdu%C3%A7%C3%A3o-interfaces/)o uso de um dispatch fica muito mais fácil e legivel que um simples setter. `dispatch({ type: "WIDTH", value: "200px" });`
+
+##### Contras
+
+* Curva de aprendizado consideravelmente maior que a do `useState`
+* Funções mais longas por conta do uso de instruções do switch
+
+
+
+### Qual devo escolher?
+
+Por padrão o `useState `ainda deve ser sua primeira escolha, pois, ele vai resolver pelo menos 90% dos seus problemas e vai ser ótimo quando:  
+
+*  Você precisar lidar com estados simples, como boolean, string, numbers, arrays e objetos simples.
+* Existem pouco estado para ser gerenciado ao longo do seu componente/container
+* A quantidade de setters ao longo do seu componente/container não tem tornado tudo caótico
+* Você não quer adicionar uma camada de complexidade para seu time lidar
+
+
+
+## Isso é tudo pessoal!
+
+
+
+![](assets/img/2a821ee45ca3cbc384c0b70f730248ae.gif)
+
+
+
+Obrigado por chegar até aqui!! Espero que tenha conseguido te ajudar de alguma forma. 😊
+
+Fique atento(a) aqui no blog e no meu [twitter](https://twitter.com/Gonkristiano) que em breve irei postar mais artigos sobre hooks.
+
+### Links importantes
+
+* [Documentação do react](https://pt-br.reactjs.org/docs/getting-started.html)
+* [Javascript Reducers](https://www.robinwieruch.de/javascript-reducer/)
+* [React useReducer Hook ultimate guide](https://blog.logrocket.com/react-usereducer-hook-ultimate-guide/)
+* [Why use Reducer hooks for state management in React?](https://rajeshnaroth.medium.com/why-use-reducer-hooks-for-state-management-in-react-c9528f615ddf)
+
+  [](https://dmitripavlutin.com/dont-overuse-react-usecallback/)
