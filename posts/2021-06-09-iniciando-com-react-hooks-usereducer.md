@@ -226,15 +226,14 @@ Depende da situação... Segundo a própria [documentação do react](https://pt
 
 
 
-##### Prós
+### Prós
 
 * Toda a sua atualização de estados fica centralizada em um único lugar, ao invés de ter múltiplas funções de setters.
 * As funções redutoras são puras e mais simples de serem testadas.
 * Podemos ter um código mais organizado com estado inicial função redutora isolados do resto da nossa aplicação.
+* Aliado ao [typescript ](https://www.crisgon.dev/typescript-uma-breve-introdu%C3%A7%C3%A3o-interfaces/)o uso de um dispatch fica muito mais fácil e legivel que um simples setter. `dispatch({ type: "WIDTH", value: "200px" });`
 
-  * Aliado ao [typescript ](https://www.crisgon.dev/typescript-uma-breve-introdu%C3%A7%C3%A3o-interfaces/)o uso de um dispatch fica muito mais fácil e legivel que um simples setter. `dispatch({ type: "WIDTH", value: "200px" });`
-
-##### Contras
+### Contras
 
 * Curva de aprendizado consideravelmente maior que a do `useState`
 * Funções mais longas por conta do uso de instruções do switch
