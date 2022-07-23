@@ -44,19 +44,21 @@ Posso dar um exemplo mais prático... Este blog em que você se encontra tem vá
 
 ![Print do blog atual na cor azul](assets/img/blog-blue.png)
 
-Imagine o quão trabalhoso seria alterar as cores de cada detalhezinho... Um trabalho muito repetitivo que geralmente os programadores tentam evitar. Seria muito mais simples se isso estivesse centralizado de uma forma que a manutenção e as mudanças sejam facilitadas. 
+Imagine o quão trabalhoso seria alterar as cores de cada detalhezinho... Um processo muito repetitivo que geralmente os programadores tentam evitar. Seria muito mais simples se isso estivesse centralizado de uma forma que a manutenção e as mudanças fossem facilitadas. 
 
-Foi pensando nesse cenário que os primeiros pre-processadores(sass, less, stylus) trouxeram a possibilidade de termos variáveis no nosso CSS e logo em seguida isso acabou tornando-se algo nativo do próprio CSS.
+Foi pensando nesse cenário que os primeiros pre-processadores(sass, less, stylus) trouxeram a possibilidade de termos variáveis nas nossas folhas de estilos e logo em seguida isso acabou tornando-se algo nativo do próprio CSS.
 
 > Na [programação](https://pt.wikipedia.org/wiki/Programa%C3%A7%C3%A3o "Programação"), uma **variável** é um objeto (uma posição, frequentemente localizada na [memória](https://pt.wikipedia.org/wiki/Mem%C3%B3ria_(computador) "Memória (computador)")) capaz de reter e representar um valor ou expressão.[](https://pt.wikipedia.org/wiki/Vari%C3%A1vel_(programa%C3%A7%C3%A3o)#cite_note-:0-1)
 >
 > [Wikipédia](https://pt.wikipedia.org/wiki/Vari%C3%A1vel_(programa%C3%A7%C3%A3o))
->
+
+
+
 > Você pode encontrar pessoas e lugares que utilizam a expressão propriedades customizadas ou variáveis CSS. 😎
 
 ### Como utilizar variáveis no CSS
 
-Você deve se lembrar que no javascript precisamos fazer o uso de palavras-chave para declarar uma variável 
+Você deve se lembrar que no javascript precisamos fazer o uso de palavras-chave para declarar uma variável :
 
 ```javascript
 var a = 1;
@@ -76,3 +78,56 @@ div {
   background: var(--cor-do-background); /*red*/
 }
 ```
+
+
+
+### Regra dos Escopos
+
+No javascript tem escopos de bloco, de função e global. Aqui temos algo bastante semelhante, pois podemos optar por tornar uma propriedade customizada acessível para todo nosso código ou disponível em apenas um trecho.
+
+Veja a seguir um exemplo onde a regra de escopos vai ficar mais clara:
+
+```css
+p {
+  --main-color: blue;
+  --big-font-size: 50px;
+  color: var(--main-color);
+}
+
+h4 {
+  color: var(--main-color);
+  font-size: var(--big-font-size);
+}
+```
+
+O resultado seria o seguinte. Nosso H4 não iria ter nenhum valor para `color `ou `font-size`, pois elas estão fora do seu escopo, logo são inacessíveis.
+
+![Resultado do uso de variáveis fora de escopo](assets/img/css-result.png)
+
+
+
+Uma prática muito utilizada é declarar as variáveis de forma global, usando a pseudo-class `:root`. Dessa forma, as variáveis podem ser acessadas de qualquer local das nossas folhas de estilo.
+
+```css
+:root {
+  --main-color: blue;
+  --big-font-size: 50px;
+}
+
+p {
+  color: var(--main-color);
+}
+
+h4 {
+  color: var(--main-color);
+  font-size: var(--big-font-size);
+}
+```
+
+O mesmo trecho de código com as variáveis declaradas globalmente teriam o seguinte resultado:
+
+![Resultado do uso de variáveis com escopo global](assets/img/csss-result-2.png)
+
+
+
+### Especificidade
