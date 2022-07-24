@@ -51,9 +51,7 @@ Foi pensando nesse cenário que os primeiros pre-processadores(sass, less, stylu
 > Na [programação](https://pt.wikipedia.org/wiki/Programa%C3%A7%C3%A3o "Programação"), uma **variável** é um objeto (uma posição, frequentemente localizada na [memória](https://pt.wikipedia.org/wiki/Mem%C3%B3ria_(computador) "Memória (computador)")) capaz de reter e representar um valor ou expressão.[](https://pt.wikipedia.org/wiki/Vari%C3%A1vel_(programa%C3%A7%C3%A3o)#cite_note-:0-1)
 >
 > [Wikipédia](https://pt.wikipedia.org/wiki/Vari%C3%A1vel_(programa%C3%A7%C3%A3o))
-
-
-
+>
 > Você pode encontrar pessoas e lugares que utilizam a expressão propriedades customizadas ou variáveis CSS. 😎
 
 ### Como utilizar variáveis no CSS
@@ -79,13 +77,20 @@ div {
 }
 ```
 
-
-
 ### Regra dos Escopos
 
 No javascript tem escopos de bloco, de função e global. Aqui temos algo bastante semelhante, pois podemos optar por tornar uma propriedade customizada acessível para todo nosso código ou disponível em apenas um trecho.
 
 Veja a seguir um exemplo onde a regra de escopos vai ficar mais clara:
+
+**Todos os exemplos que você verá a seguir usam como base o seguinte HTML**
+
+```html
+<p>Aprendendo sobre variáveis CSS</p>
+<h4>CSS é legal!</h4>
+```
+
+
 
 ```css
 p {
@@ -100,11 +105,9 @@ h4 {
 }
 ```
 
-O resultado seria o seguinte. Nosso H4 não iria ter nenhum valor para `color `ou `font-size`, pois elas estão fora do seu escopo, logo são inacessíveis.
+O resultado seria o seguinte. Nosso H4 não iria ter nenhum valor para `color`ou `font-size`, pois elas estão fora do seu escopo, logo são inacessíveis.
 
-![Resultado do uso de variáveis fora de escopo](assets/img/css-result.png)
-
-
+![Resultado do uso de variáveis fora de escopo](assets/img/css-variable-scope.png)
 
 Uma prática muito utilizada é declarar as variáveis de forma global, usando a pseudo-class `:root`. Dessa forma, as variáveis podem ser acessadas de qualquer local das nossas folhas de estilo.
 
@@ -126,8 +129,113 @@ h4 {
 
 O mesmo trecho de código com as variáveis declaradas globalmente teriam o seguinte resultado:
 
-![Resultado do uso de variáveis com escopo global](assets/img/csss-result-2.png)
+![Resultado do uso de variáveis com escopo global](assets/img/css-variables-1.5x.png)
+
+### C de Cascata
+
+Você já deve saber que o C da sigla CSS significa Cascading e a sigla por completo é Cascading Style Sheet, no português, folha de estilos em cascata. Recomendo uma visita ao [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Cascade) para mais detalhes sobre esse conceito. 
+
+Para o entendimento das variáveis CSS você só precisa saber que elas seguem regras de cascata, ou seja, podemos redefinir a mesma variável em vários níveis de especificidade.
+
+```css
+
+:root {
+  --main-color: blue;
+}
+
+p {
+  --main-color: green;
+  color: var(--main-color);
+}
+
+h4 {
+  color: var(--main-color);
+}
+```
 
 
 
-### Especificidade
+![Resultado do uso de variáveis com valor redefinido](assets/img/css-variables-cascading.png)
+
+
+
+No exemplo acima a regra da cascata foi aplicada, pois no parágrafo o valor da `-main-color` foi redefinido. É importante relembrar que a gente poderia ter uma situação onde um novo root é definido e os valores são sobrepostos devido à cascata. No código abaixo nosso parágrafo seguiria verde, mas nosso H4 e tudo que utilizasse a `--main-color` na sequência teriam a cor rosa
+
+```css
+
+:root {
+  --main-color: blue;
+
+}
+
+p {
+  --main-color: green;
+  color: var(--main-color);
+}
+
+
+:root {
+  --main-color: pink;
+}
+
+h4 {
+  color: var(--main-color);
+}
+```
+
+
+
+> A regra da cascata é ótima para utilizar com medias-queries, pois podemos redefinir os valores de uma propriedade customizada baseada em medias-queries.
+
+
+
+### Fallbacks
+
+Podem existir situações onde nossa variável não foi definida com um valor correto ou não foi declarada. Para esses casos a função var() permite que um segundo argumento seja passado, ele será o valor padrão que deve ser utilizado sempre que ocorrer algum problema com a propriedade customizada informada.
+
+Segue um exemplo com às duas situações:
+
+
+
+```css
+
+:root {
+  --big-font-size: red;
+}
+
+p {
+  color: var(--main-color, blue);
+  /*A main-color não foi definida, nosso p vai ter a cor azul*/
+}
+
+h4 {
+  font-size: var(--big-font-size, 16px);
+  /*Estamos tentando utilizar uma cor como valor para uma font-size. Aqui nosso h4 vai ter uma font-size com valor de 16px*/
+}
+```
+
+
+
+Quando não passamos o segundo argumento o próprio navegador consegue lidar com propriedades  inválidas. O procedimento é bem simples e em duas etapas:
+
+1. Verifica se a propriedade é valida, caso não seja ele procura se existe uma propriedade válida no pai do elemento.
+2. Se não existir uma propriedade no pai ele utiliza um valor padrão, por exemplo a cor preta.
+
+
+
+### Conclusão
+
+Essa não é nenhuma novidade do CSS... está disponível faz bastante tempo. Porém é algo ainda pouco explorado e em diversos momentos vejo as pessoas instalando `styled-components` ou algo semelhante para tarefas simples que poderiam ser resolvidas com o próprio CSS. 
+
+Mesmo sendo uma funcionalidade conhecida, se você chegou até aqui é porque estava na esperança de aprender algo novo. Espero que você tenha consolidado ainda mais seus conhecimentos sobre frontend depois dessa leitura!!
+
+Muito obrigado e até a próxima!
+
+
+
+### Links importantes
+
+* [Variáveis ​​CSS - Por que você deveria se importar?](https://developer.chrome.com/blog/css-variables-why-should-you-care/)
+* [Using CSS custom properties](https://deploy-preview-35--crisgon.netlify.app/iniciando-com-react-hooks-usereducer/)
+* [Understanding CSS Variables](https://medium.com/techradiant/understanding-css-variables-a0f956b281e0)
+* [What are CSS-Variables?](https://dev.to/shiv1998/what-are-css-variables-3bc8)
