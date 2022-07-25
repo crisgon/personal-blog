@@ -36,7 +36,7 @@ Em diversos momentos você já deve ter se deparado com uma folha de estilos da 
 
 Exemplo bem simples onde temos o mesmo hexadecimal sendo utilizado em diversos lugares. Também temos as mesmas medidas de padding sendo utilizadas em mais de um lugar. É normal existir essa repetição, pois queremos manter uma uniformidade no nosso layout.
 
-Agora pense na seguinte situação, o produto que trabalhamos acabou de passar por um rebrand(mudança de marca)  e precisamos alterar todas as cores da nossa aplicação. Pense o quanto isso seria trabalhoso... sair alterando valores em todos os N arquivos css que temos espalhados ao longo do projeto. 
+Agora pense na seguinte situação, o produto que trabalhamos acabou de passar por um rebranding (mudança de marca)  e precisamos alterar todas as cores da nossa aplicação. Pense o quanto isso seria trabalhoso... sair alterando valores em todos os N arquivos css que temos espalhados ao longo do projeto. 
 
 Posso dar um exemplo mais prático... Este blog em que você se encontra tem várias paletas de cores.
 
@@ -51,6 +51,8 @@ Foi pensando nesse cenário que os primeiros pre-processadores(sass, less, stylu
 > Na [programação](https://pt.wikipedia.org/wiki/Programa%C3%A7%C3%A3o "Programação"), uma **variável** é um objeto (uma posição, frequentemente localizada na [memória](https://pt.wikipedia.org/wiki/Mem%C3%B3ria_(computador) "Memória (computador)")) capaz de reter e representar um valor ou expressão.[](https://pt.wikipedia.org/wiki/Vari%C3%A1vel_(programa%C3%A7%C3%A3o)#cite_note-:0-1)
 >
 > [Wikipédia](https://pt.wikipedia.org/wiki/Vari%C3%A1vel_(programa%C3%A7%C3%A3o))
+>
+>
 >
 > Você pode encontrar pessoas e lugares que utilizam a expressão propriedades customizadas ou variáveis CSS. 😎
 
@@ -79,7 +81,7 @@ div {
 
 ### Regra dos Escopos
 
-No javascript tem escopos de bloco, de função e global. Aqui temos algo bastante semelhante, pois podemos optar por tornar uma propriedade customizada acessível para todo nosso código ou disponível em apenas um trecho.
+No javascript temos escopos de bloco, de função e global. Aqui temos algo bastante semelhante, pois podemos optar por tornar uma propriedade customizada acessível para todo nosso código ou disponível em apenas um trecho.
 
 Veja a seguir um exemplo onde a regra de escopos vai ficar mais clara:
 
@@ -89,8 +91,6 @@ Veja a seguir um exemplo onde a regra de escopos vai ficar mais clara:
 <p>Aprendendo sobre variáveis CSS</p>
 <h4>CSS é legal!</h4>
 ```
-
-
 
 ```css
 p {
@@ -135,10 +135,9 @@ O mesmo trecho de código com as variáveis declaradas globalmente teriam o segu
 
 Você já deve saber que o C da sigla CSS significa Cascading e a sigla por completo é Cascading Style Sheet, no português, folha de estilos em cascata. Recomendo uma visita ao [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Cascade) para mais detalhes sobre esse conceito. 
 
-Para o entendimento das variáveis CSS você só precisa saber que elas seguem regras de cascata, ou seja, podemos redefinir a mesma variável em vários níveis de especificidade.
+Para o entendimento das variáveis CSS você só precisa saber que elas seguem regras de cascata, ou seja, podemos redefinir a mesma variável em vários níveis de especificidade e a ordem da declaração vai contar.
 
 ```css
-
 :root {
   --main-color: blue;
 }
@@ -153,16 +152,11 @@ h4 {
 }
 ```
 
-
-
 ![Resultado do uso de variáveis com valor redefinido](assets/img/css-variables-cascading.png)
-
-
 
 No exemplo acima a regra da cascata foi aplicada, pois no parágrafo o valor da `-main-color` foi redefinido. É importante relembrar que a gente poderia ter uma situação onde um novo root é definido e os valores são sobrepostos devido à cascata. No código abaixo nosso parágrafo seguiria verde, mas nosso H4 e tudo que utilizasse a `--main-color` na sequência teriam a cor rosa
 
 ```css
-
 :root {
   --main-color: blue;
 
@@ -183,22 +177,15 @@ h4 {
 }
 ```
 
-
-
-> A regra da cascata é ótima para utilizar com medias-queries, pois podemos redefinir os valores de uma propriedade customizada baseada em medias-queries.
-
-
+> A regra da cascata é ótima para utilizar com medias-queries, pois podemos redefinir os valores de uma propriedade customizada para diversos dispositivos diferentes.
 
 ### Fallbacks
 
-Podem existir situações onde nossa variável não foi definida com um valor correto ou não foi declarada. Para esses casos a função var() permite que um segundo argumento seja passado, ele será o valor padrão que deve ser utilizado sempre que ocorrer algum problema com a propriedade customizada informada.
+Podem existir situações onde nossa variável não foi definida com um valor correto ou não foi declarada. Para esses casos a função` var()` permite que um segundo argumento seja passado, ele será o valor padrão que deve ser utilizado sempre que ocorrer algum problema com a propriedade customizada informada.
 
 Segue um exemplo com às duas situações:
 
-
-
 ```css
-
 :root {
   --big-font-size: red;
 }
@@ -210,28 +197,23 @@ p {
 
 h4 {
   font-size: var(--big-font-size, 16px);
-  /*Estamos tentando utilizar uma cor como valor para uma font-size. Aqui nosso h4 vai ter uma font-size com valor de 16px*/
+  /*Estamos tentando utilizar uma cor como valor para uma font-size. 
+  Aqui nosso h4 vai ter uma font-size com valor de 16px*/
 }
 ```
 
-
-
 Quando não passamos o segundo argumento o próprio navegador consegue lidar com propriedades  inválidas. O procedimento é bem simples e em duas etapas:
 
-1. Verifica se a propriedade é valida, caso não seja ele procura se existe uma propriedade válida no pai do elemento.
-2. Se não existir uma propriedade no pai ele utiliza um valor padrão, por exemplo a cor preta.
-
-
+1. O navegador verifica se a propriedade é valida, caso não seja ele procura se existe uma propriedade válida no pai do elemento.
+2. Se não existir uma propriedade no pai ele utiliza um valor padrão, preto para a propriedade color.
 
 ### Conclusão
 
-Essa não é nenhuma novidade do CSS... está disponível faz bastante tempo. Porém é algo ainda pouco explorado e em diversos momentos vejo as pessoas instalando `styled-components` ou algo semelhante para tarefas simples que poderiam ser resolvidas com o próprio CSS. 
+Essa não é nenhuma novidade do CSS... está disponível faz bastante tempo. Porém é algo ainda pouco explorado e em diversos momentos vejo as pessoas instalando [styled-components](https://styled-components.com/) ou algo semelhante para tarefas simples que poderiam ser facilmente resolvidas com o próprio CSS. 
 
 Mesmo sendo uma funcionalidade conhecida, se você chegou até aqui é porque estava na esperança de aprender algo novo. Espero que você tenha consolidado ainda mais seus conhecimentos sobre frontend depois dessa leitura!!
 
 Muito obrigado e até a próxima!
-
-
 
 ### Links importantes
 
