@@ -15,4 +15,14 @@ Errei bastante, questionei minha capacidade enquanto líder, tive vontade de des
 
 
 
+### Qual o papel de um Dev e de um Tech Lead?
+
+Antes de falar sobre erros e acertos é preciso entender quais as diferenças entra um **Dev** e um **Tech Lead**. De maneira bastante prática o **Dev** tem um perfil executor e na grande maioria das vezes não possuem dependências. 
+
+O papel de um **Tech Lead** é bem literal... Uma pessoa técnica com a função de liderar uma equipe, conduzindo o time, gerenciando o projeto, mantendo uma boa comunicação entre outras equipes da empresa e auxiliando na evolução técnica dos seus liderados.
+
+
+
+
+
 Esse é a primeira vez que vou abordar um conteúdo não técnico... Confesso que é bem mais difícil de expressar tudo em palavras, mas espero que
