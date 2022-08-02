@@ -2,7 +2,8 @@
 title: Meus erros e acertos em 1 ano como Tech Lead
 resume: Ao longo do último ano eu tive o prazer de ocupar o cargo de Tech Lead,
   cargo que sempre esteve entre meus objetivos profissionais. Esse foi um
-  período de muto aprendizado que quero compartilhar com você no texto a seguir.
+  período de muito aprendizado e preciso compartilhar com você meus principais
+  erros e acertos da minha trajetória de liderança.
 date: 2022-08-02 09:21:03
 image: assets/img/to-do-list.png
 category: Geral
