@@ -1,5 +1,5 @@
 ---
-title: Meus erros e acertos em 1 ano como Tech Lead
+title: Meus erros e aprendizados em 1 ano como Tech Lead
 resume: Ao longo do último ano eu tive o prazer de ocupar o cargo de Tech Lead,
   cargo que sempre esteve entre meus objetivos profissionais. Esse foi um
   período de muito aprendizado e preciso compartilhar com você meus principais
@@ -11,15 +11,25 @@ tagColor: "#e056fd"
 ---
 Faz um 1 ano e 3 meses que aceitei oficialmente um desafio para ocupar o cargo de Tech Lead na [Zak](https://www.zak.app/), uma posição que me preparei bastante para ocupar, ou ao menos achei ter me preparado o suficiente.... Porém, a medida que os dias iam passando, o time ia se estruturando e as situações foram aparecendo eu percebi que não estava tão preparado como imaginei. 
 
-Errei bastante, questionei minha capacidade enquanto líder, tive vontade de desistir, mas também recebi ótimos feedbacks de que estava fazendo um bom trabalho. É por isso que agora me sinto confortável em me expor e escrever um texto compartilhando alguns dos meus aprendizados, pois esse era o tipo de conteúdo que poderia ter me ajudado no início da minha jornada enquanto líder.
-
-
+Errei bastante, questionei minha capacidade enquanto líder, tive vontade de desistir, mas também recebi feedbacks de que estava fazendo um bom trabalho. É por isso que agora me sinto confortável em me expor e escrever um texto compartilhando alguns dos meus aprendizados, pois esse era o tipo de conteúdo que poderia ter me ajudado no início da minha jornada enquanto líder.
 
 ### Qual o papel de um Dev e de um Tech Lead?
 
-Antes de falar sobre erros e acertos é preciso entender quais as diferenças entra um **Dev** e um **Tech Lead**. De maneira bastante prática o **Dev** tem um perfil executor e na grande maioria das vezes não possuem dependências. 
+Antes de falar sobre erros e acertos é preciso entender quais as diferenças entre um **Dev** e um **Tech Lead**. De maneira bastante prática o **Dev** tem um perfil executor e na grande maioria das vezes não possuem dependências. Enquanto um **Tech Lead** tem a função de liderar uma equipe, conduzindo o time, gerenciando o projeto, mantendo uma boa comunicação com outras equipes da empresa e auxiliando na evolução técnica dos seus liderados.
 
-O papel de um **Tech Lead** é bem literal... Uma pessoa técnica com a função de liderar uma equipe, conduzindo o time, gerenciando o projeto, mantendo uma boa comunicação entre outras equipes da empresa e auxiliando na evolução técnica dos seus liderados.
+Agora que você já tem uma ideia básica sobre a diferença entre o dev e tech lead vamos aos principais erros que cometi e aprendizados que tive a medida que fui avançando no dia-a-dia de líder técnico.
+
+## Não delegar
+
+Esse foi um dos meus principais erros e foi algo que custou bastante da minha saúde física e mental... Inicialmente eu não tinha entendido que não estava mais no perfil de executor e segui acumulando atribuições que deveriam ser direcionadas para o time. 
+
+Isso me deixou extremamente sobrecarregado e meu desempenho enquanto líder não estava sendo dos melhores, pois não estava focando no time e sim nas tarefas. Além disso, o cansaço físico e mental foram aumentando e não importava o quanto eu dormisse, o cansaço continuava.
+
+As coisas só começaram a fluir quando eu entendi que não iria conseguir fazer tudo sozinho. Que precisava confiar no meu time e que agora o meu papel era o de garantir o sucesso dos meus liderados na execução das tarefas. Inicialmente foi bem difícil virar essa chavinha, pois um dia você é responsável por duas ou três tarefas na sprint e no outro dia você é responsável pelo sucesso de dez ou quinze tarefas do seu time. Toda sua independência passa a ser uma dependência, pois sem o sucesso do time você não tem sucesso.
+
+## Não entender a capacidade do time
+
+
 
 
 
