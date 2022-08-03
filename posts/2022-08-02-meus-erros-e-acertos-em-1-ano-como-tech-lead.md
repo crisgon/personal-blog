@@ -11,7 +11,7 @@ tagColor: "#e056fd"
 ---
 Faz um 1 ano e 3 meses que aceitei oficialmente um desafio para ocupar o cargo de Tech Lead na [Zak](https://www.zak.app/), uma posição que me preparei bastante para ocupar, ou ao menos achei ter me preparado o suficiente.... Porém, a medida que os dias iam passando, o time ia se estruturando e as situações foram aparecendo eu percebi que não estava tão preparado como imaginei. 
 
-Errei bastante, questionei minha capacidade enquanto líder, tive vontade de desistir, mas também recebi feedbacks de que estava fazendo um bom trabalho. É por isso que agora me sinto confortável em me expor e escrever um texto compartilhando alguns dos meus aprendizados, pois esse era o tipo de conteúdo que poderia ter me ajudado no início da minha jornada enquanto líder.
+Errei bastante, questionei minha capacidade enquanto líder, tive vontade de desistir, mas também recebi feedbacks de que estava fazendo um bom trabalho. E é por isso que agora estou confortável em me expor e escrever um texto compartilhando alguns dos meus aprendizados, pois esse era o tipo de conteúdo que poderia ter me ajudado no início da minha jornada enquanto líder.
 
 ### Qual o papel de um Dev e de um Tech Lead?
 
