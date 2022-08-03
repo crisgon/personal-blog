@@ -25,7 +25,7 @@ Esse foi um dos meus principais erros e foi algo que custou bastante da minha sa
 
 Isso me deixou extremamente sobrecarregado e meu desempenho enquanto líder não estava sendo dos melhores, pois não estava focando no time e sim nas tarefas. Além disso, o cansaço físico e mental foram aumentando e não importava o quanto eu dormisse, o cansaço continuava.
 
-As coisas só começaram a fluir quando eu entendi que não iria conseguir fazer tudo sozinho. Que precisava confiar no meu time e que agora o meu papel era o de garantir o sucesso dos meus liderados na execução das tarefas. Inicialmente foi bem difícil virar essa chavinha, pois um dia você é responsável por duas ou três tarefas na sprint e no outro dia você é responsável pelo sucesso de dez ou quinze tarefas do seu time. Toda sua independência passa a ser uma dependência, pois sem o sucesso do time você não tem sucesso.
+As coisas só começaram a fluir quando eu entendi que não iria conseguir fazer tudo sozinho. Que precisava confiar no meu time e que agora o meu papel era o de garantir o sucesso dos meus liderados na execução das tarefas. Inicialmente foi bem difícil virar essa chavinha, pois um dia você é responsável por duas ou três tarefas na sprint e no outro dia você é responsável pelo sucesso de dez ou quinze tarefas de todo o seu time. Toda sua independência passa a ser uma dependência, pois sem o sucesso do time você não tem sucesso.
 
 ## Não entender a capacidade do time
 
