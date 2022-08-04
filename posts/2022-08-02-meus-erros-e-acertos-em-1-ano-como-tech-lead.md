@@ -29,10 +29,12 @@ As coisas só começaram a fluir quando eu entendi que não iria conseguir fazer
 
 ## Não entender a capacidade do time
 
+Quando me tornei tech lead eu já tinha bastante contexto sobre o projeto e dominava bastante das regras de negócio, por isso, eu tinha facilidade em resolver determinados problemas com mais velocidade que os devs menos experientes do projeto, algo esperado... Porém, sempre que o time tinha alguma dificuldade eu pensava "eu consigo resolver isso rapidinho" e por causa desse pensamento o planejamento do meu time tinha diversos problemas, pois eu planejava para o time pensando estar planejando para mim.
+
+O planejamento do time melhorou expressivamente quando eu entendi que cada pessoa tem um ritmo diferente e que eu precisava entender qual era a velocidade do time independente da minha velocidade de desenvolvimento. E que meu trabalho era buscar soluções para que a eficiência do time aumentasse cada vez mais.
 
 
 
-
-
+> O papel de um tech lead é entender a capacidade do time e encontrar formas de aumentar a produtividade do time.
 
 Esse é a primeira vez que vou abordar um conteúdo não técnico... Confesso que é bem mais difícil de expressar tudo em palavras, mas espero que
