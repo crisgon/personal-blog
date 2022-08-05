@@ -27,7 +27,7 @@ Isso me deixou extremamente sobrecarregado e meu desempenho enquanto líder não
 
 As coisas só começaram a fluir quando eu entendi que não iria conseguir fazer tudo sozinho. Que precisava confiar no meu time e que agora o meu papel era o de garantir o sucesso dos meus liderados na execução das tarefas. Inicialmente foi bem difícil virar essa chavinha, pois um dia você é responsável por duas ou três tarefas na sprint e no outro dia você é responsável pelo sucesso de dez ou quinze tarefas de todo o seu time. 
 
-\>Toda sua independência passa a ser uma dependência, pois sem o sucesso do time você não tem sucesso.
+> Toda sua independência passa a ser uma dependência, pois sem o sucesso do time você não tem sucesso.
 
 ## Não entender a capacidade do time
 
@@ -41,9 +41,7 @@ O planejamento do time melhorou expressivamente quando eu entendi que cada pesso
 
 Existem diversas formas de engajar uma pessoa... não vou me aprofundar nisso, pois cada pessoa é singular e cada time tem uma configuração diferente. Mas enquanto líder, o grande ponto é encontrar uma forma de mostrar o valor do trabalho para seus liderados, pois isso é um dos pontos-chave para manter um time engajado. 
 
-
 Enquanto eu apenas passava tarefas e cobrava sem mostrar o porquê de cada decisão e o impacto que elas traziam para o negócio, o sentimento do time não era dos melhores. Isso mudou quando eles passaram a enxergar o valor das suas entregas e se sentiram mais envolvidas em todo o processo.
-
 
 Demonstrar esse valor não é uma coisa simples, pois as pessoas têm dificuldade em enxergar valor nas pequenas coisas, porém  uma forma de contornar isso é utilizando métricas de forma que o time entenda sua evolução, seus pontos de falhas e suas conquistas sem um ar analítico de julgamento. Dessa forma, as métricas podem ser sua maior aliada no engajamento do time, desde que você as utilize com propósito de dar visibilidade e de conduzi-los do ponto A ao ponto B sempre visando a melhoria constante ao invés do julgamento continuo.
 
